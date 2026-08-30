@@ -19,7 +19,7 @@
  */
 
 import { useState, useCallback, useEffect } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { useEntranceLoader } from './useEntranceLoader';
 import styles from './EntranceLoader.module.css';
 import logoSvg from '@/assets/images/main_design.svg';

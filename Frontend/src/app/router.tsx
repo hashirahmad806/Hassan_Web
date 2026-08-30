@@ -1,6 +1,5 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Skeleton } from 'boneyard-js/react';
 
 import HomePage from '@/app/pages/HomePage';
 const AboutPage = lazy(() => import('@/app/pages/AboutPage'));
@@ -16,22 +15,22 @@ export function AppRouter() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/about" element={
-        <Suspense fallback={<Skeleton name="about" loading={true} />}>
+        <Suspense fallback={null}>
           <AboutPage />
         </Suspense>
       } />
       <Route path="/services" element={
-        <Suspense fallback={<Skeleton name="services" loading={true} />}>
+        <Suspense fallback={null}>
           <ServicesPage />
         </Suspense>
       } />
       <Route path="/gallery" element={
-        <Suspense fallback={<Skeleton name="gallery" loading={true} />}>
+        <Suspense fallback={null}>
           <GalleryPage />
         </Suspense>
       } />
       <Route path="/contact" element={
-        <Suspense fallback={<Skeleton name="contact" loading={true} />}>
+        <Suspense fallback={null}>
           <ContactPage />
         </Suspense>
       } />
