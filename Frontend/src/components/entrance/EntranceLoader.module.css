@@ -1,22 +1,17 @@
 /* =========================================================
-   EntranceLoader.module.css
-   Precision ring animation + reduced-motion overrides
+   EntranceLoader.module.css  —  v3
+   Precision ring, particles, corners, reduced-motion
    ========================================================= */
+
+/* ── Root ───────────────────────────────────────────────── */
+.loaderRoot {
+  /* Ensure pointer events are blocked while loading */
+  touch-action: none;
+}
 
 /* ── Precision SVG Ring ─────────────────────────────────── */
 .precisionRing {
   position: relative;
-  pointer-events: none;
-}
-
-/* ── Orbiting dots (optional elegance) ─────────────────── */
-.orbitDot {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background-color: var(--color-gold, #D0B892);
-  opacity: 0;
   pointer-events: none;
 }
 
@@ -28,9 +23,16 @@
   background: radial-gradient(
     circle,
     rgba(208, 184, 146, 0.22) 0%,
-    rgba(208, 184, 146, 0.08) 45%,
-    transparent 70%
+    rgba(208, 184, 146, 0.10) 45%,
+    transparent 72%
   );
+  will-change: transform, opacity;
+}
+
+/* ── Gold particles ─────────────────────────────────────── */
+.particle {
+  pointer-events: none;
+  will-change: opacity, transform;
 }
 
 /* ── Split panels ───────────────────────────────────────── */
@@ -40,7 +42,7 @@
   top: 0;
   bottom: 0;
   width: 50%;
-  /* A hair-thin seam line at the center */
+  will-change: transform;
 }
 
 .splitLeft {
@@ -52,12 +54,68 @@
   right: 0;
 }
 
+/* ── Corner bracket decorations ─────────────────────────── */
+.cornerTL,
+.cornerTR,
+.cornerBL,
+.cornerBR {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.cornerTL {
+  top:  20px;
+  left: 20px;
+  border-top:  1.5px solid rgba(208, 184, 146, 0.45);
+  border-left: 1.5px solid rgba(208, 184, 146, 0.45);
+}
+
+.cornerTR {
+  top:   20px;
+  right: 20px;
+  border-top:   1.5px solid rgba(208, 184, 146, 0.45);
+  border-right: 1.5px solid rgba(208, 184, 146, 0.45);
+}
+
+.cornerBL {
+  bottom: 20px;
+  left:   20px;
+  border-bottom: 1.5px solid rgba(208, 184, 146, 0.45);
+  border-left:   1.5px solid rgba(208, 184, 146, 0.45);
+}
+
+.cornerBR {
+  bottom: 20px;
+  right:  20px;
+  border-bottom: 1.5px solid rgba(208, 184, 146, 0.45);
+  border-right:  1.5px solid rgba(208, 184, 146, 0.45);
+}
+
+/* Mobile — slightly smaller corners */
+@media (max-width: 480px) {
+  .cornerTL, .cornerTR, .cornerBL, .cornerBR {
+    width: 16px;
+    height: 16px;
+    top: 14px;
+    left: 14px;
+  }
+  .cornerTR { left: auto; right: 14px; }
+  .cornerBL { top: auto;  bottom: 14px; left: 14px; }
+  .cornerBR { top: auto;  bottom: 14px; left: auto; right: 14px; }
+}
+
 /* ── Reduced-motion overrides ───────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .precisionRing,
-  .orbitDot,
-  .ambientGlow {
+  .ambientGlow,
+  .particle,
+  .splitLeft,
+  .splitRight {
     animation: none !important;
     transition: none !important;
+    will-change: auto !important;
   }
 }
