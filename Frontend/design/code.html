@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dr. Hassan Salman | Exceptional Dental Care</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#1d1b18",
+                        "on-secondary-fixed-variant": "#474647",
+                        "error-container": "#ffdad6",
+                        "muted-silver": "#868686",
+                        "on-background": "#1d1b18",
+                        "surface-container": "#f3ede8",
+                        "inverse-surface": "#33302d",
+                        "tertiary-fixed-dim": "#c7c6c5",
+                        "primary-container": "#6e5c3c",
+                        "inverse-on-surface": "#f6f0eb",
+                        "on-tertiary-fixed": "#1b1c1b",
+                        "ivory-bg": "#FCFAF7",
+                        "secondary-fixed-dim": "#c8c6c6",
+                        "outline-variant": "#cfc5b8",
+                        "on-primary-container": "#eed6ad",
+                        "on-primary-fixed-variant": "#554426",
+                        "on-tertiary-container": "#d9d8d6",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#4c463c",
+                        "surface-dim": "#dfd9d4",
+                        "gold-accent": "#D0B892",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#261902",
+                        "secondary-fixed": "#e5e2e1",
+                        "surface-tint": "#6e5c3c",
+                        "on-error-container": "#93000a",
+                        "soft-blue-gray": "#E2E9F2",
+                        "primary": "#554527",
+                        "tertiary-fixed": "#e4e2e1",
+                        "surface-variant": "#e8e1dd",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#dbc39c",
+                        "primary-fixed": "#f8dfb7",
+                        "surface-container-high": "#ede7e2",
+                        "tertiary": "#464646",
+                        "surface": "#fff8f3",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f9f2ed",
+                        "inverse-primary": "#dbc39c",
+                        "on-secondary-container": "#636262",
+                        "secondary": "#5f5e5e",
+                        "surface-container-highest": "#e8e1dd",
+                        "on-secondary-fixed": "#1c1b1c",
+                        "outline": "#7e766b",
+                        "on-primary": "#ffffff",
+                        "charcoal-text": "#1A1A1A",
+                        "background": "#fff8f3",
+                        "tertiary-container": "#5e5e5d",
+                        "secondary-container": "#e2dfdf",
+                        "surface-bright": "#fff8f3",
+                        "on-tertiary-fixed-variant": "#464746"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "base-unit": "8px",
+                        "section-padding-desktop": "120px",
+                        "section-mobile": "64px",
+                        "section-padding-mobile": "64px",
+                        "container-max": "1280px",
+                        "section-desktop": "120px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-button": ["Source Sans Pro"],
+                        "body-lg": ["Source Sans Pro"],
+                        "headline-lg-mobile": ["Lora"],
+                        "button": ["Source Sans Pro"],
+                        "headline-md": ["Lora"],
+                        "label-caps": ["Source Sans Pro"],
+                        "body-md": ["Source Sans Pro"],
+                        "display-lg": ["Lora"],
+                        "headline-lg": ["Lora"]
+                    },
+                    "fontSize": {
+                        "label-button": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "500" }],
+                        "button": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "500" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md dark:bg-inverse-surface/80 bg-surface/10 backdrop-blur-xl border-b border-outline-variant/20 transition-all duration-300" id="main-nav">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<a class="font-headline-md text-headline-md text-primary dark:text-gold-accent hover:opacity-80 transition-opacity" href="#">
+                Dr. Hassan Salman
+            </a>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-button text-label-button text-on-surface-variant dark:text-muted-silver hover:text-primary dark:hover:text-gold-accent transition-colors duration-300" href="#treatments">Treatments</a>
+<a class="font-label-button text-label-button text-on-surface-variant dark:text-muted-silver hover:text-primary dark:hover:text-gold-accent transition-colors duration-300" href="#about">About</a>
+<a class="font-label-button text-label-button text-on-surface-variant dark:text-muted-silver hover:text-primary dark:hover:text-gold-accent transition-colors duration-300" href="#gallery">Gallery</a>
+<a class="font-label-button text-label-button text-on-surface-variant dark:text-muted-silver hover:text-primary dark:hover:text-gold-accent transition-colors duration-300" href="#contact">Contact</a>
+</div>
+<button class="hidden md:block px-6 py-3 bg-primary text-on-primary font-button text-button rounded-full scale-95 active:opacity-80 transition-transform hover:bg-on-primary-fixed-variant">
+                Book Consultation
+            </button>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center justify-center pt-24 overflow-hidden">
+<!-- Abstract Animated Background -->
+<div class="absolute inset-0 z-0 opacity-20 mix-blend-multiply">
+</div>
+<div class="relative z-10 w-full max-w-container-max mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="flex-1 max-w-2xl reveal-up">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-4 block">Elevated Dental Aesthetics</span>
+<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-charcoal-text mb-6">
+                    A Healthier Smile.<br/>
+<span class="italic text-primary">A More Confident You.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-lg">
+                    Experience personalized, high-end dental care designed to enhance your natural beauty and ensure optimal oral health.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="px-8 py-4 bg-primary text-on-primary font-button text-button rounded-full hover:bg-on-primary-fixed-variant transition-colors">
+                        Book Consultation
+                    </button>
+<button class="px-8 py-4 border border-outline-variant text-primary font-button text-button rounded-full hover:bg-surface-container transition-colors">
+                        Explore Treatments
+                    </button>
+</div>
+</div>
+<div class="flex-1 relative reveal-up" style="transition-delay: 0.2s;">
+<!-- Glassmorphic Doctor Card -->
+<div class="relative z-10 bg-surface/80 backdrop-blur-xl border border-outline-variant/30 rounded-xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] max-w-sm ml-auto mr-4 md:mr-0 mt-8 md:mt-0">
+<div class="flex items-start gap-4 mb-4">
+<img alt="Smile Result" class="w-20 h-20 rounded-full object-cover border-2 border-surface-container" data-alt="Extreme close-up of a perfectly healthy, natural human smile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAuTI1OSZnFAELu-UjH4hKCRgwGdO-pzUaoCpcNi4Sy41o8p-XVwrl3sZWdYlh_TOmJ4RexblZVBxU9ZnaFSAuTt7FnegmszBAxCxYL_cLrdyhTq1EO18rpEGqfkmGyyCKleM8S1qy-PIWivCDxXn3py9Tz1gg8l6jZeZ2rUVtExRg7k3yTAD30CLzZ9yUlffTG_nvqB50okrEjvCTlhFGJB0K5BOD3WsrsXTCsl9cJ7-6k-jV4-c"/>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-headline-md text-xl text-charcoal-text">Dr. Hassan Salman</h3>
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant">Lead Dental Surgeon</p>
+<div class="flex items-center gap-1 mt-2">
+<div class="flex text-gold-accent text-sm">
+<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+</div>
+<span class="font-label-caps text-[10px] text-on-surface-variant ml-2">5.0 PATIENT RATING</span>
+</div>
+<p class="font-label-caps text-[10px] text-primary mt-1">20+ YEARS EXPERIENCE</p>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/30">
+<p class="font-body-md text-sm italic text-on-surface-variant">"Committed to excellence in every smile we craft."</p>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-primary-container/10 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-10 -left-10 w-60 h-60 bg-gold-accent/10 rounded-full blur-3xl"></div>
+</div>
+</div>
+<!-- Trust Strip -->
+<div class="absolute bottom-0 w-full bg-surface-container-lowest border-t border-outline-variant/20 py-4 z-20 hidden md:block">
+<div class="max-w-container-max mx-auto px-gutter flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-weight="fill">verified</span>
+<span class="font-label-button text-sm text-on-surface-variant">20+ Years Clinical Experience</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-weight="fill">precision_manufacturing</span>
+<span class="font-label-button text-sm text-on-surface-variant">Advanced Technology</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-weight="fill">favorite</span>
+<span class="font-label-button text-sm text-on-surface-variant">Personalized Care</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Treatments Section -->
+<section class="py-section-padding-desktop bg-surface" id="treatments">
+<div class="max-w-container-max mx-auto px-gutter reveal-up">
+<div class="text-center mb-16">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-4 block">Our Services</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-charcoal-text">Premium Treatments</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="p-8 border border-outline-variant/30 rounded-xl bg-surface-container-lowest hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-2xl text-charcoal-text">Cosmetic Dentistry</h3>
+<div class="text-right">
+<span class="block font-label-caps text-xs text-primary mb-1">FROM $500</span>
+<span class="block font-body-md text-sm text-on-surface-variant">Varies by treatment</span>
+</div>
+</div>
+<p class="font-body-md text-on-surface-variant">Transform your smile with veneers, whitening, and bonding.</p>
+</div>
+<div class="p-8 border border-outline-variant/30 rounded-xl bg-surface-container-lowest hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-2xl text-charcoal-text">Orthodontics</h3>
+<div class="text-right">
+<span class="block font-label-caps text-xs text-primary mb-1">12-24 MONTHS</span>
+<span class="block font-body-md text-sm text-on-surface-variant">Duration</span>
+</div>
+</div>
+<p class="font-body-md text-on-surface-variant">Discreet clear aligners and modern orthodontic solutions.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Introduction Section -->
+<section class="py-section-padding-desktop bg-ivory-bg" id="about">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="relative reveal-up">
+<div class="aspect-[4/5] rounded-xl overflow-hidden bg-surface-container relative">
+<img alt="Dr. Hassan Salman in Clinic" class="w-full h-full object-cover" data-alt="A candid shot of a male dentist, Dr. Hassan Salman, sitting on a dental stool in a high-end, modern dental operating room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAteLMOPEPXaQTOKhaM5AgNP4KEr9lj3VixvM-7o_h3QLI3R-gLzOIMGj0tBYUZCC5-auZaODw1lYSmUAHH2P7LpizEhdGKKdX0I6nuN1v08lbeg5Phi5oa-3DUXe1Bn-KTgxMZ32TOGmYAuBw869cmnvE74NafnbmhmyVwmTR7C63oho7dhogK58xcJHctM1ANoGx0-KHkOpZcY1SGoFSDkSG2ibQRS_C_M-Z5C6THgEiUq_Po3WQkV_6JCCyGxoe"/>
+<!-- Floating Stat 1 -->
+<div class="absolute bottom-6 left-6 bg-surface-container-lowest/90 backdrop-blur px-6 py-4 rounded-lg shadow-sm">
+<span class="font-headline-md text-2xl text-primary block">20+</span>
+<span class="font-label-caps text-xs text-on-surface-variant">Years Experience</span>
+</div>
+<!-- Floating Stat 2 -->
+<div class="absolute top-6 right-6 bg-surface-container-lowest/90 backdrop-blur px-6 py-4 rounded-lg shadow-sm">
+<span class="font-headline-md text-2xl text-primary block">5,000+</span>
+<span class="font-label-caps text-xs text-on-surface-variant">Happy Patients</span>
+</div>
+</div>
+</div>
+<div class="reveal-up" style="transition-delay: 0.2s;">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-4 block">Exceptional Dental Care</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-charcoal-text mb-6">
+                    Where Expertise Meets <br/><span class="italic font-light">Exceptional Patient Care.</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+                    Dr. Hassan Salman brings over two decades of refined clinical experience to a practice dedicated entirely to your comfort and confidence. We believe that a healthy smile is the foundation of overall well-being.
+                </p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                    Our approach integrates the latest in dental technology with a deeply personalized touch, ensuring that every treatment plan is tailored to your unique aesthetic goals and functional needs within a serene, sanctuary-like environment.
+                </p>
+<a class="inline-flex items-center gap-2 font-button text-button text-primary hover:text-on-primary-fixed-variant transition-colors border-b border-primary pb-1" href="#about">
+                    Read Dr. Salman's Full Biography
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Journey Section -->
+<section class="py-section-padding-desktop bg-surface">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-16 reveal-up">
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-4 block">Patient Experience</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-charcoal-text">Your Journey to a Healthier Smile</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative reveal-up" style="transition-delay: 0.2s;">
+<!-- connecting line -->
+<div class="hidden md:block absolute top-6 left-[10%] right-[10%] h-[1px] bg-outline-variant/50"></div>
+<!-- Step 1 -->
+<div class="relative text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest border border-outline-variant flex items-center justify-center mx-auto mb-6 relative z-10 text-primary font-headline-md">1</div>
+<h3 class="font-headline-md text-xl text-charcoal-text mb-3">Consultation</h3>
+<p class="font-body-md text-on-surface-variant">Comprehensive assessment of your oral health and aesthetic goals.</p>
+</div>
+<!-- Step 2 -->
+<div class="relative text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest border border-outline-variant flex items-center justify-center mx-auto mb-6 relative z-10 text-primary font-headline-md">2</div>
+<h3 class="font-headline-md text-xl text-charcoal-text mb-3">Personalized Plan</h3>
+<p class="font-body-md text-on-surface-variant">Tailored treatment strategy designed specifically for you.</p>
+</div>
+<!-- Step 3 -->
+<div class="relative text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest border border-outline-variant flex items-center justify-center mx-auto mb-6 relative z-10 text-primary font-headline-md">3</div>
+<h3 class="font-headline-md text-xl text-charcoal-text mb-3">Expert Treatment</h3>
+<p class="font-body-md text-on-surface-variant">Precision execution using state-of-the-art clinical technology.</p>
+</div>
+<!-- Step 4 -->
+<div class="relative text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest border border-outline-variant flex items-center justify-center mx-auto mb-6 relative z-10 text-primary font-headline-md">4</div>
+<h3 class="font-headline-md text-xl text-charcoal-text mb-3">Confident Smile</h3>
+<p class="font-body-md text-on-surface-variant">Enjoy your new, radiant smile with ongoing care support.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action Section -->
+<section class="py-24 bg-inverse-surface text-inverse-on-surface text-center">
+<div class="max-w-3xl mx-auto px-gutter reveal-up">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-6">Ready to Feel Confident About Your Smile?</h2>
+<p class="font-body-lg text-on-surface-variant text-inverse-on-surface/80 mb-10">
+                Schedule your comprehensive consultation today and take the first step towards your ideal smile in a relaxing, luxury environment.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="px-8 py-4 bg-primary text-on-primary font-button text-button rounded-full hover:bg-gold-accent transition-colors text-lg">
+                    Book Consultation Now
+                </button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant w-full">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-gutter py-section-padding-desktop max-w-container-max mx-auto">
+<!-- Brand -->
+<div class="col-span-1 md:col-span-1">
+<h3 class="font-headline-md text-headline-md text-primary dark:text-gold-accent mb-4">Dr. Hassan Salman</h3>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-muted-silver mb-6">
+                    Elevating dental aesthetics and clinical excellence in a serene environment.
+                </p>
+</div>
+<!-- Links Column 1 -->
+<div>
+<h4 class="font-label-button text-label-button text-on-surface mb-4">Treatments</h4>
+<ul class="space-y-3 font-body-md text-body-md text-on-surface-variant dark:text-muted-silver">
+<li><a class="hover:text-primary dark:hover:text-gold-accent underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">General Dentistry</a></li>
+<li><a class="hover:text-primary dark:hover:text-gold-accent underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Cosmetic Dentistry</a></li>
+<li><a class="hover:text-primary dark:hover:text-gold-accent underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Orthodontics</a></li>
+<li><a class="hover:text-primary dark:hover:text-gold-accent underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Oral Surgery</a></li>
+</ul>
+</div>
+<!-- Links Column 2 -->
+<div>
+<h4 class="font-label-button text-label-button text-on-surface mb-4">Clinic</h4>
+<ul class="space-y-3 font-body-md text-body-md text-on-surface-variant dark:text-muted-silver">
+<li><a class="hover:text-primary dark:hover:text-gold-accent underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">About Us</a></li>
+<li><a class="hover:text-primary dark:hover:text-gold-accent underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Smile Gallery</a></li>
+<li><a class="hover:text-primary dark:hover:text-gold-accent underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Patient Journey</a></li>
+<li><a class="hover:text-primary dark:hover:text-gold-accent underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Contact</a></li>
+</ul>
+</div>
+<!-- Legal -->
+<div>
+<h4 class="font-label-button text-label-button text-on-surface mb-4">Legal</h4>
+<ul class="space-y-3 font-body-md text-body-md text-on-surface-variant dark:text-muted-silver">
+<li><a class="hover:text-primary dark:hover:text-gold-accent underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary dark:hover:text-gold-accent underline underline-offset-4 opacity-80 hover:opacity-100 transition-opacity" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-outline-variant/30 py-6 text-center">
+<p class="font-body-md text-sm text-on-surface-variant dark:text-muted-silver">
+                © 2024 Dr. Hassan Salman. All rights reserved.
+            </p>
+</div>
+</footer>
+<!-- Mobile Sticky Actions -->
+<div class="fixed bottom-0 w-full bg-surface-container-lowest/90 backdrop-blur-md border-t border-outline-variant p-4 flex gap-4 md:hidden z-50">
+<button class="flex-1 flex items-center justify-center gap-2 py-3 bg-surface-container text-primary rounded-lg font-button">
+<span class="material-symbols-outlined text-xl">call</span> Call
+        </button>
+<button class="flex-1 flex items-center justify-center gap-2 py-3 bg-primary text-on-primary rounded-lg font-button">
+<span class="material-symbols-outlined text-xl">chat</span> WhatsApp
+        </button>
+</div>
+<script>
+        // Simple reveal animation observer
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal-up').forEach((el) => {
+                observer.observe(el);
+            });
+            
+            // Nav scroll effect
+            const nav = document.getElementById('main-nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('shadow-sm', 'bg-surface/90');
+                    nav.classList.remove('bg-transparent');
+                } else {
+                    nav.classList.remove('shadow-sm', 'bg-surface/90');
+                    nav.classList.add('bg-transparent');
+                }
+            });
+        });
+    </script>
+</body></html>

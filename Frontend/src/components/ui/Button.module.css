@@ -1,0 +1,7 @@
+.button {
+  letter-spacing: 0.05em;
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.98);
+}

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact &amp; Booking - Dr. Hassan Salman</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#c7c6c5",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-container-low": "#f9f2ed",
+                        "primary": "#6e5c3c",
+                        "soft-blue-gray": "#E2E9F2",
+                        "on-tertiary-fixed": "#1a1c1b",
+                        "on-secondary-container": "#656464",
+                        "on-primary-container": "#59482a",
+                        "surface-container-highest": "#e8e1dd",
+                        "on-secondary-fixed-variant": "#474646",
+                        "surface-dim": "#dfd9d4",
+                        "on-tertiary-container": "#4a4b4a",
+                        "error": "#ba1a1a",
+                        "on-background": "#1d1b18",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "surface": "#fff8f3",
+                        "ivory-bg": "#FCFAF7",
+                        "primary-container": "#d0b892",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e8e1dd",
+                        "tertiary": "#5e5e5d",
+                        "primary-fixed": "#f9dfb7",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f6f0eb",
+                        "on-primary-fixed": "#261902",
+                        "secondary-container": "#e5e2e1",
+                        "on-primary-fixed-variant": "#554427",
+                        "on-surface-variant": "#4d463c",
+                        "primary-fixed-dim": "#dcc39c",
+                        "surface-container": "#f3ede8",
+                        "secondary": "#5f5e5e",
+                        "gold-accent": "#D0B892",
+                        "inverse-primary": "#dcc39c",
+                        "background": "#fff8f3",
+                        "on-surface": "#1d1b18",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#ede7e2",
+                        "surface-tint": "#6e5c3c",
+                        "outline": "#7e766b",
+                        "secondary-fixed": "#e5e2e1",
+                        "charcoal-text": "#1A1A1A",
+                        "muted-silver": "#868686",
+                        "surface-bright": "#fff8f3",
+                        "on-tertiary-fixed-variant": "#464746",
+                        "outline-variant": "#cfc5b8",
+                        "inverse-surface": "#33302d",
+                        "tertiary-fixed": "#e3e2e0",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#bbbbb9",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding-mobile": "64px",
+                        "gutter": "24px",
+                        "section-padding-desktop": "120px",
+                        "container-max": "1280px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "button": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "button": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "500" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "500" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom styles for Webkit scrollbar for a polished look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f9f2ed;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d0b892;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6e5c3c;
+        }
+        
+        /* Ambient shadow for glass cards */
+        .ambient-shadow {
+            box-shadow: 0 10px 30px 4px rgba(26, 26, 26, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased selection:bg-gold-accent selection:text-white">
+<!-- Top Navigation (Desktop) -->
+<header class="hidden md:flex justify-between items-center px-gutter py-4 w-full max-w-container-max mx-auto z-50 bg-surface/85 backdrop-blur-md shadow-sm full-width top-0 sticky">
+<div class="font-display-lg text-headline-md text-primary">Dr. Hassan Salman</div>
+<nav class="flex items-center gap-8">
+<a class="text-secondary hover:text-primary transition-colors font-button text-button uppercase tracking-widest hover:bg-primary/5 p-2 rounded" href="#">Home</a>
+<a class="text-secondary hover:text-primary transition-colors font-button text-button uppercase tracking-widest hover:bg-primary/5 p-2 rounded" href="#">About</a>
+<a class="text-secondary hover:text-primary transition-colors font-button text-button uppercase tracking-widest hover:bg-primary/5 p-2 rounded" href="#">Services</a>
+<a class="text-primary border-b-2 border-gold-accent pb-1 font-button text-button uppercase tracking-widest p-2 scale-95 transition-transform" href="#">Contact</a>
+</nav>
+<button class="bg-gold-accent text-on-primary font-button text-button uppercase tracking-widest px-6 py-3 rounded-lg shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5">
+            Book Appointment
+        </button>
+</header>
+<!-- Main Content -->
+<main class="w-full">
+<!-- Callout Banner -->
+<div class="bg-primary text-on-primary text-center py-3 px-4 shadow-md">
+<p class="font-body-md text-sm md:text-base flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-gold-accent" style="font-variation-settings: 'FILL' 1;">star</span>
+                Schedule your <strong>Free Consultation</strong> today to discuss personalized aesthetic and dental treatments.
+            </p>
+</div>
+<section class="max-w-container-max mx-auto px-gutter py-section-padding-mobile md:py-section-padding-desktop">
+<div class="text-center mb-16 max-w-3xl mx-auto">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-primary mb-6">Begin Your Journey</h1>
+<p class="font-body-lg text-on-surface-variant">
+                    We are dedicated to providing a serene, luxurious environment for your care. Contact our clinic to schedule an appointment or consultation.
+                </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
+<!-- Left: Booking Form -->
+<div class="lg:col-span-7 bg-white ambient-shadow rounded-xl p-8 md:p-12 relative overflow-hidden">
+<!-- Glassmorphic accent -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-gold-accent/10 rounded-full blur-2xl"></div>
+<h2 class="font-headline-md text-primary mb-8 border-b border-outline-variant/30 pb-4">Request an Appointment</h2>
+<form action="#" class="space-y-6 relative z-10" method="POST">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Name -->
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest" for="first-name">First Name</label>
+<input class="w-full bg-ivory-bg border-b border-outline-variant focus:border-gold-accent focus:ring-0 px-4 py-3 text-body-md transition-colors" id="first-name" placeholder="Jane" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest" for="last-name">Last Name</label>
+<input class="w-full bg-ivory-bg border-b border-outline-variant focus:border-gold-accent focus:ring-0 px-4 py-3 text-body-md transition-colors" id="last-name" placeholder="Doe" type="text"/>
+</div>
+</div>
+<!-- Contact -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest" for="email">Email Address</label>
+<input class="w-full bg-ivory-bg border-b border-outline-variant focus:border-gold-accent focus:ring-0 px-4 py-3 text-body-md transition-colors" id="email" placeholder="jane@example.com" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest" for="phone">Phone Number</label>
+<input class="w-full bg-ivory-bg border-b border-outline-variant focus:border-gold-accent focus:ring-0 px-4 py-3 text-body-md transition-colors" id="phone" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+</div>
+<!-- Service -->
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest" for="service">Interested Service</label>
+<div class="relative">
+<select class="w-full bg-ivory-bg border-b border-outline-variant focus:border-gold-accent focus:ring-0 px-4 py-3 text-body-md appearance-none transition-colors" id="service">
+<option disabled="" selected="" value="">Select a treatment...</option>
+<option value="consultation">Initial Free Consultation</option>
+<option value="dental-aesthetics">Cosmetic Dentistry</option>
+<option value="surgery">Oral Surgery</option>
+<option value="skin">Skin Aesthetics</option>
+<option value="other">Other / Not Sure</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Preferred Date/Time -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest" for="date">Preferred Date</label>
+<input class="w-full bg-ivory-bg border-b border-outline-variant focus:border-gold-accent focus:ring-0 px-4 py-3 text-body-md text-on-surface transition-colors" id="date" type="date"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest" for="time">Preferred Time</label>
+<select class="w-full bg-ivory-bg border-b border-outline-variant focus:border-gold-accent focus:ring-0 px-4 py-3 text-body-md appearance-none transition-colors" id="time">
+<option value="morning">Morning (9AM - 12PM)</option>
+<option value="afternoon">Afternoon (12PM - 4PM)</option>
+<option value="evening">Late Afternoon (4PM - 6PM)</option>
+</select>
+</div>
+</div>
+<!-- Message -->
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest" for="message">Additional Notes</label>
+<textarea class="w-full bg-ivory-bg border-b border-outline-variant focus:border-gold-accent focus:ring-0 px-4 py-3 text-body-md resize-none transition-colors" id="message" placeholder="Any specific concerns or questions?" rows="3"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary font-button text-button uppercase tracking-widest py-4 rounded-lg mt-8 hover:bg-on-primary-container transition-colors shadow-sm" type="submit">
+                            Submit Request
+                        </button>
+</form>
+</div>
+<!-- Right: Contact Info & Map -->
+<div class="lg:col-span-5 space-y-12">
+<!-- Contact Details -->
+<div class="bg-surface-container-low rounded-xl p-8 ambient-shadow border border-outline-variant/20">
+<h3 class="font-headline-md text-primary mb-6">Contact Us</h3>
+<ul class="space-y-6">
+<li class="flex items-start gap-4">
+<div class="bg-gold-accent/20 p-3 rounded-full text-primary shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-1">Clinic Address</p>
+<p class="font-body-md text-on-surface">123 Prestige Avenue<br/>Medical District, Suite 400<br/>Dubai, UAE</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="bg-gold-accent/20 p-3 rounded-full text-primary shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone_in_talk</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-1">Phone</p>
+<a class="font-body-md text-on-surface hover:text-gold-accent transition-colors" href="tel:+971500000000">+971 50 000 0000</a>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="bg-gold-accent/20 p-3 rounded-full text-primary shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-1">WhatsApp</p>
+<a class="font-body-md text-on-surface hover:text-gold-accent transition-colors" href="#">+971 50 111 1111</a>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="bg-gold-accent/20 p-3 rounded-full text-primary shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mail</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-1">Email</p>
+<a class="font-body-md text-on-surface hover:text-gold-accent transition-colors" href="mailto:care@drhassansalman.com">care@drhassansalman.com</a>
+</div>
+</li>
+</ul>
+</div>
+<!-- Clinic Hours -->
+<div class="bg-white rounded-xl p-8 ambient-shadow relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-white to-surface-container-low/50 pointer-events-none"></div>
+<h3 class="font-headline-md text-primary mb-6 relative z-10 flex items-center gap-3">
+<span class="material-symbols-outlined text-gold-accent">schedule</span>
+                            Clinic Hours
+                        </h3>
+<div class="space-y-3 relative z-10 font-body-md">
+<div class="flex justify-between border-b border-outline-variant/20 pb-2">
+<span class="text-on-surface-variant">Sunday - Wednesday</span>
+<span class="text-on-surface font-medium">9:00 AM - 6:00 PM</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/20 pb-2">
+<span class="text-on-surface-variant">Thursday</span>
+<span class="text-on-surface font-medium">9:00 AM - 8:00 PM</span>
+</div>
+<div class="flex justify-between pt-1">
+<span class="text-on-surface-variant">Friday - Saturday</span>
+<span class="text-outline italic">Closed</span>
+</div>
+</div>
+</div>
+<!-- Embedded Map Placeholder -->
+<div class="h-64 rounded-xl overflow-hidden ambient-shadow bg-surface-variant relative group">
+<!-- Image placeholder mapped to map context -->
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A highly detailed, modern top-down map view of an upscale medical district in Dubai. The map design is minimalist, utilizing a soft light-mode color palette of ivory, warm grays, and subtle gold accents for streets and landmarks. A prominent, elegant pin marker highlights the clinic location. The lighting is bright and clean, reflecting a premium editorial UI aesthetic." data-location="Dubai" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKDntHffCW9gAdFuNkqBmz9IyKRIhBWB48LAEJ4ucpQVdJxLL5BCQSXjRrgQ1pRjX-HnxyX5U3yyj2G0nnBEiOLevrSIwvdUIlC22HJcRVPi16-x4ti327L_6LeLtEJPHo6KbsXcfN8CfLQQ7zLrY4EN7XI4yoIAok_KtPO4Q-KVDbftlrnpTcdoAUirJpGIMsDDDS74n4nH2fec9UrYRqlr8q49U7dtBKYwTzDfkISLaxw9SMKlx2Dw"/>
+<div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500"></div>
+<a class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" href="#">
+<span class="bg-white/90 text-primary font-button text-button uppercase tracking-widest px-6 py-2 rounded-full shadow-lg backdrop-blur-sm">Get Directions</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant/30 full-width bottom mt-24">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-gutter py-section-padding-desktop max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<div class="font-display-lg text-headline-md text-primary mb-4">Dr. Hassan Salman</div>
+<p class="font-body-md text-on-surface text-sm">Excellence in Aesthetic Care.</p>
+</div>
+<div class="flex flex-col gap-2">
+<a class="font-body-md text-secondary hover:text-primary hover:underline transition-all" href="#">Contact Info</a>
+<a class="font-body-md text-secondary hover:text-primary hover:underline transition-all" href="#">Office Hours</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="font-body-md text-secondary hover:text-primary hover:underline transition-all" href="#">Map Link</a>
+<a class="font-body-md text-secondary hover:text-primary hover:underline transition-all" href="#">Newsletter</a>
+</div>
+<div class="md:col-span-4 mt-12 pt-8 border-t border-outline-variant/30 text-center">
+<p class="font-body-md text-secondary text-sm">© 2024 Dr. Hassan Salman. Excellence in Aesthetic Care.</p>
+</div>
+</div>
+</footer>
+<!-- Bottom Nav Bar (Mobile only) -->
+<nav class="md:hidden fixed bottom-6 right-6 flex-col gap-4 w-auto rounded-full z-50">
+<a class="flex flex-col items-center justify-center bg-surface text-primary rounded-full p-4 shadow-xl border border-white/20 backdrop-blur-xl hover:scale-110 hover:shadow-2xl transition-all duration-300 mb-3" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span class="font-label-caps text-label-caps mt-1 sr-only">WhatsApp</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-gold-accent text-on-primary rounded-full p-4 shadow-xl border border-white/20 backdrop-blur-xl hover:scale-110 hover:shadow-2xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+<span class="font-label-caps text-label-caps mt-1 sr-only">Call Now</span>
+</a>
+</nav>
+</body></html>

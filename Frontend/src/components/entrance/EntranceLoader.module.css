@@ -1,0 +1,63 @@
+/* =========================================================
+   EntranceLoader.module.css
+   Precision ring animation + reduced-motion overrides
+   ========================================================= */
+
+/* ── Precision SVG Ring ─────────────────────────────────── */
+.precisionRing {
+  position: relative;
+  pointer-events: none;
+}
+
+/* ── Orbiting dots (optional elegance) ─────────────────── */
+.orbitDot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-gold, #D0B892);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Ambient glow behind tooth ──────────────────────────── */
+.ambientGlow {
+  position: relative;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(208, 184, 146, 0.22) 0%,
+    rgba(208, 184, 146, 0.08) 45%,
+    transparent 70%
+  );
+}
+
+/* ── Split panels ───────────────────────────────────────── */
+.splitLeft,
+.splitRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  /* A hair-thin seam line at the center */
+}
+
+.splitLeft {
+  left: 0;
+  border-right: 1px solid rgba(208, 184, 146, 0.18);
+}
+
+.splitRight {
+  right: 0;
+}
+
+/* ── Reduced-motion overrides ───────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .precisionRing,
+  .orbitDot,
+  .ambientGlow {
+    animation: none !important;
+    transition: none !important;
+  }
+}
