@@ -112,15 +112,33 @@ export function EntranceLoader({ onComplete }: EntranceLoaderProps) {
           >
 
              {/* ── TOOTH / LOGO WRAPPER ───────────────────────────────── */}
-            <div className="relative flex items-center justify-center">
+            {/*
+              Fixed-size stage: 280×280px square.
+              Ring and tooth are both centered on this canvas.
+              No overflow / asymmetric drift.
+            */}
+            <div
+              style={{
+                position: 'relative',
+                width:  'clamp(240px, 36vmin, 280px)',
+                height: 'clamp(240px, 36vmin, 280px)',
+              }}
+            >
 
-              {/* Ambient bloom behind tooth — centered wrapper */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              {/* ── AMBIENT GLOW — fills + overflows stage slightly ─── */}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '50%', left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  pointerEvents: 'none',
+                }}
+              >
                 <motion.div
                   className={styles.ambientGlow}
                   style={{
-                    width:  'clamp(320px, 55vmin, 500px)',
-                    height: 'clamp(320px, 55vmin, 500px)',
+                    width:  'clamp(320px, 55vmin, 460px)',
+                    height: 'clamp(320px, 55vmin, 460px)',
                   }}
                   initial={{ scale: 0.3, opacity: 0 }}
                   animate={{ scale: 1.0, opacity: 1 }}
@@ -128,12 +146,19 @@ export function EntranceLoader({ onComplete }: EntranceLoaderProps) {
                 />
               </div>
 
-              {/* Precision ring — centered wrapper */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              {/* ── PRECISION RING — centered on stage ──────────────── */}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '50%', left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  pointerEvents: 'none',
+                }}
+              >
                 <motion.div
                   className={styles.precisionRing}
                   initial={{ scale: 0.65, opacity: 0, rotate: -30 }}
-                  animate={{ scale: 1.0, opacity: 1, rotate:  95 }}
+                  animate={{ scale: 1.0,  opacity: 1, rotate:  95 }}
                   transition={{ duration: 1.0, ease: ENTRANCE, delay: 1.10 }}
                 >
                   <svg
@@ -143,10 +168,10 @@ export function EntranceLoader({ onComplete }: EntranceLoaderProps) {
                     fill="none"
                     aria-hidden="true"
                   >
-                    {/* Background track */}
+                    {/* Ghost track */}
                     <circle cx={CX} cy={CY} r={RING_R} stroke={GOLD_DIM} strokeWidth={1} />
 
-                    {/* Animated arc — draws in */}
+                    {/* Animated arc */}
                     <motion.circle
                       cx={CX} cy={CY} r={RING_R}
                       stroke={GOLD}
@@ -154,12 +179,12 @@ export function EntranceLoader({ onComplete }: EntranceLoaderProps) {
                       strokeLinecap="round"
                       strokeDasharray={CIRC}
                       initial={{ strokeDashoffset: CIRC }}
-                      animate={{ strokeDashoffset: CIRC * 0.30 }}
+                      animate={{ strokeDashoffset: CIRC * 0.28 }}
                       transition={{ duration: 1.1, ease: ENTRANCE, delay: 1.15 }}
                       style={{ transformOrigin: `${CX}px ${CY}px` }}
                     />
 
-                    {/* 3 accent dots */}
+                    {/* 3 gold accent dots at equal intervals */}
                     {[0, 120, 240].map((deg) => {
                       const rad = (deg * Math.PI) / 180;
                       return (
@@ -170,7 +195,7 @@ export function EntranceLoader({ onComplete }: EntranceLoaderProps) {
                           r={2.5}
                           fill={GOLD}
                           initial={{ opacity: 0, scale: 0 }}
-                          animate={{ opacity: 0.75, scale: 1 }}
+                          animate={{ opacity: 0.70, scale: 1 }}
                           transition={{ duration: 0.5, delay: 1.55 }}
                         />
                       );
@@ -179,43 +204,43 @@ export function EntranceLoader({ onComplete }: EntranceLoaderProps) {
                 </motion.div>
               </div>
 
-              {/* ── TOOTH / LOGO ──────────────────────────────────────── */}
-              {/*
-                  0.30s delay → starts entering
-                  0.90s duration → slow, weighty arrival
-                  Then idles with gentle float
-              */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.82, y: 20, rotate: 8 }}
-                animate={{ opacity: 1, scale: 1,    y:  0, rotate: 0 }}
-                transition={{ duration: 0.90, ease: ENTRANCE, delay: 0.30 }}
-                style={{ position: 'relative', zIndex: 10 }}
+              {/* ── TOOTH — centered on stage, above ring ───────────── */}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '50%', left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  zIndex: 10,
+                }}
               >
-                {/* Perpetual gentle float */}
                 <motion.div
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 3.4, ease: 'easeInOut', repeat: Infinity, repeatType: 'loop' }}
+                  initial={{ opacity: 0, scale: 0.82, y: 20, rotate: 8 }}
+                  animate={{ opacity: 1, scale: 1,    y:  0, rotate: 0 }}
+                  transition={{ duration: 0.90, ease: ENTRANCE, delay: 0.30 }}
                 >
-                  {/* Slight scale-up on exit prep */}
-                  <div style={{ transform: 'translate(22%, 8%)' }}>
+                  {/* Gentle perpetual float */}
+                  <motion.div
+                    animate={{ y: [0, -8, 0] }}
+                    transition={{ duration: 3.4, ease: 'easeInOut', repeat: Infinity, repeatType: 'loop' }}
+                  >
                     <motion.img
                       src={logoSvg}
                       alt="Dr. Hassan Salman"
                       animate={isReady ? { scale: 1.05 } : { scale: 1 }}
                       transition={{ duration: 0.5, ease: 'easeOut' }}
                       style={{
-                        width:      'clamp(155px, 20vmin, 200px)',
-                        height:     'clamp(155px, 20vmin, 200px)',
+                        width:      'clamp(170px, 26vmin, 220px)',
+                        height:     'clamp(170px, 26vmin, 220px)',
                         objectFit:  'contain',
                         display:    'block',
-                        filter:     `drop-shadow(0 16px 42px rgba(208, 184, 146, 0.40))`,
+                        filter:     `drop-shadow(0 18px 48px rgba(208, 184, 146, 0.45))`,
                       }}
                     />
-                  </div>
+                  </motion.div>
                 </motion.div>
-              </motion.div>
+              </div>
 
-            </div>{/* end tooth wrapper */}
+            </div>{/* end tooth stage */}
 
             {/* ── EYEBROW TEXT ───────────────────────────────────────── */}
             {/*
