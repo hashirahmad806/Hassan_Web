@@ -271,7 +271,7 @@ export default function ContactPage() {
                       {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="currentColor" />)}
                     </div>
                     <p className="mb-3 font-body-md text-sm italic leading-relaxed text-inverse-on-surface/80">
-                      &ldquo;The consultation was thorough and Dr. Salman's attention to detail is unparalleled. I felt completely at ease throughout.&rdquo;
+                      &ldquo;The consultation was thorough and Dr. Hassan's attention to detail is unparalleled. I felt completely at ease throughout.&rdquo;
                     </p>
                     <span className="font-label-caps text-[10px] uppercase tracking-widest text-gold-accent">
                       — Verified Patient

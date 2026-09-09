@@ -36,7 +36,7 @@ export function MobileStickyActions() {
         target="_blank"
         rel="noopener noreferrer"
         className="group fixed bottom-6 right-6 z-50 hidden md:inline-flex items-center gap-2.5 rounded-full bg-emerald-600 px-5 py-3.5 text-white shadow-[0_8px_24px_rgba(5,150,105,0.35)] transition-all duration-300 hover:bg-emerald-700 hover:shadow-[0_12px_32px_rgba(5,150,105,0.45)] hover:-translate-y-1"
-        aria-label="Chat with Dr. Hassan Salman on WhatsApp"
+        aria-label="Chat with Dr. Hassan on WhatsApp"
       >
         <span className="relative flex h-2.5 w-2.5">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-75" />

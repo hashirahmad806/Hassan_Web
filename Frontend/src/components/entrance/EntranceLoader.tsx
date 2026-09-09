@@ -31,7 +31,7 @@ const SPLIT    = [0.76, 0, 0.24, 1] as const;
 
 /* -- Brand strings ---------------------------------------------------------- */
 const EYEBROW  = 'PRECISION  \u2022  CARE  \u2022  TECHNOLOGY';
-const BRAND    = 'Dr. Hassan Salman';
+const BRAND    = 'Dr. Hassan';
 const SUBLABEL = 'Preparing your experience';
 
 /* -- Brand colors ----------------------------------------------------------- */
@@ -257,7 +257,7 @@ export function EntranceLoader({ onComplete }: EntranceLoaderProps) {
                   >
                     <motion.img
                       src={logoSvg}
-                      alt="Dr. Hassan Salman"
+                      alt="Dr. Hassan"
                       animate={isReady ? { scale: 1.05 } : { scale: 1 }}
                       transition={{ duration: 0.5, ease: 'easeOut' }}
                       style={{

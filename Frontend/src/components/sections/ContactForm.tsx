@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { CheckCircle, AlertCircle, Loader2, Lock } from 'lucide-react';
+import { CheckCircle, AlertCircle, Loader2, Lock, Sparkles, X } from 'lucide-react';
 import { Input, Select, Button } from '@/components/ui';
 import { contactContent, serviceOptions } from '@/content';
 import { submitAppointment } from '@/services';
@@ -23,15 +24,55 @@ const appointmentSchema = z.object({
  */
 export function ContactForm() {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const caseId = searchParams.get('case') || '';
+  const caseTitle = searchParams.get('title') || '';
+  const caseCategory = searchParams.get('category') || '';
+
+  const matchedService = useMemo(() => {
+    if (!caseCategory) return '';
+    const cat = caseCategory.toLowerCase();
+    if (cat.includes('implant')) return 'Dental Implants';
+    if (cat.includes('orthodontic') || cat.includes('aligner')) return 'Orthodontics';
+    if (cat.includes('whitening')) return 'Professional Whitening';
+    if (
+      cat.includes('aesthetic') ||
+      cat.includes('veneer') ||
+      cat.includes('biomimetic') ||
+      cat.includes('smile') ||
+      cat.includes('rehabilitation')
+    ) {
+      return 'Cosmetic Dentistry';
+    }
+    return '';
+  }, [caseCategory]);
+
+  const defaultMsg = useMemo(() => {
+    if (caseTitle) {
+      return `Hello Dr. Hassan, I would like to inquire about a consultation for a treatment similar to ${caseId ? caseId + ': ' : ''}${caseTitle}${caseCategory ? ' (' + caseCategory + ')' : ''}.`;
+    }
+    return '';
+  }, [caseId, caseTitle, caseCategory]);
 
   const {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<AppointmentFormData>({
     resolver: zodResolver(appointmentSchema),
+    defaultValues: {
+      service: matchedService,
+      message: defaultMsg,
+    },
   });
+
+  useEffect(() => {
+    if (matchedService) setValue('service', matchedService);
+    if (defaultMsg) setValue('message', defaultMsg);
+  }, [matchedService, defaultMsg, setValue]);
 
   const onSubmit = async (data: AppointmentFormData) => {
     try {

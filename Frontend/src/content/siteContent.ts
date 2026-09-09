@@ -8,15 +8,15 @@ import type {
 } from '@/types';
 
 export const siteConfig = {
-  name: 'Dr. Hassan Salman',
+  name: 'Dr. Hassan',
   tagline: 'Excellence in Smile Design',
   phone: '+92 334 9295638',
   whatsapp: '+92 334 9295638',
   whatsappMessage:
     'Hello Dr. Hassan, I would like to inquire about booking a consultation at your clinic.',
-  email: 'hello@drhassansalman.com',
+  email: 'hello@drhassan.com',
   address: '123 Medical Plaza, Suite 400, New York, NY 10001',
-  copyright: '© 2024 Dr. Hassan Salman. Excellence in Aesthetic Care.',
+  copyright: '© 2024 Dr. Hassan. Excellence in Aesthetic Care.',
   socials: {
     linkedin:
       'https://www.linkedin.com/in/muhammad-hassan-bds-13b85a1b7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
@@ -44,13 +44,13 @@ export const heroContent = {
 } as const;
 
 export const doctorProfile: DoctorProfile = {
-  name: 'Dr. Hassan Salman',
+  name: 'Dr. Hassan',
   title: 'Lead Dental Surgeon',
   rating: 5,
   ratingLabel: '5.0 PATIENT RATING',
   experienceLabel: '20+ YEARS EXPERIENCE',
   quote: '"A beautiful smile is the ultimate expression of health and confidence."',
-  imageAlt: 'High-end editorial portrait of Dr. Hassan Salman in a luxury clinical setting.',
+  imageAlt: 'High-end editorial portrait of Dr. Hassan in a luxury clinical setting.',
 };
 
 export const trustBadges: TrustBadge[] = [
@@ -128,7 +128,7 @@ export const aboutContent = {
   heading: 'The Aura Standard',
   headingAccent: 'Where Artistry Meets Precision',
   paragraph1:
-    'With over two decades of dedicated practice, Dr. Salman has redefined aesthetic dentistry. His approach blends meticulous surgical precision with an artist’s eye for proportion and balance.',
+    'With over two decades of dedicated practice, Dr. Hassan has redefined aesthetic dentistry. His approach blends meticulous surgical precision with an artist’s eye for proportion and balance.',
   paragraph2:
     'Our sanctuary-like clinic is designed to provide an atmosphere of complete tranquility while delivering world-class dental solutions.',
   ctaLabel: 'Discover His Journey',
@@ -138,7 +138,7 @@ export const aboutContent = {
     { value: '99%', label: 'Patient Satisfaction' },
   ],
   imageAlt:
-    'Editorial photograph of Dr. Hassan Salman in clinical attire with ambient warm architectural lighting.',
+    'Photograph of Dr. Hassan in clinical attire in his modern operatory suite.',
 } as const;
 
 export const journeyContent = {
@@ -318,7 +318,7 @@ export const caseStudies: CaseStudy[] = [
 export const testimonials = [
   {
     quote:
-      '"The attention to detail is unparalleled. Dr. Salman didn\'t just fix my teeth; he designed a smile that looks entirely natural and suits my face perfectly. The process was thorough and deeply professional."',
+      '"The attention to detail is unparalleled. Dr. Hassan didn\'t just fix my teeth; he designed a smile that looks entirely natural and suits my face perfectly. The process was thorough and deeply professional."',
     author: '— E.R. (Reference Case 042)',
     rating: 5,
   },
@@ -473,7 +473,7 @@ export const aboutDetailed = {
   hero: {
     heading: 'A Legacy of Clinical Excellence.',
     paragraph1:
-      'For over two decades, Dr. Hassan Salman has redefined aesthetic care, merging surgical precision with an artist’s touch to create transformative, natural results in a sanctuary of calm.',
+      'For over two decades, Dr. Hassan has redefined aesthetic care, merging surgical precision with an artist’s touch to create transformative, natural results in a sanctuary of calm.',
     paragraph2:
       'His unwavering commitment to continuous education keeps him at the forefront of medical advancements, while his passion for mentoring junior surgeons ensures a legacy of excellence for generations to come.',
   },

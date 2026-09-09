@@ -52,9 +52,12 @@ export function Header() {
       <div className="container-main flex items-center justify-between py-4">
         <Link
           to="/"
-          className="font-headline-md text-headline-md text-primary transition-opacity hover:opacity-80"
+          className="group inline-flex items-baseline gap-1.5 transition-opacity hover:opacity-90"
         >
-          {siteConfig.name}
+          <span className="font-display-lg text-2xl md:text-[28px] font-semibold tracking-tight text-primary">
+            Dr. Hassan
+          </span>
+          <span className="hidden sm:inline-block h-1.5 w-1.5 rounded-full bg-gold-accent" />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">

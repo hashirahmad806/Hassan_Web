@@ -105,7 +105,7 @@ export default function AboutPage() {
               <div className="relative h-[450px] overflow-hidden rounded-2xl border border-outline-variant/30 shadow-xl md:col-span-7 md:h-[600px]">
                 <img
                   src={drHassanFounderImg || profileImg}
-                  alt="Dr. Hassan Salman in modern clinic"
+                  alt="Dr. Hassan in modern clinic"
                   className="h-full w-full object-cover object-center transition-transform duration-1000 hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
@@ -283,13 +283,13 @@ export default function AboutPage() {
                   {philosophy.paragraph2}
                 </p>
                 <div className="pt-4 font-display-lg text-3xl text-gold-accent/80 italic">
-                  Dr. Hassan Salman
+                  Dr. Hassan
                 </div>
               </div>
               <div className="relative h-[350px] overflow-hidden rounded-xl md:h-[450px]">
                 <img
                   src={philosophyOrchidImg || profileImg}
-                  alt="Dr. Hassan Salman philosophy"
+                  alt="Dr. Hassan philosophy"
                   className="h-full w-full object-cover opacity-90 transition-transform duration-700 hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-inverse-surface to-transparent" />

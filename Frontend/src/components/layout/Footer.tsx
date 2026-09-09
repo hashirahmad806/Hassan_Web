@@ -26,7 +26,7 @@ export function Footer() {
         {/* Brand column */}
         <div className="md:col-span-1">
           <Link to="/" className="mb-4 block">
-            <h3 className="font-headline-md text-xl text-primary transition-opacity hover:opacity-80">{siteConfig.name}</h3>
+            <h3 className="font-display-lg text-2xl font-semibold tracking-tight text-primary transition-opacity hover:opacity-85">{siteConfig.name}</h3>
           </Link>
           <p className="mb-6 font-body-md text-sm text-on-surface-variant leading-relaxed">
             {footerContent.description}
