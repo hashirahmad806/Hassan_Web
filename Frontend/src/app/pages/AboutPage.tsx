@@ -14,8 +14,9 @@ import { useGSAP } from '@gsap/react';
 import { Header, Footer, MobileStickyActions, PageWrapper } from '@/components/layout';
 import { aboutDetailed } from '@/content';
 
-import aboutHeroImg from '@/assets/images/about_hero.png';
-import profileImg from '@/assets/images/real/profile.png';
+import drHassanFounderImg from '@/assets/images/real/dr_hassan_founder_real.jpg';
+import philosophyOrchidImg from '@/assets/images/real/philosophy_orchid.jpg';
+import profileImg from '@/assets/images/real/dr_hassan_headshot.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,7 +37,7 @@ export default function AboutPage() {
   useGSAP(
     () => {
       const sections = gsap.utils.toArray('.animate-section') as HTMLElement[];
-      
+
       sections.forEach((section) => {
         gsap.fromTo(
           section,
@@ -103,7 +104,7 @@ export default function AboutPage() {
               </div>
               <div className="relative h-[450px] overflow-hidden rounded-2xl border border-outline-variant/30 shadow-xl md:col-span-7 md:h-[600px]">
                 <img
-                  src={aboutHeroImg || profileImg}
+                  src={drHassanFounderImg || profileImg}
                   alt="Dr. Hassan Salman in modern clinic"
                   className="h-full w-full object-cover object-center transition-transform duration-1000 hover:scale-105"
                 />
@@ -166,11 +167,10 @@ export default function AboutPage() {
                         className="animate-stagger-item group flex flex-col items-center justify-between w-full md:flex-row"
                       >
                         <div
-                          className={`w-full md:w-5/12 text-center ${
-                            isEven
-                              ? 'md:text-right md:pr-8 mb-4 md:mb-0'
-                              : 'hidden md:block'
-                          }`}
+                          className={`w-full md:w-5/12 text-center ${isEven
+                            ? 'md:text-right md:pr-8 mb-4 md:mb-0'
+                            : 'hidden md:block'
+                            }`}
                         >
                           {isEven && (
                             <>
@@ -190,11 +190,10 @@ export default function AboutPage() {
                         <div className="z-10 hidden h-4 w-4 rounded-full border-4 border-surface-container-low bg-gold-accent transition-transform duration-300 group-hover:scale-125 md:block" />
 
                         <div
-                          className={`w-full md:w-5/12 text-center ${
-                            !isEven
-                              ? 'md:text-left md:pl-8 mt-4 md:mt-0'
-                              : 'hidden md:block'
-                          }`}
+                          className={`w-full md:w-5/12 text-center ${!isEven
+                            ? 'md:text-left md:pl-8 mt-4 md:mt-0'
+                            : 'hidden md:block'
+                            }`}
                         >
                           {!isEven && (
                             <>
@@ -289,9 +288,9 @@ export default function AboutPage() {
               </div>
               <div className="relative h-[350px] overflow-hidden rounded-xl md:h-[450px]">
                 <img
-                  src={profileImg || aboutHeroImg}
-                  alt="Dr. Hassan Salman profile"
-                  className="h-full w-full object-cover opacity-90"
+                  src={philosophyOrchidImg || profileImg}
+                  alt="Dr. Hassan Salman philosophy"
+                  className="h-full w-full object-cover opacity-90 transition-transform duration-700 hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-inverse-surface to-transparent" />
               </div>

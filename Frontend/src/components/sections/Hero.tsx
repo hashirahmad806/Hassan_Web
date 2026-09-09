@@ -15,7 +15,7 @@ import { usePreloaderStore } from '@/store/preloaderStore';
 import styles from './Hero.module.css';
 
 import heroVideo from '@/assets/images/real/hero_video.mp4';
-import profileImg from '@/assets/images/real/profile.png';
+import profileImg from '@/assets/images/real/dr_hassan_headshot.jpg';
 
 const trustIcons = {
   verified:  BadgeCheck,
@@ -46,7 +46,7 @@ const ORBS = [
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const hasSeenIntro = usePreloaderStore((state) => state.hasSeenIntro);
-  const delay = hasSeenIntro ? 0 : 2.25;
+  const delay = hasSeenIntro ? 0 : 0.8;
 
   useGSAP(
     () => {

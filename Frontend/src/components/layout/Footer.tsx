@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
+import { Instagram, Facebook, Linkedin, MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
 import { footerContent, siteConfig } from '@/content';
+import { formatWhatsAppLink } from '@/utils';
 
 const socialLinks = [
-  { href: '#', label: 'Instagram', Icon: Instagram },
-  { href: '#', label: 'Facebook', Icon: Facebook },
-  { href: '#', label: 'LinkedIn', Icon: Linkedin },
+  { href: siteConfig.socials.instagram, label: 'Instagram', Icon: Instagram },
+  { href: siteConfig.socials.facebook, label: 'Facebook', Icon: Facebook },
+  { href: siteConfig.socials.linkedin, label: 'LinkedIn', Icon: Linkedin },
 ];
 
 /**
@@ -36,6 +37,8 @@ export function Footer() {
               <a
                 key={label}
                 href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={label}
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-outline-variant/40 text-on-surface-variant transition-all duration-300 hover:border-gold-accent/60 hover:bg-gold-accent/10 hover:text-primary"
               >
@@ -73,6 +76,15 @@ export function Footer() {
         <div className="container-main flex flex-col items-center justify-between gap-4 py-5 text-center md:flex-row md:text-left">
           <p className="font-body-md text-xs text-on-surface-variant">{siteConfig.copyright}</p>
           <div className="flex flex-wrap items-center justify-center gap-6 font-body-md text-xs text-on-surface-variant">
+            <a
+              href={formatWhatsAppLink(siteConfig.whatsapp, siteConfig.whatsappMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-emerald-700 font-medium hover:text-emerald-800 transition-colors"
+            >
+              <MessageCircle size={13} aria-hidden="true" />
+              WhatsApp
+            </a>
             <a href={`tel:${siteConfig.phone}`} className="flex items-center gap-1.5 hover:text-primary transition-colors">
               <Phone size={12} aria-hidden="true" />
               {siteConfig.phone}

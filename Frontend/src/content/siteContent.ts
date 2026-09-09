@@ -10,11 +10,19 @@ import type {
 export const siteConfig = {
   name: 'Dr. Hassan Salman',
   tagline: 'Excellence in Smile Design',
-  phone: '+1 (555) 123-4567',
-  whatsapp: '+15551234567',
+  phone: '+92 334 9295638',
+  whatsapp: '+92 334 9295638',
+  whatsappMessage:
+    'Hello Dr. Hassan, I would like to inquire about booking a consultation at your clinic.',
   email: 'hello@drhassansalman.com',
   address: '123 Medical Plaza, Suite 400, New York, NY 10001',
   copyright: '© 2024 Dr. Hassan Salman. Excellence in Aesthetic Care.',
+  socials: {
+    linkedin:
+      'https://www.linkedin.com/in/muhammad-hassan-bds-13b85a1b7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+    facebook: 'https://www.facebook.com/people/Dr-Hassan/100095052914472/',
+    instagram: 'https://www.instagram.com/im.hassanbds/?hl=en',
+  },
 } as const;
 
 export const navLinks: NavLink[] = [

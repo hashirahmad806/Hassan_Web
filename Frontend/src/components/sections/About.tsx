@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { useGSAP } from '@gsap/react';
 import { aboutContent } from '@/content';
 import { createSectionRevealTimeline } from '@/animations/gsap';
+import drHassanRealImg from '@/assets/images/real/dr_hassan_clinic_portrait.jpg';
 
 /**
  * About/introduction section with premium stats overlay and glassmorphism cards.
@@ -26,17 +27,13 @@ export function About() {
         {/* Image column */}
         <div className="relative" data-reveal>
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-surface-container shadow-2xl">
-            {/* Rich gradient background as placeholder */}
-            <div
-              className="h-full w-full"
-              style={{
-                background: 'linear-gradient(135deg, #f3ede8 0%, #d0b892 40%, #6e5c3c 100%)',
-              }}
-              role="img"
-              aria-label={aboutContent.imageAlt}
+            <img
+              src={drHassanRealImg}
+              alt={aboutContent.imageAlt}
+              className="h-full w-full object-cover object-[center_20%] transition-transform duration-1000 hover:scale-105"
             />
             {/* Subtle inner vignette */}
-            <div className="absolute inset-0 bg-gradient-to-t from-charcoal-text/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-charcoal-text/40 via-transparent to-transparent" />
 
             {/* Stat cards */}
             {aboutContent.stats.map((stat, index) => (

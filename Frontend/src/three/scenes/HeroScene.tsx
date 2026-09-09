@@ -66,9 +66,9 @@ function SceneContent() {
  */
 export function HeroScene({ hasSeenIntro }: HeroSceneProps) {
   const { dpr } = useResponsiveCanvas();
-  // If the user has seen the intro, the tooth appears immediately. Otherwise, it delays 2.30s.
-  const delay = hasSeenIntro ? 0 : 2.30;
-  const duration = hasSeenIntro ? 0.3 : 0.75;
+  // If the user has seen the intro, the tooth appears immediately. Otherwise, it delays 0.8s.
+  const delay = hasSeenIntro ? 0 : 0.8;
+  const duration = hasSeenIntro ? 0.3 : 0.65;
 
   return (
     <motion.div

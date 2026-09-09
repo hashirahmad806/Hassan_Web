@@ -1,9 +1,20 @@
-import { MapPin, Clock, Phone, Mail, Star, ArrowRight } from 'lucide-react';
+import {
+  MapPin,
+  Clock,
+  Phone,
+  Mail,
+  Star,
+  ArrowRight,
+  MessageCircle,
+  Linkedin,
+  Facebook,
+  Instagram,
+} from 'lucide-react';
 import { Skeleton } from 'boneyard-js/react';
 import { Header, Footer, MobileStickyActions, PageWrapper } from '@/components/layout';
 import { ContactForm } from '@/components/sections';
 import { contactContent, siteConfig } from '@/content';
-import { formatPhoneLink } from '@/utils';
+import { formatPhoneLink, formatWhatsAppLink } from '@/utils';
 
 const trustItems = [
   { value: '24h', label: 'Response Time' },
@@ -145,6 +156,28 @@ export default function ContactPage() {
                   </div>
                   <div className="space-y-3">
                     <a
+                      href={formatWhatsAppLink(siteConfig.whatsapp, siteConfig.whatsappMessage)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center justify-between rounded-xl border border-emerald-200/80 bg-emerald-50/60 px-4 py-3 transition-all duration-200 hover:border-emerald-300 hover:bg-emerald-50"
+                    >
+                      <div className="flex items-center gap-3">
+                        <MessageCircle size={18} className="text-emerald-600" aria-hidden="true" />
+                        <div>
+                          <span className="block font-body-md text-sm font-semibold text-emerald-950">
+                            WhatsApp Consultation
+                          </span>
+                          <span className="block font-body-md text-xs text-emerald-700/80">
+                            Direct message & quick appointment
+                          </span>
+                        </div>
+                      </div>
+                      <span className="rounded-full bg-emerald-100 px-2 py-0.5 font-label-caps text-[9px] font-bold uppercase tracking-wider text-emerald-800">
+                        Online
+                      </span>
+                    </a>
+
+                    <a
                       href={formatPhoneLink(siteConfig.phone)}
                       className="group flex items-center gap-3 rounded-xl border border-outline-variant/30 px-4 py-3 transition-all duration-200 hover:border-gold-accent/40 hover:bg-gold-accent/5"
                     >
@@ -160,6 +193,68 @@ export default function ContactPage() {
                       <Mail size={16} className="text-primary" aria-hidden="true" />
                       <span className="font-body-md text-sm text-on-surface-variant group-hover:text-primary">
                         {siteConfig.email}
+                      </span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Social Profiles Card */}
+                <div className="rounded-2xl border border-outline-variant/30 bg-surface-container-lowest p-6 shadow-sm">
+                  <div className="mb-4">
+                    <h3 className="font-headline-md text-lg text-charcoal-text">Follow & Connect</h3>
+                    <p className="mt-1 font-body-md text-xs text-on-surface-variant">
+                      Connect with Dr. Hassan across official clinical channels:
+                    </p>
+                  </div>
+                  <div className="space-y-2.5">
+                    <a
+                      href={siteConfig.socials.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center justify-between rounded-xl border border-outline-variant/30 px-4 py-2.5 transition-all duration-200 hover:border-pink-300 hover:bg-pink-50/40"
+                    >
+                      <div className="flex items-center gap-3">
+                        <Instagram size={17} className="text-pink-600 transition-transform duration-200 group-hover:scale-110" />
+                        <span className="font-body-md text-sm text-on-surface group-hover:text-pink-900 font-medium">
+                          Instagram
+                        </span>
+                      </div>
+                      <span className="font-label-caps text-[11px] text-on-surface-variant/70">
+                        @im.hassanbds
+                      </span>
+                    </a>
+
+                    <a
+                      href={siteConfig.socials.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center justify-between rounded-xl border border-outline-variant/30 px-4 py-2.5 transition-all duration-200 hover:border-blue-300 hover:bg-blue-50/40"
+                    >
+                      <div className="flex items-center gap-3">
+                        <Facebook size={17} className="text-blue-600 transition-transform duration-200 group-hover:scale-110" />
+                        <span className="font-body-md text-sm text-on-surface group-hover:text-blue-900 font-medium">
+                          Facebook
+                        </span>
+                      </div>
+                      <span className="font-label-caps text-[11px] text-on-surface-variant/70">
+                        Dr. Hassan
+                      </span>
+                    </a>
+
+                    <a
+                      href={siteConfig.socials.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center justify-between rounded-xl border border-outline-variant/30 px-4 py-2.5 transition-all duration-200 hover:border-sky-300 hover:bg-sky-50/40"
+                    >
+                      <div className="flex items-center gap-3">
+                        <Linkedin size={17} className="text-sky-700 transition-transform duration-200 group-hover:scale-110" />
+                        <span className="font-body-md text-sm text-on-surface group-hover:text-sky-900 font-medium">
+                          LinkedIn
+                        </span>
+                      </div>
+                      <span className="font-label-caps text-[11px] text-on-surface-variant/70">
+                        Muhammad Hassan BDS
                       </span>
                     </a>
                   </div>

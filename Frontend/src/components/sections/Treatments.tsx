@@ -6,9 +6,9 @@ import { treatments } from '@/content';
 import { createCardsRevealTimeline } from '@/animations/gsap';
 
 import cosmeticImg from '@/assets/images/real/proto_case2.jpg';
-import implantsImg from '@/assets/images/real/proto_case3.jpg';
+import implantsImg from '@/assets/images/real/proto_case4.jpg';
 import orthodonticsImg from '@/assets/images/real/service_orthodontics.jpg';
-import generalImg from '@/assets/images/real/service_general_care.jpg';
+import generalImg from '@/assets/images/real/dr_hassan_clinic_action.jpg';
 
 const treatmentImages: Record<string, string> = {
   cosmetic: cosmeticImg,
@@ -62,7 +62,8 @@ export function Treatments() {
                     src={imgSrc}
                     alt={treatment.title}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
+                    loading="eager"
+                    decoding="async"
                   />
                   <div
                     aria-hidden="true"

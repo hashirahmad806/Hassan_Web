@@ -46,7 +46,7 @@ export function Header() {
       transition={{
         duration: 0.55,
         ease: [0.22, 1, 0.36, 1],
-        delay: hasSeenIntro ? 0 : 2.85,
+        delay: hasSeenIntro ? 0 : 1.0,
       }}
     >
       <div className="container-main flex items-center justify-between py-4">

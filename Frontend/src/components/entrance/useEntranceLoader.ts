@@ -10,7 +10,7 @@ import { usePreloaderStore } from '@/store/preloaderStore';
  */
 
 /** Minimum time (ms) the loader is visible before the exit can start */
-const MIN_DISPLAY_MS = 3000;
+const MIN_DISPLAY_MS = 1000;
 
 export function useEntranceLoader(onComplete: () => void) {
   const { hasSeenIntro, setHasSeenIntro } = usePreloaderStore();
@@ -30,7 +30,7 @@ export function useEntranceLoader(onComplete: () => void) {
     setDisplayProgress((prev) => {
       const diff = targetRef.current - prev;
       if (Math.abs(diff) < 0.25) return targetRef.current;
-      return prev + diff * 0.055; // slower exponential approach for smooth fill
+      return prev + diff * 0.12; // snappy, smooth progress
     });
     rafRef.current = requestAnimationFrame(animate);
   }, []);
@@ -53,7 +53,7 @@ export function useEntranceLoader(onComplete: () => void) {
     const remaining = Math.max(0, MIN_DISPLAY_MS - elapsed);
 
     // Give the bar time to visually fill to 100%, then trigger the split
-    setTimeout(() => setIsReady(true), remaining + 350);
+    setTimeout(() => setIsReady(true), remaining + 150);
   }, [setTarget]);
 
   useEffect(() => {
@@ -63,15 +63,14 @@ export function useEntranceLoader(onComplete: () => void) {
     rafRef.current = requestAnimationFrame(animate);
 
     // ── Simulate natural progress even before real events ─────────────
-    // Slow fake ramp: 0 → 30 over first 1.2s so the bar feels alive immediately
-    const rampTimer = setTimeout(() => setTarget(30), 400);
-    const rampTimer2 = setTimeout(() => setTarget(55), 900);
+    const rampTimer = setTimeout(() => setTarget(45), 200);
+    const rampTimer2 = setTimeout(() => setTarget(80), 500);
 
     // ── Document readyState ─────────────────────────────────────────────
     const onDocReady = () => {
-      if (document.readyState === 'interactive') setTarget(60);
+      if (document.readyState === 'interactive') setTarget(70);
       if (document.readyState === 'complete') {
-        setTarget(75);
+        setTarget(85);
         checkAssetsReady();
       }
     };
@@ -80,22 +79,22 @@ export function useEntranceLoader(onComplete: () => void) {
 
     // ── Hero video metadata ─────────────────────────────────────────────
     const video = document.querySelector<HTMLVideoElement>('video[autoplay]');
-    const onVideoMeta = () => setTarget(82);
+    const onVideoMeta = () => setTarget(90);
     if (video) {
-      if (video.readyState >= 1) setTarget(82);
+      if (video.readyState >= 1) setTarget(90);
       else video.addEventListener('loadedmetadata', onVideoMeta, { once: true });
     } else {
-      setTarget(82);
+      setTarget(90);
     }
 
-    // ── Images ─────────────────────────────────────────────────────────
+    // ── Images: only check critical non-lazy images ────────────────────
     function checkAssetsReady() {
-      const imgs = Array.from(document.querySelectorAll<HTMLImageElement>('img[src]'));
+      const imgs = Array.from(document.querySelectorAll<HTMLImageElement>('img[src]:not([loading="lazy"])'));
       if (!imgs.length) { tryMarkReady(); return; }
       let loaded = 0;
       const onLoad = () => {
         loaded += 1;
-        setTarget(75 + Math.round((loaded / imgs.length) * 25));
+        setTarget(85 + Math.round((loaded / imgs.length) * 15));
         if (loaded >= imgs.length) tryMarkReady();
       };
       imgs.forEach((img) => {
@@ -105,10 +104,11 @@ export function useEntranceLoader(onComplete: () => void) {
           img.addEventListener('error', onLoad, { once: true });
         }
       });
+      if (loaded >= imgs.length) tryMarkReady();
     }
 
-    // ── Absolute safety cap: 5s ─────────────────────────────────────────
-    const safetyTimeout = setTimeout(tryMarkReady, 5000);
+    // ── Absolute safety cap: 1.8s ──────────────────────────────────────
+    const safetyTimeout = setTimeout(tryMarkReady, 1800);
 
     return () => {
       document.removeEventListener('readystatechange', onDocReady);

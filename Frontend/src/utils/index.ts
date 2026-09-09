@@ -31,8 +31,12 @@ export function formatPhoneLink(phone: string): string {
 }
 
 /**
- * Formats a phone number for WhatsApp links.
+ * Formats a phone number and optional prefilled message for WhatsApp links.
  */
-export function formatWhatsAppLink(phone: string): string {
-  return `https://wa.me/${phone.replace(/\D/g, '')}`;
+export function formatWhatsAppLink(phone: string, message?: string): string {
+  const cleanNumber = phone.replace(/\D/g, '');
+  if (message) {
+    return `https://wa.me/${cleanNumber}?text=${encodeURIComponent(message)}`;
+  }
+  return `https://wa.me/${cleanNumber}`;
 }
