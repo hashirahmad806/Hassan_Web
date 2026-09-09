@@ -19,11 +19,10 @@ export function ToothModel() {
     <mesh ref={meshRef} position={[0, -0.5, 0]} scale={[0.4, 0.4, 0.4]}>
       {/* We use an octahedron or a capsule for a nice clean modern look for now */}
       <capsuleGeometry args={[0.6, 1.2, 4, 16]} />
-      <meshStandardMaterial 
-        color="#ffffff" 
-        roughness={0.15}
-        metalness={0.1}
-        envMapIntensity={1.5}
+      <meshStandardMaterial
+        color="#ffffff"
+        roughness={0.25}
+        metalness={0.05}
       />
     </mesh>
   );

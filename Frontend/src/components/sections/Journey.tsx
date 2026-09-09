@@ -29,16 +29,16 @@ export function Journey() {
 
         <div className="relative grid grid-cols-1 gap-8 md:grid-cols-4">
           <div
-            className="absolute left-[10%] right-[10%] top-6 hidden h-px bg-outline-variant/50 md:block"
+            className="absolute left-[10%] right-[10%] top-8 hidden h-px bg-gradient-to-r from-transparent via-gold-accent/50 to-transparent md:block"
             aria-hidden="true"
           />
           {journeyContent.steps.map((step) => (
-            <article key={step.step} data-reveal-card className="relative text-center">
-              <div className="relative z-10 mx-auto mb-6 flex h-12 w-12 items-center justify-center rounded-full border border-outline-variant bg-surface-container-lowest font-headline-md text-primary">
+            <article key={step.step} data-reveal-card className="group relative text-center">
+              <div className="relative z-10 mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-full border-2 border-gold-accent/30 bg-surface-container-lowest font-headline-md text-xl text-primary transition-all duration-500 group-hover:scale-110 group-hover:border-gold-accent group-hover:bg-gold-accent/10 group-hover:shadow-[0_0_20px_rgba(208,184,146,0.3)]">
                 {step.step}
               </div>
-              <h3 className="mb-3 font-headline-md text-xl text-charcoal-text">{step.title}</h3>
-              <p className="font-body-md text-on-surface-variant">{step.description}</p>
+              <h3 className="mb-3 font-headline-md text-xl text-charcoal-text transition-colors group-hover:text-primary">{step.title}</h3>
+              <p className="font-body-md text-on-surface-variant leading-relaxed">{step.description}</p>
             </article>
           ))}
         </div>

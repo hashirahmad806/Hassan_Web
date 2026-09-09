@@ -47,11 +47,27 @@
   }
 
   .glass-panel {
-    @apply border border-outline-variant/30 bg-surface/80 backdrop-blur-xl;
+    @apply border border-gold-accent/20 bg-surface/85 backdrop-blur-2xl;
   }
 
   .ambient-shadow {
-    box-shadow: 0 10px 30px -10px rgba(26, 26, 26, 0.04);
+    box-shadow: 0 16px 48px -12px rgba(26, 26, 26, 0.06), 0 4px 16px -4px rgba(208, 184, 146, 0.08);
+  }
+
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(208, 184, 146, 0.5), transparent);
+  }
+
+  .gold-shimmer {
+    background: linear-gradient(
+      110deg,
+      transparent 30%,
+      rgba(208, 184, 146, 0.35) 50%,
+      transparent 70%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2.4s infinite;
   }
 }
 
@@ -59,4 +75,9 @@
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }

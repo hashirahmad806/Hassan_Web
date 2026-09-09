@@ -64,18 +64,26 @@ export function Hero() {
       aria-label="Hero"
     >
       {/* ---- Video Background ------------------------------------------- */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="h-full w-full object-cover opacity-55 mix-blend-overlay"
+          preload="auto"
+          className="h-full w-full object-cover object-center scale-[1.02] opacity-45 sm:opacity-50 md:opacity-60 transition-opacity duration-1000"
           src={heroVideo}
         />
-        {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-surface/85 via-surface/65 to-surface/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-surface/70 via-transparent to-transparent" />
+
+        {/* Mobile vertical gradient: ensures text readability on portrait devices */}
+        <div className="absolute inset-0 bg-gradient-to-b from-surface/95 via-surface/80 to-surface/95 md:hidden" />
+
+        {/* Desktop / Tablet horizontal gradient: keeps copy legible on the left while revealing the video on the right */}
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-surface/95 via-surface/75 to-surface/35" />
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface/60" />
+
+        {/* Subtle warm ambient vignette overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,248,243,0)_40%,_rgba(255,248,243,0.7)_100%)] pointer-events-none" />
       </div>
 
       {/* ---- Floating background orbs ----------------------------------- */}
@@ -130,7 +138,7 @@ export function Hero() {
           {/* Headline */}
           <h1
             data-hero-heading
-            className="mb-6 font-display-lg text-headline-lg-mobile text-charcoal-text md:text-display-lg"
+            className="mb-6 font-display-lg text-headline-lg-mobile text-charcoal-text md:text-display-lg drop-shadow-sm"
           >
             {heroContent.heading}
             <br />
@@ -196,8 +204,8 @@ export function Hero() {
 
           {/* Glass card */}
           <motion.div
-            className="glass-panel ambient-shadow relative z-10 ml-auto mr-4 max-w-sm rounded-xl p-6 md:mr-0"
-            whileHover={{ y: -4, transition: { duration: 0.3 } }}
+            className="glass-panel ambient-shadow relative z-10 ml-auto mr-4 max-w-sm rounded-2xl p-6 md:mr-0 border border-gold-accent/30 bg-surface-container-lowest/75 backdrop-blur-2xl shadow-[0_8px_32px_rgba(208,184,146,0.15)]"
+            whileHover={{ y: -6, transition: { duration: 0.3 } }}
           >
             {/* Doctor profile header */}
             <div className="mb-4 flex items-start gap-4">
@@ -240,10 +248,10 @@ export function Hero() {
             </div>
 
             {/* Booking CTA inside card */}
-            <Link to="/contact" className="mt-4 block">
+            <Link to="/contact" className="mt-5 block">
               <button
                 type="button"
-                className={`${styles.bookBtn} w-full rounded-lg px-4 py-2.5 text-sm font-medium tracking-wide transition-all duration-200`}
+                className="w-full rounded-xl bg-gold-accent/90 px-4 py-3 text-sm font-semibold tracking-wide text-charcoal-text transition-all duration-300 hover:bg-gold-accent hover:shadow-[0_4px_12px_rgba(208,184,146,0.3)] hover:-translate-y-0.5"
               >
                 Book a Consultation
               </button>

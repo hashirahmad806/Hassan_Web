@@ -28,12 +28,12 @@ export function AuraStandard() {
           {auraStandard.map((item) => {
             const IconComponent = iconMap[item.icon as keyof typeof iconMap] ?? Award;
             return (
-              <div key={item.title} className="group">
-                <div className="mb-6 flex justify-center text-gold-accent transition-transform duration-300 group-hover:scale-110">
+              <div key={item.title} className="group rounded-2xl p-6 transition-all duration-300 hover:bg-surface-container-lowest hover:shadow-[0_8px_30px_rgba(208,184,146,0.12)]">
+                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gold-accent/10 text-gold-accent transition-all duration-500 group-hover:scale-110 group-hover:bg-gold-accent group-hover:text-surface-container-lowest group-hover:shadow-[0_0_20px_rgba(208,184,146,0.4)]">
                   <IconComponent size={36} strokeWidth={1.5} />
                 </div>
                 <h3 className="mb-4 font-display-lg text-xl text-primary">{item.title}</h3>
-                <p className="font-body-md text-body-md text-on-surface-variant">
+                <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
                   {item.description}
                 </p>
               </div>

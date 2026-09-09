@@ -228,6 +228,22 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
+    id: 'case-021',
+    caseNumber: 'Case 021',
+    title: 'Full Arch Functional & Aesthetic Rehabilitation',
+    category: 'Full Mouth Rehabilitation',
+    challenge:
+      'Severe generalized attrition, reduced vertical dimension of occlusion, and chronic masticatory strain affecting overall facial proportions.',
+    solution:
+      'Complete digital mock-up, neuromuscular bite deprogramming, and full-arch layered ceramic restorations to restore natural biological contours.',
+    result:
+      'Harmonious facial aesthetics, restored vertical height, and a natural, radiantly confident smile with optimal biomechanics.',
+    beforeAlt:
+      'Clinical photography showing severe tooth wear and collapsed bite',
+    afterAlt:
+      'Clinical photography showing completed full mouth aesthetic and functional reconstruction',
+  },
+  {
     id: 'case-042',
     caseNumber: 'Case 042',
     title: 'Complete Smile Design',
@@ -272,6 +288,22 @@ export const caseStudies: CaseStudy[] = [
     beforeAlt: 'Dental photo showing missing central incisor',
     afterAlt:
       'Dental photo showing completed implant restoration with natural gingival contour',
+  },
+  {
+    id: 'case-135',
+    caseNumber: 'Case 135',
+    title: 'Biomimetic Ceramic Onlay & Structural Restoration',
+    category: 'Biomimetic Restorations',
+    challenge:
+      'Extensive structural breakdown of posterior molar dentition from aged restorations, threatening tooth vitality and masticatory strength.',
+    solution:
+      'Biomimetic stress-reduced foundation combined with a custom-milled ceramic onlay meticulously replicating natural cuspal anatomy.',
+    result:
+      'Total anatomical preservation, reinforcement of natural tooth biomechanics, and invisible margin integration.',
+    beforeAlt:
+      'Dental macro photograph of compromised molar with recurrent decay',
+    afterAlt:
+      'Dental macro photograph of completed biomimetic ceramic onlay restoration',
   },
 ];
 

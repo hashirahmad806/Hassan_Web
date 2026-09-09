@@ -8,6 +8,12 @@ import { useUIStore } from '@/store';
 import { usePreloaderStore } from '@/store/preloaderStore';
 import styles from './Header.module.css';
 
+/** Returns true if the given href matches the current pathname. */
+function isActive(pathname: string, href: string): boolean {
+  if (href === '/') return pathname === '/';
+  return pathname.startsWith(href);
+}
+
 /**
  * Fixed site header with scroll-aware styling and mobile menu.
  */
@@ -52,19 +58,31 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              className="font-label-button text-label-button text-on-surface-variant transition-colors duration-300 hover:text-primary"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const active = isActive(location.pathname, link.href);
+            return (
+              <Link
+                key={link.href}
+                to={link.href}
+                className={[
+                  'relative font-label-button text-label-button transition-colors duration-300',
+                  active ? 'text-primary' : 'text-on-surface-variant hover:text-primary',
+                ].join(' ')}
+              >
+                {link.label}
+                {active && (
+                  <span
+                    className="absolute -bottom-1 left-0 right-0 h-px rounded-full bg-gold-accent"
+                    aria-hidden="true"
+                  />
+                )}
+              </Link>
+            );
+          })}
         </nav>
 
         <Link to="/contact" className="hidden md:block">
-          <Button variant="primary" size="sm">
+          <Button variant="gold" size="sm">
             Book Consultation
           </Button>
         </Link>

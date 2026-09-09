@@ -3,9 +3,18 @@ import { caseStudies, galleryCategories, testimonials } from '@/content';
 import { useGalleryStore } from '@/store';
 
 import transform1 from '@/assets/images/real/case1.jpg';
-import transform2 from '@/assets/images/real/case2.jpg';
+import protoCase1 from '@/assets/images/real/proto_case1.jpg';
+import protoCase2 from '@/assets/images/real/proto_case2.jpg';
+import protoCase3 from '@/assets/images/real/proto_case3.jpg';
+import protoCase4 from '@/assets/images/real/proto_case4.jpg';
 
-const caseImages = [transform1, transform2, transform1];
+const caseImageMap: Record<string, string> = {
+  'case-021': protoCase1,
+  'case-042': protoCase2,
+  'case-089': transform1,
+  'case-112': protoCase3,
+  'case-135': protoCase4,
+};
 
 /**
  * Filterable gallery grid for clinical case studies matching design specifications.
@@ -65,7 +74,7 @@ export function GalleryGrid() {
       <div className="container-main space-y-24 py-16 md:py-24">
         {filtered.map((item, index) => {
           const isEven = index % 2 === 0;
-          const imgSrc = caseImages[index % caseImages.length];
+          const imgSrc = caseImageMap[item.id] || transform1;
           return (
             <article
               key={item.id}
@@ -73,12 +82,15 @@ export function GalleryGrid() {
             >
               <div className={`lg:col-span-7 ${isEven ? '' : 'lg:order-2'}`}>
                 <div className="museum-frame relative overflow-hidden border border-outline-variant bg-white p-3 shadow-sm transition-transform duration-700 hover:scale-[1.01]">
-                  <div className="aspect-[16/10] w-full overflow-hidden rounded-sm bg-surface-container">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm bg-surface-container">
                     <img
                       src={imgSrc}
                       alt={item.afterAlt}
                       className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                     />
+                    <div className="absolute bottom-3 right-3 rounded-full bg-charcoal-text/75 px-3 py-1 font-label-caps text-[10px] uppercase tracking-widest text-white backdrop-blur-sm">
+                      Case Preview
+                    </div>
                   </div>
                 </div>
               </div>
