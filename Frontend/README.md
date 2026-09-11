@@ -15,9 +15,11 @@ Production-grade React frontend for the Dr. Hassan Salman dental clinic website,
 | State | Zustand |
 | Routing | React Router v6 |
 | Forms | React Hook Form + Zod |
-| API | Axios (stubbed) |
+| CMS | Sanity v3 Client & Image URL Builder |
+| API | Axios + Express REST |
 | Icons | lucide-react |
 | Tests | Vitest + React Testing Library |
+
 
 ## Getting Started
 
