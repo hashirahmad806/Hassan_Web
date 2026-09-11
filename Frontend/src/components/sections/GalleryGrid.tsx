@@ -1,8 +1,8 @@
-import { ArrowRight, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Star, MessageCircle } from 'lucide-react';
 import { caseStudies, galleryCategories, testimonials } from '@/content';
 import { useGalleryStore } from '@/store';
 
-import transform1 from '@/assets/images/real/case1.jpg';
 import protoCase1 from '@/assets/images/real/proto_case1.jpg';
 import protoCase2 from '@/assets/images/real/proto_case2.jpg';
 import protoCase3 from '@/assets/images/real/proto_case3.jpg';
@@ -11,9 +11,9 @@ import protoCase4 from '@/assets/images/real/proto_case4.jpg';
 const caseImageMap: Record<string, string> = {
   'case-021': protoCase1,
   'case-042': protoCase2,
-  'case-089': transform1,
-  'case-112': protoCase3,
-  'case-135': protoCase4,
+  'case-089': protoCase3,
+  'case-112': protoCase4,
+  'case-135': protoCase2,
 };
 
 /**
@@ -74,7 +74,10 @@ export function GalleryGrid() {
       <div className="container-main space-y-24 py-16 md:py-24">
         {filtered.map((item, index) => {
           const isEven = index % 2 === 0;
-          const imgSrc = caseImageMap[item.id] || transform1;
+          const imgSrc = caseImageMap[item.id] || protoCase1;
+          const inquiryUrl = `/contact?case=${encodeURIComponent(item.caseNumber)}&title=${encodeURIComponent(item.title)}&category=${encodeURIComponent(item.category)}`;
+          const whatsappInquiryUrl = `https://wa.me/923349295638?text=${encodeURIComponent(`Hello Dr. Hassan, I am viewing ${item.caseNumber}: "${item.title}" (${item.category}) in your gallery and would like to inquire about a similar treatment consultation.`)}`;
+
           return (
             <article
               key={item.id}
@@ -131,13 +134,25 @@ export function GalleryGrid() {
                   </div>
                 </div>
 
-                <a
-                  href="#contact"
-                  className="mt-4 inline-flex items-center gap-2 font-label-caps text-xs uppercase tracking-widest text-primary transition-colors hover:text-gold-accent"
-                >
-                  <span className="border-b border-current pb-1">Inquire About Similar Case</span>
-                  <ArrowRight size={14} />
-                </a>
+                <div className="pt-2 flex flex-wrap items-center gap-3">
+                  <Link
+                    to={inquiryUrl}
+                    className="inline-flex items-center gap-2 rounded-full border border-primary bg-primary px-5 py-2.5 font-label-caps text-xs uppercase tracking-widest text-on-primary transition-all duration-300 hover:bg-gold-accent hover:border-gold-accent hover:text-white"
+                  >
+                    <span>Inquire About Similar Case</span>
+                    <ArrowRight size={14} />
+                  </Link>
+                  <a
+                    href={whatsappInquiryUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Inquire about ${item.caseNumber} on WhatsApp`}
+                    className="inline-flex items-center gap-2 rounded-full border border-[#25D366]/40 bg-[#25D366]/10 px-4 py-2.5 font-label-caps text-xs uppercase tracking-widest text-[#128C7E] transition-all duration-300 hover:bg-[#25D366] hover:text-white"
+                  >
+                    <MessageCircle size={14} />
+                    <span>WhatsApp</span>
+                  </a>
+                </div>
               </div>
             </article>
           );
@@ -172,6 +187,39 @@ export function GalleryGrid() {
           </div>
         </div>
       </div>
+
+      {/* Consultation Anchor Section for #contact */}
+      <section id="contact" className="border-t border-outline-variant/30 bg-surface-container-lowest py-16 md:py-24">
+        <div className="container-main mx-auto max-w-3xl text-center">
+          <span className="mb-3 block font-label-caps text-[11px] uppercase tracking-[0.2em] text-gold-accent">
+            Tailored Consultation
+          </span>
+          <h2 className="mb-4 font-headline-lg text-headline-lg-mobile text-charcoal-text md:text-headline-md">
+            Begin Your Smile Journey
+          </h2>
+          <p className="mx-auto mb-8 max-w-xl font-body-lg text-secondary">
+            Inspired by our clinical case results? Schedule an appointment with Dr. Hassan to explore customized aesthetic and restorative treatment solutions tailored to your unique smile.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 rounded-full border border-primary bg-primary px-8 py-3.5 font-label-caps text-xs uppercase tracking-widest text-on-primary transition-all duration-300 hover:bg-gold-accent hover:border-gold-accent"
+            >
+              <span>Book Formal Consultation</span>
+              <ArrowRight size={15} />
+            </Link>
+            <a
+              href="https://wa.me/923349295638?text=Hello%20Dr.%20Hassan%2C%20I%20reviewed%20your%20clinical%20cases%20in%20the%20gallery%20and%20would%20like%20to%20schedule%20a%20consultation."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-outline-variant px-6 py-3.5 font-label-caps text-xs uppercase tracking-widest text-charcoal-text transition-all duration-300 hover:border-[#25D366] hover:text-[#128C7E]"
+            >
+              <MessageCircle size={15} />
+              <span>Direct WhatsApp Inquiry</span>
+            </a>
+          </div>
+        </div>
+      </section>
     </section>
   );
 }

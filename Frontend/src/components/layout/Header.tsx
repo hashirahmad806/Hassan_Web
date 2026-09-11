@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Button } from '@/components/ui';
-import { navLinks, siteConfig } from '@/content';
+import { navLinks } from '@/content';
 import { useUIStore } from '@/store';
 import { usePreloaderStore } from '@/store/preloaderStore';
 import styles from './Header.module.css';

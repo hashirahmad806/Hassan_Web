@@ -10,7 +10,7 @@
  *           duration 0.90s — slow, weighty, premium
  *   1.00s  Tooth idles on screen (breathes gently)
  *   1.00s  Eyebrow "PRECISION CARE TECHNOLOGY" reveals — blur+fade, 0.7s
- *   1.30s  Brand name "Dr. Hassan Salman" reveals — blur+fade, 0.7s
+ *   1.30s  Brand name "Dr. Hassan" reveals — blur+fade, 0.7s
  *   1.10s  Precision ring begins — scale 0.65->1 + rotation, 1.0s
  *   1.60s  Progress bar fades in and starts filling + Digit counter
  *   ~3.0s  Page/asset ready + minimum elapsed -> isReady = true

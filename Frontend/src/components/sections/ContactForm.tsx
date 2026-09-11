@@ -128,6 +128,40 @@ export function ContactForm() {
       </div>
 
       <div className="space-y-8 p-8">
+        {caseTitle && (
+          <div className="flex items-start justify-between rounded-xl border border-gold-accent/40 bg-gold-accent/10 p-4">
+            <div className="flex items-start gap-3">
+              <Sparkles className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+              <div>
+                <p className="font-label-caps text-[10px] uppercase tracking-widest text-primary font-bold">
+                  Inquiring About Case Study {caseId && `• ${caseId}`}
+                </p>
+                <p className="font-headline-sm text-base font-semibold text-charcoal-text mt-0.5">
+                  {caseTitle}
+                </p>
+                {caseCategory && (
+                  <span className="inline-block mt-1.5 rounded-full border border-gold-accent/30 bg-surface-container-lowest px-2.5 py-0.5 font-label-caps text-[10px] uppercase tracking-wider text-primary">
+                    {caseCategory}
+                  </span>
+                )}
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                setSearchParams({});
+                setValue('message', '');
+                setValue('service', '');
+              }}
+              title="Clear case inquiry"
+              aria-label="Clear case inquiry"
+              className="text-on-surface-variant/60 hover:text-charcoal-text p-1 transition-colors"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+        )}
+
         <div>
           <div className="mb-5 flex items-center gap-3">
             <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary font-label-caps text-[10px] font-bold text-on-primary">

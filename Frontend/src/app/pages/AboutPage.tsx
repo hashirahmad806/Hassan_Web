@@ -28,7 +28,7 @@ const distinctionIcons = {
 };
 
 /**
- * Full About Page — Dr. Hassan Salman Expert Profile & Achievements.
+ * Full About Page — Dr. Hassan Expert Profile & Achievements.
  */
 export default function AboutPage() {
   const { hero, distinctions, timeline, education, memberships, philosophy } = aboutDetailed;
