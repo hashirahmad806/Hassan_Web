@@ -71,7 +71,7 @@ export const siteSettings = defineType({
       type: 'string',
       fieldset: 'clinicInfo',
       description: 'Internal clinic email destination that receives appointment booking submissions.',
-      placeholder: 'hello@drhassansalman.com',
+      placeholder: 'hassandent18@gmail.com',
       validation: (Rule) => Rule.email(),
     }),
     // ─── Social Media & Channels ────────────────────────────────────

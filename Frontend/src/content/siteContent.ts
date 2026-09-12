@@ -14,7 +14,7 @@ export const siteConfig = {
   whatsapp: '+92 334 9295638',
   whatsappMessage:
     'Hello Dr. Hassan, I would like to inquire about booking a consultation at your clinic.',
-  email: 'hello@drhassan.com',
+  email: 'hassandent18@gmail.com',
   address: '123 Medical Plaza, Suite 400, New York, NY 10001',
   copyright: '© 2024 Dr. Hassan. Excellence in Aesthetic Care.',
   socials: {

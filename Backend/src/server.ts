@@ -1,4 +1,4 @@
-﻿import express from 'express';
+import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
@@ -14,10 +14,31 @@ const app = express();
 // ─── Security middleware ────────────────────────────────────────────────────
 app.use(helmet());
 
+// ─── CORS configuration ───────────────────────────────────────────────────
+const allowedOrigins = [
+  'https://www.hassanbds.info',
+  'https://hassanbds.info',
+  'http://localhost:5173',
+  'http://localhost:3000',
+  ...(env.CORS_ORIGIN ? env.CORS_ORIGIN.split(',').map((o) => o.trim()) : []),
+];
+
 app.use(
   cors({
-    origin: env.CORS_ORIGIN,
-    methods: ['GET', 'POST'],
+    origin: (origin, callback) => {
+      // Allow requests with no origin (e.g. mobile apps, curl, server-to-server)
+      if (!origin) return callback(null, true);
+      if (
+        allowedOrigins.includes(origin) ||
+        origin.endsWith('.hassanbds.info') ||
+        origin.endsWith('.vercel.app')
+      ) {
+        return callback(null, true);
+      }
+      return callback(null, true);
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   }),
 );
@@ -43,7 +64,22 @@ const formLimiter = rateLimit({
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
-// ─── Health check ───────────────────────────────────────────────────────────
+// ─── Health & Root check ───────────────────────────────────────────────────
+app.get('/', (_req, res) => {
+  res.json({
+    success: true,
+    message: 'Dr. Hassan Dental Surgery REST API is active',
+    environment: env.NODE_ENV,
+    endpoints: {
+      health: '/api/health',
+      appointments: '/api/appointments',
+      contact: '/api/contact',
+      services: '/api/services',
+      gallery: '/api/gallery',
+    },
+  });
+});
+
 app.get('/api/health', (_req, res) => {
   res.json({
     success: true,
@@ -67,13 +103,15 @@ app.use((_req, res) => {
 // ─── Error handler ──────────────────────────────────────────────────────────
 app.use(errorHandler);
 
-// ─── Start server ───────────────────────────────────────────────────────────
-app.listen(env.PORT, () => {
-  console.log(`\n🦷  Dr. Hassan Salman Backend`);
-  console.log(`   Server running on http://localhost:${env.PORT}`);
-  console.log(`   Environment: ${env.NODE_ENV}`);
-  console.log(`   CORS origin: ${env.CORS_ORIGIN}`);
-  console.log(`   SMTP: ${env.SMTP_HOST ? env.SMTP_HOST : 'not configured (stub mode)'}\n`);
-});
+// ─── Start server (Standalone / Local dev only, bypassed on Vercel) ─────────
+if (!process.env['VERCEL']) {
+  app.listen(env.PORT, () => {
+    console.log(`\n🦷  Dr. Hassan Salman Backend`);
+    console.log(`   Server running on http://localhost:${env.PORT}`);
+    console.log(`   Environment: ${env.NODE_ENV}`);
+    console.log(`   CORS origins: ${allowedOrigins.join(', ')}`);
+    console.log(`   SMTP: ${env.SMTP_HOST ? env.SMTP_HOST : 'not configured (stub mode)'}\n`);
+  });
+}
 
 export default app;

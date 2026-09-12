@@ -1,4 +1,4 @@
-﻿import 'dotenv/config';
+import 'dotenv/config';
 
 export const env = {
   PORT: parseInt(process.env['PORT'] ?? '5000', 10),
@@ -8,6 +8,6 @@ export const env = {
   SMTP_PORT: parseInt(process.env['SMTP_PORT'] ?? '587', 10),
   SMTP_USER: process.env['SMTP_USER'] ?? '',
   SMTP_PASS: process.env['SMTP_PASS'] ?? '',
-  CLINIC_EMAIL: process.env['CLINIC_EMAIL'] ?? 'hello@drhassansalman.com',
-  FROM_EMAIL: process.env['FROM_EMAIL'] ?? 'noreply@drhassansalman.com',
+  CLINIC_EMAIL: process.env['CLINIC_EMAIL'] ?? 'hassandent18@gmail.com',
+  FROM_EMAIL: process.env['FROM_EMAIL'] ?? 'hassandent18@gmail.com',
 } as const;
