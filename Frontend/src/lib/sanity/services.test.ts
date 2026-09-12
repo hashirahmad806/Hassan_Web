@@ -1,6 +1,11 @@
 import { describe, it, expect, vi } from 'vitest';
-import { fetchSanityServices, fetchSanityGalleryCases } from './services';
-import { treatments, caseStudies } from '@/content';
+import {
+  fetchSanityServices,
+  fetchSanityGalleryCases,
+  fetchSanityTestimonials,
+  fetchSanitySiteSettings,
+} from './services';
+import { treatments, caseStudies, testimonials, siteConfig } from '@/content';
 
 describe('fetchSanityServices (Seam 1: Sanity Services Data Access)', () => {
   it('returns formatted services when Sanity client successfully returns data', async () => {
@@ -75,6 +80,80 @@ describe('fetchSanityGalleryCases (Seam 1: Sanity Gallery Data Access)', () => {
 
     expect(result.success).toBe(true);
     expect(result.data).toEqual(caseStudies);
+    expect(result.isFallback).toBe(true);
+  });
+});
+
+describe('fetchSanityTestimonials (Seam 2: Sanity Testimonials Data Access)', () => {
+  it('returns testimonials when Sanity client succeeds', async () => {
+    const mockTestimonials = [
+      {
+        _id: 'test-1',
+        _type: 'testimonial',
+        patientName: 'Eleanor Vance',
+        quote: 'World-class aesthetic care and perfectionism.',
+        rating: 5,
+        procedure: 'Porcelain Veneers',
+        verifiedPatient: true,
+        isFeatured: true,
+      },
+    ];
+
+    const mockClient = {
+      fetch: vi.fn().mockResolvedValue(mockTestimonials),
+    };
+
+    const result = await fetchSanityTestimonials(mockClient as any);
+
+    expect(result.success).toBe(true);
+    expect(result.data).toEqual(mockTestimonials);
+    expect(result.isFallback).toBe(false);
+  });
+
+  it('falls back gracefully to static testimonials when Sanity client fails', async () => {
+    const mockClient = {
+      fetch: vi.fn().mockRejectedValue(new Error('Sanity timeout')),
+    };
+
+    const result = await fetchSanityTestimonials(mockClient as any);
+
+    expect(result.success).toBe(true);
+    expect(result.data).toEqual(testimonials);
+    expect(result.isFallback).toBe(true);
+  });
+});
+
+describe('fetchSanitySiteSettings (Seam 3: Sanity Site Settings Data Access)', () => {
+  it('returns settings when Sanity client succeeds', async () => {
+    const mockSettings = {
+      _id: 'siteSettings',
+      _type: 'siteSettings',
+      clinicName: 'Dr. Hassan Dental Clinic',
+      emergencyPhone: '+92 334 9295638',
+      email: 'hello@drhassansalman.com',
+      notificationEmail: 'hello@drhassansalman.com',
+    };
+
+    const mockClient = {
+      fetch: vi.fn().mockResolvedValue(mockSettings),
+    };
+
+    const result = await fetchSanitySiteSettings(mockClient as any);
+
+    expect(result.success).toBe(true);
+    expect(result.data).toEqual(mockSettings);
+    expect(result.isFallback).toBe(false);
+  });
+
+  it('falls back gracefully to static siteConfig when Sanity client fails or returns null', async () => {
+    const mockClient = {
+      fetch: vi.fn().mockRejectedValue(new Error('Network error')),
+    };
+
+    const result = await fetchSanitySiteSettings(mockClient as any);
+
+    expect(result.success).toBe(true);
+    expect(result.data).toEqual(siteConfig);
     expect(result.isFallback).toBe(true);
   });
 });

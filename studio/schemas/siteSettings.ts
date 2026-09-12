@@ -20,6 +20,11 @@ export const siteSettings = defineType({
       title: '👨‍⚕️ Head Surgeon / Doctor Bio',
       options: { collapsible: true, collapsed: false },
     },
+    {
+      name: 'socialChannels',
+      title: '🌐 Social Media & Digital Channels',
+      options: { collapsible: true, collapsed: false },
+    },
   ],
   fields: [
     // ─── Clinic Contact & Info ──────────────────────────────────────
@@ -54,10 +59,49 @@ export const siteSettings = defineType({
     }),
     defineField({
       name: 'email',
-      title: 'Clinic Inquiries Email',
+      title: 'Clinic Inquiries Email (Public)',
       type: 'string',
       fieldset: 'clinicInfo',
+      description: 'Public patient inquiries email displayed on the contact page and footer.',
       validation: (Rule) => Rule.email(),
+    }),
+    defineField({
+      name: 'notificationEmail',
+      title: 'Booking & Alerts Notification Email (Sender Target)',
+      type: 'string',
+      fieldset: 'clinicInfo',
+      description: 'Internal clinic email destination that receives appointment booking submissions.',
+      placeholder: 'hello@drhassansalman.com',
+      validation: (Rule) => Rule.email(),
+    }),
+    // ─── Social Media & Channels ────────────────────────────────────
+    defineField({
+      name: 'instagramUrl',
+      title: 'Instagram Profile URL',
+      type: 'url',
+      fieldset: 'socialChannels',
+      placeholder: 'https://www.instagram.com/im.hassanbds/',
+    }),
+    defineField({
+      name: 'facebookUrl',
+      title: 'Facebook Page URL',
+      type: 'url',
+      fieldset: 'socialChannels',
+      placeholder: 'https://www.facebook.com/people/Dr-Hassan/100095052914472/',
+    }),
+    defineField({
+      name: 'linkedinUrl',
+      title: 'LinkedIn Profile URL',
+      type: 'url',
+      fieldset: 'socialChannels',
+      placeholder: 'https://www.linkedin.com/in/muhammad-hassan-bds-13b85a1b7',
+    }),
+    defineField({
+      name: 'youtubeUrl',
+      title: 'YouTube Channel URL',
+      type: 'url',
+      fieldset: 'socialChannels',
+      placeholder: 'https://www.youtube.com/@drhassansalman',
     }),
     defineField({
       name: 'address',

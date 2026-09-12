@@ -1,8 +1,9 @@
-﻿import { Router } from 'express';
+import { Router } from 'express';
 import type { Request, Response } from 'express';
 import { z } from 'zod';
 import { validate } from '../middleware/validate.js';
 import { sendEmail } from '../config/mailer.js';
+import { env } from '../config/env.js';
 
 const router = Router();
 
@@ -21,7 +22,8 @@ router.post('/', validate(contactSchema), async (req: Request, res: Response) =>
     const data = req.body as ContactData;
 
     await sendEmail({
-      to: process.env['CLINIC_EMAIL'] ?? 'hello@drhassansalman.com',
+      to: env.CLINIC_EMAIL,
+      replyTo: data.email,
       subject: `[Website Inquiry] ${data.subject} — from ${data.name}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px;">

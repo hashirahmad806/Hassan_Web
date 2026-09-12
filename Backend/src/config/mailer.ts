@@ -5,6 +5,7 @@ export interface EmailOptions {
   to: string;
   subject: string;
   html: string;
+  replyTo?: string;
 }
 
 /**
@@ -22,9 +23,12 @@ export async function sendEmail(options: EmailOptions): Promise<void> {
   // ── Dev stub mode ──────────────────────────────────────────────────────────
   if (!isSmtpConfigured()) {
     console.log('\n[mailer stub] 📧 Email would be sent:');
-    console.log(`  To:      ${options.to}`);
-    console.log(`  Subject: ${options.subject}`);
-    console.log(`  Preview: ${options.html.replace(/<[^>]*>/g, '').trim().slice(0, 120)}...\n`);
+    console.log(`  To:       ${options.to}`);
+    if (options.replyTo) {
+      console.log(`  Reply-To: ${options.replyTo}`);
+    }
+    console.log(`  Subject:  ${options.subject}`);
+    console.log(`  Preview:  ${options.html.replace(/<[^>]*>/g, '').trim().slice(0, 120)}...\n`);
     return;
   }
 
@@ -42,6 +46,7 @@ export async function sendEmail(options: EmailOptions): Promise<void> {
   await transporter.sendMail({
     from: `"Dr. Hassan Salman Clinic" <${env.FROM_EMAIL}>`,
     to: options.to,
+    replyTo: options.replyTo,
     subject: options.subject,
     html: options.html,
   });

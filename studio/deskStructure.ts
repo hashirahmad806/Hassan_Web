@@ -38,6 +38,15 @@ export const deskStructure: StructureResolver = (S) =>
             .title('Before & After Patient Cases')
         ),
 
+      // ─── Patient Testimonials & Reviews ────────────────────────────
+      S.listItem()
+        .title('💬 Patient Reviews & Testimonials')
+        .child(
+          S.documentTypeList('testimonial')
+            .title('Patient Reviews & Ratings')
+            .defaultOrdering([{ field: 'order', direction: 'asc' }])
+        ),
+
       // ─── Patient Education & Blogs ─────────────────────────────────
       S.listItem()
         .title('📚 Patient Education (Blog)')
@@ -64,7 +73,7 @@ export const deskStructure: StructureResolver = (S) =>
       // ─── Filter Out Managed Types from Default List ───────────────
       ...S.documentTypeListItems().filter(
         (listItem) =>
-          !['siteSettings', 'service', 'galleryCase', 'post', 'author'].includes(
+          !['siteSettings', 'service', 'galleryCase', 'testimonial', 'post', 'author'].includes(
             listItem.getId() || ''
           )
       ),

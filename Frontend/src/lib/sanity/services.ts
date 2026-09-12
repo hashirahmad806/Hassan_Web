@@ -1,7 +1,7 @@
 import { sanityClient } from './client';
-import { servicesQuery, galleryCasesQuery } from './queries';
-import { treatments, caseStudies } from '@/content';
-import type { Service, GalleryCase } from './types';
+import { servicesQuery, galleryCasesQuery, testimonialsQuery, siteSettingsQuery } from './queries';
+import { treatments, caseStudies, testimonials, siteConfig } from '@/content';
+import type { Service, GalleryCase, SanityTestimonial, SiteSettings } from './types';
 
 export type SanityService = Service;
 export type SanityGalleryCase = GalleryCase;
@@ -66,6 +66,64 @@ export async function fetchSanityGalleryCases(
     return {
       success: true,
       data: caseStudies,
+      isFallback: true,
+    };
+  }
+}
+
+/**
+ * Fetches patient reviews and testimonials from Sanity CMS with fallback to static testimonials.
+ */
+export async function fetchSanityTestimonials(
+  client = sanityClient,
+): Promise<FetchResult<SanityTestimonial[] | typeof testimonials>> {
+  try {
+    const data = await client.fetch<SanityTestimonial[]>(testimonialsQuery);
+    if (Array.isArray(data) && data.length > 0) {
+      return {
+        success: true,
+        data,
+        isFallback: false,
+      };
+    }
+    return {
+      success: true,
+      data: testimonials,
+      isFallback: true,
+    };
+  } catch {
+    return {
+      success: true,
+      data: testimonials,
+      isFallback: true,
+    };
+  }
+}
+
+/**
+ * Fetches singleton clinic site settings from Sanity CMS with fallback to siteConfig.
+ */
+export async function fetchSanitySiteSettings(
+  client = sanityClient,
+): Promise<FetchResult<SiteSettings | typeof siteConfig>> {
+  try {
+    const data = await client.fetch<SiteSettings>(siteSettingsQuery);
+    if (data && typeof data === 'object' && Object.keys(data).length > 0) {
+      return {
+        success: true,
+        data,
+        isFallback: false,
+      };
+    }
+    return {
+      success: true,
+      data: siteConfig,
+      isFallback: true,
+    };
+  } catch {
+    return {
+      success: true,
+      data: siteConfig,
       isFallback: true,
     };
   }

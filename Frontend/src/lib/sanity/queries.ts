@@ -13,6 +13,11 @@ export const siteSettingsQuery = `
     emergencyPhone,
     whatsappNumber,
     email,
+    notificationEmail,
+    instagramUrl,
+    facebookUrl,
+    linkedinUrl,
+    youtubeUrl,
     address,
     googleMapsUrl,
     workingHours,
@@ -28,6 +33,30 @@ export const siteSettingsQuery = `
     doctorQualifications,
     doctorBio,
     doctorPortrait {
+      asset->,
+      crop,
+      hotspot,
+      alt
+    }
+  }
+`
+
+/**
+ * Fetch all patient testimonials and reviews ordered by priority
+ */
+export const testimonialsQuery = `
+  *[_type == "testimonial"] | order(order asc, _createdAt desc) {
+    _id,
+    _type,
+    patientName,
+    quote,
+    rating,
+    procedure,
+    caseStudyRef,
+    verifiedPatient,
+    isFeatured,
+    order,
+    avatar {
       asset->,
       crop,
       hotspot,

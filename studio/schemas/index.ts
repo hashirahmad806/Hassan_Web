@@ -4,6 +4,7 @@ import { galleryCase } from './galleryCase'
 import { post } from './post'
 import { service } from './service'
 import { siteSettings } from './siteSettings'
+import { testimonial } from './testimonial'
 
 export const schemaTypes = [
   // Singleton settings
@@ -12,6 +13,8 @@ export const schemaTypes = [
   service,
   // Smile transformations
   galleryCase,
+  // Patient social proof
+  testimonial,
   // Patient education
   post,
   author,

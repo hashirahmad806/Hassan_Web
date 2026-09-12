@@ -44,6 +44,11 @@ export interface SiteSettings {
   emergencyPhone: string
   whatsappNumber: string
   email?: string
+  notificationEmail?: string
+  instagramUrl?: string
+  facebookUrl?: string
+  linkedinUrl?: string
+  youtubeUrl?: string
   address: string
   googleMapsUrl?: string
   workingHours: WorkingHourItem[]
@@ -54,6 +59,20 @@ export interface SiteSettings {
   doctorQualifications: string
   doctorBio: string
   doctorPortrait: SanityImage
+}
+
+export interface SanityTestimonial {
+  _id: string
+  _type: 'testimonial'
+  patientName: string
+  quote: string
+  rating: number
+  procedure?: string
+  caseStudyRef?: string
+  verifiedPatient?: boolean
+  isFeatured?: boolean
+  order?: number
+  avatar?: SanityImage
 }
 
 export interface Service {

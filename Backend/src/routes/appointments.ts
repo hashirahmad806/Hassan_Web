@@ -1,8 +1,9 @@
-﻿import { Router } from 'express';
+import { Router } from 'express';
 import type { Request, Response } from 'express';
 import { z } from 'zod';
 import { validate } from '../middleware/validate.js';
 import { sendEmail } from '../config/mailer.js';
+import { env } from '../config/env.js';
 
 const router = Router();
 
@@ -26,7 +27,8 @@ router.post('/', validate(appointmentSchema), async (req: Request, res: Response
 
     // Send notification email to clinic
     await sendEmail({
-      to: process.env['CLINIC_EMAIL'] ?? 'hello@drhassansalman.com',
+      to: env.CLINIC_EMAIL,
+      replyTo: data.email,
       subject: `New Appointment Request — ${data.service} — ${data.firstName} ${data.lastName}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px;">
@@ -46,6 +48,7 @@ router.post('/', validate(appointmentSchema), async (req: Request, res: Response
     // Send confirmation email to patient
     await sendEmail({
       to: data.email,
+      replyTo: env.CLINIC_EMAIL,
       subject: 'Appointment Request Received — Dr. Hassan Salman',
       html: `
         <div style="font-family: sans-serif; max-width: 600px;">
