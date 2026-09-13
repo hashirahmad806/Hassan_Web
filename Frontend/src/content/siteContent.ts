@@ -34,27 +34,27 @@ export const navLinks: NavLink[] = [
 ];
 
 export const heroContent = {
-  label: '20 Years of Excellence in Smile Design',
-  heading: '20 Years of Excellence',
-  headingAccent: 'in Smile Design',
+  label: '3 Years of Excellence in Smile Design',
+  heading: '3 Years of Surgical',
+  headingAccent: 'Smile Artistry',
   description:
-    'A fusion of luxury aesthetic and world-class dental care. Experience the pinnacle of personalized dentistry in an environment crafted for your absolute comfort.',
-  primaryCta: 'Book Appointment',
+    'Where surgical precision converges with artistic mastery. Each smile is meticulously sculpted — bespoke to your anatomy, your character, your confidence.',
+  primaryCta: 'Book Consultation',
   secondaryCta: 'Call Now',
 } as const;
 
 export const doctorProfile: DoctorProfile = {
   name: 'Dr. Hassan',
-  title: 'Lead Dental Surgeon',
+  title: 'Lead Aesthetic Dental Surgeon',
   rating: 5,
   ratingLabel: '5.0 PATIENT RATING',
-  experienceLabel: '20+ YEARS EXPERIENCE',
-  quote: '"A beautiful smile is the ultimate expression of health and confidence."',
-  imageAlt: 'High-end editorial portrait of Dr. Hassan in a luxury clinical setting.',
+  experienceLabel: '3+ YEARS EXPERIENCE',
+  quote: '"Every smile I craft is a signature — a permanent mark of artistry and care."',
+  imageAlt: 'Editorial portrait of Dr. Hassan in a luxury clinical setting.',
 };
 
 export const trustBadges: TrustBadge[] = [
-  { icon: 'verified', label: '20+ Years Expertise' },
+  { icon: 'verified', label: '3+ Years Clinical Mastery' },
   { icon: 'precision', label: '10k+ Smiles Created' },
   { icon: 'heart', label: 'Award Winning Aesthetic Excellence' },
 ];
@@ -128,12 +128,12 @@ export const aboutContent = {
   heading: 'The Aura Standard',
   headingAccent: 'Where Artistry Meets Precision',
   paragraph1:
-    'With over two decades of dedicated practice, Dr. Hassan has redefined aesthetic dentistry. His approach blends meticulous surgical precision with an artist’s eye for proportion and balance.',
+    'With dedicated clinical focus and precision craftsmanship, Dr. Hassan has redefined aesthetic dentistry. His approach blends meticulous surgical precision with an artist’s eye for proportion and balance.',
   paragraph2:
     'Our sanctuary-like clinic is designed to provide an atmosphere of complete tranquility while delivering world-class dental solutions.',
   ctaLabel: 'Discover His Journey',
   stats: [
-    { value: '20+', label: 'Years Expertise' },
+    { value: '3+', label: 'Years Expertise' },
     { value: '10k+', label: 'Smiles Created' },
     { value: '99%', label: 'Patient Satisfaction' },
   ],
@@ -473,7 +473,7 @@ export const aboutDetailed = {
   hero: {
     heading: 'A Legacy of Clinical Excellence.',
     paragraph1:
-      'For over two decades, Dr. Hassan has redefined aesthetic care, merging surgical precision with an artist’s touch to create transformative, natural results in a sanctuary of calm.',
+      'With dedicated clinical focus, Dr. Hassan has redefined aesthetic care, merging surgical precision with an artist’s touch to create transformative, natural results in a sanctuary of calm.',
     paragraph2:
       'His unwavering commitment to continuous education keeps him at the forefront of medical advancements, while his passion for mentoring junior surgeons ensures a legacy of excellence for generations to come.',
   },

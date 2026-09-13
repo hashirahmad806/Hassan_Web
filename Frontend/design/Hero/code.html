@@ -1,0 +1,301 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Dr. Hassan — Atelier of Smile Design | World-Class Cosmetic Dentistry</title>
+<!-- Google Fonts: Cormorant Garamond, Plus Jakarta Sans, Public Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "terracotta": "#a85232",
+            "terracotta-dark": "#8a3f24",
+            "terracotta-light": "#c86843",
+            "alabaster": "#f6f2ec",
+            "alabaster-warm": "#f0eae1",
+            "alabaster-card": "#fbf9f6",
+            "graphite": "#1a1715",
+            "graphite-muted": "#57524e",
+            "hairline": "#e2d7cb",
+            "hairline-dark": "#2b2520",
+          },
+          fontFamily: {
+            "display": ["Public Sans", "sans-serif"],
+            "serif-luxury": ["Cormorant Garamond", "serif"],
+            "sans-body": ["Plus Jakarta Sans", "sans-serif"],
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Architectural Swiss grid lines */
+    .grid-hairline-t { border-top: 1px solid #e2d7cb; }
+    .grid-hairline-b { border-bottom: 1px solid #e2d7cb; }
+    .grid-hairline-l { border-left: 1px solid #e2d7cb; }
+    .grid-hairline-r { border-right: 1px solid #e2d7cb; }
+
+    /* Crisp terracotta text accent */
+    .terracotta-gradient-text {
+      background: linear-gradient(135deg, #a85232 0%, #c86843 60%, #8a3f24 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brutalist-btn-terracotta {
+      background-color: #a85232;
+      color: #f6f2ec;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .brutalist-btn-terracotta:hover {
+      background-color: #1a1715;
+      color: #ffffff;
+    }
+
+    .brutalist-btn-outline {
+      background-color: transparent;
+      border: 1px solid #1a1715;
+      color: #1a1715;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .brutalist-btn-outline:hover {
+      background-color: #1a1715;
+      color: #f6f2ec;
+    }
+</style>
+</head>
+<body class="bg-alabaster text-graphite font-display antialiased selection:bg-terracotta selection:text-white min-h-screen flex flex-col">
+<!-- Top Announcement Notification (Brutalist Architectural Micro Strip) -->
+
+<!-- Header / Navigation Bar (Architectural Inset Grid) -->
+<div class="border-b border-hairline bg-alabaster">
+<header class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-20">
+<!-- Atelier Brand Logo -->
+<a class="flex items-center gap-3.5 group pr-8 border-r border-hairline h-full" href="#">
+<div class="w-9 h-9 bg-graphite flex items-center justify-center text-alabaster shadow-none group-hover:bg-terracotta transition-colors">
+<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" opacity="0.2"></path>
+<path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.3c-.2.2-.2.51 0 .71.2.2.51.2.71 0l1.7-1.7C8.28 19.37 10.06 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<div class="flex items-baseline gap-1">
+<span class="font-serif-luxury text-2xl font-bold tracking-tight text-graphite leading-none uppercase">Dr. Hassan</span>
+<span class="w-1.5 h-1.5 bg-terracotta"></span>
+</div>
+<span class="text-[9px] uppercase tracking-[0.25em] text-graphite-muted font-bold -mt-0.5">Atelier of Smile Design</span>
+</div>
+</a>
+<!-- Centered Structured Swiss Navigation -->
+<nav class="hidden lg:flex items-center h-full px-2 text-graphite">
+<a class="px-5 h-full flex items-center text-xs font-bold uppercase tracking-widest text-graphite border-b-2 border-terracotta bg-alabaster-warm/40" href="#">Home</a>
+<a class="px-5 h-full flex items-center text-xs font-semibold uppercase tracking-widest text-graphite-muted hover:text-graphite hover:bg-alabaster-warm/50 transition-colors" href="#">Philosophy</a>
+<a class="px-5 h-full flex items-center text-xs font-semibold uppercase tracking-widest text-graphite-muted hover:text-graphite hover:bg-alabaster-warm/50 transition-colors" href="#">Smile Transformations</a>
+<a class="px-5 h-full flex items-center text-xs font-semibold uppercase tracking-widest text-graphite-muted hover:text-graphite hover:bg-alabaster-warm/50 transition-colors" href="#">Treatments</a>
+<a class="px-5 h-full flex items-center text-xs font-semibold uppercase tracking-widest text-graphite-muted hover:text-graphite hover:bg-alabaster-warm/50 transition-colors" href="#">Dr. Hassan</a>
+<a class="px-5 h-full flex items-center text-xs font-semibold uppercase tracking-widest text-graphite-muted hover:text-graphite hover:bg-alabaster-warm/50 transition-colors" href="#">Contact</a>
+</nav>
+<!-- Right Utility & CTA -->
+<div class="flex items-center h-full pl-6 border-l border-hairline gap-4">
+<a class="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold tracking-wider uppercase text-graphite-muted hover:text-graphite px-2 transition-colors" href="#schedule">
+<span class="material-symbols-outlined text-base text-terracotta">lock</span> Patient Portal
+      </a>
+<a class="group inline-flex items-center gap-2 bg-graphite text-alabaster px-6 py-3.5 text-xs uppercase tracking-widest font-bold transition-all duration-200 hover:bg-terracotta" href="#consultation">
+<span class="">Book Consultation</span>
+<span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-0.5">north_east</span>
+</a>
+</div>
+</header>
+</div>
+<!-- Modernist Proof & Distinction Data Strip (Architectural Top Rib) -->
+<section class="border-b border-hairline bg-alabaster-warm/40">
+<div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-hairline">
+<div class="py-3.5 px-6 flex flex-col justify-center">
+<span class="text-[10px] uppercase tracking-[0.25em] text-graphite-muted font-bold">Legacy</span>
+<span class="text-2xl lg:text-3xl font-serif-luxury font-bold text-graphite">20+ Years</span>
+</div>
+<div class="py-3.5 px-6 flex flex-col justify-center">
+<span class="text-[10px] uppercase tracking-[0.25em] text-graphite-muted font-bold">Bespoke Smiles</span>
+<span class="text-2xl lg:text-3xl font-serif-luxury font-bold text-graphite">12,000+</span>
+</div>
+<div class="py-3.5 px-6 flex flex-col justify-center">
+<span class="text-[10px] uppercase tracking-[0.25em] text-graphite-muted font-bold">Patient Distinction</span>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl lg:text-3xl font-serif-luxury font-bold text-graphite">5.0</span>
+<span class="text-terracotta text-xs tracking-tighter">★★★★★</span>
+</div>
+</div>
+<div class="py-3.5 px-6 flex flex-col justify-center">
+<span class="text-[10px] uppercase tracking-[0.25em] text-graphite-muted font-bold">Accreditation</span>
+<span class="text-2xl lg:text-3xl font-serif-luxury font-bold text-graphite">AACD Master</span>
+</div>
+</div>
+</section>
+<!-- Main Architectural Grid Body -->
+<main class="grow max-w-7xl mx-auto w-full border-x border-hairline flex flex-col">
+<div class="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-hairline grow">
+<!-- Left Column: Editorial Statement, Headings & Funnel -->
+<div class="lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between space-y-8 bg-alabaster">
+<div class="space-y-7">
+<!-- Availability Badge (Brutalist Boxed Tag) -->
+<div class="inline-flex items-center gap-2 border border-hairline px-3.5 py-1.5 bg-alabaster-card">
+<span class="w-2 h-2 bg-[#2E8530]"></span>
+<span class="text-[10px] uppercase tracking-[0.2em] font-bold text-graphite">Available for Consultation Today</span>
+<span class="text-terracotta font-semibold text-[10px] hidden sm:inline">• Beverly Hills Suite</span>
+</div>
+<!-- Overlapping Serif Architectural Headline -->
+<div class="border-l-4 border-terracotta pl-5 sm:pl-7 py-1">
+<h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-graphite">3 Years of Excellence <br>
+<span class="font-serif-luxury italic font-normal terracotta-gradient-text text-5xl sm:text-7xl lg:text-[5.4rem] tracking-tight block mt-2">
+              in Smile Design.
+            </span>
+</h1>
+</div>
+<!-- Editorial Subtitle -->
+<p class="font-sans-body text-base sm:text-lg text-graphite-muted leading-relaxed max-w-xl font-normal pt-1">
+          A harmonious blend of bespoke facial aesthetics and world-class cosmetic dentistry. Step into an atmosphere curated for tranquil refinement, artistic mastery, and uncompromised precision.
+        </p>
+<!-- Primary & Secondary Interactive Action CTAs -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+<a class="brutalist-btn-terracotta px-8 py-4 text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-3 group cursor-pointer" href="#book">
+<span class="">Reserve Your Visit</span>
+<span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-1">calendar_month</span>
+</a>
+<a class="brutalist-btn-outline px-8 py-4 text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-2.5" href="#gallery">
+<span class="material-symbols-outlined text-lg text-terracotta">play_circle</span>
+<span class="">Explore Gallery</span>
+</a>
+</div>
+</div>
+<!-- Feature Badges (Brutalist Architectural Grid Pills) -->
+<div class="pt-6 border-t border-hairline">
+<div class="flex flex-wrap items-center gap-2.5">
+<div class="flex items-center gap-2 px-3.5 py-2 border border-hairline bg-alabaster-card text-xs font-bold uppercase tracking-wider text-graphite">
+<span class="material-symbols-outlined text-base text-terracotta">view_in_ar</span>
+<span class="">Interactive 3D Smile Preview</span>
+</div>
+<div class="flex items-center gap-2 px-3.5 py-2 border border-hairline bg-alabaster-card text-xs font-bold uppercase tracking-wider text-graphite">
+<span class="material-symbols-outlined text-base text-terracotta">verified</span>
+<span class="">Bespoke Porcelain Veneers</span>
+</div>
+<div class="flex items-center gap-2 px-3.5 py-2 border border-hairline bg-alabaster-card text-xs font-bold uppercase tracking-wider text-graphite">
+<span class="material-symbols-outlined text-base text-terracotta">auto_awesome</span>
+<span class="">Facial Aesthetic Harmony</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Museum Architectural Doctor Showcase -->
+<div class="lg:col-span-5 flex flex-col justify-between bg-alabaster-card">
+<!-- Top Museum Gallery Framing of Doctor -->
+<div class="p-6 sm:p-8 lg:p-10 space-y-6">
+<!-- Architectural Museum Frame Badge -->
+<div class="relative border-2 border-graphite p-2 bg-alabaster">
+<!-- Lead Surgeon Image Spotlight with Sharp Geometry -->
+<div class="relative w-full aspect-[4/3] overflow-hidden bg-[#e0d7cb]">
+<div class="w-full h-full bg-cover bg-top" data-alt="Distinguished cosmetic dental surgeon Dr. Hassan dressed in an elegant tailored charcoal blazer and pristine cream clinical attire, radiating warmth, refined confidence, and calm authority inside a modern architectural consultation suite illuminated by soft studio lighting with warm neutral background accents." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBKOstHP8-TbhxeLF3NZcs2duyQ-t5K6sDGy3u76i0b_3sXOdLWrLun4WXw1RMFRc4BilFSFByXGBmQ5C2d1m6zSnyVFyRGHtiZ6aHnhWBgxUsziMgzYUAGjGUHDTU9rMp9-39nWFArBf-_YS9zvey8s7CxPfhulQTMwizp48QPPCBQGTEEl4wq6fmP7bYoIlhcER34MQGXoyqwOAIKz9OH6TDgKsMO7LvyzNI6nXRFgOqh5ii2y9LGrw&quot;);"></div>
+<!-- Inset AACD Seal -->
+<div class="absolute top-0 right-0 bg-graphite text-alabaster px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5 border-b border-l border-alabaster">
+<span class="material-symbols-outlined text-xs text-terracotta-light">verified</span>
+<span class="">Accredited Master AACD</span>
+</div>
+<!-- In Clinic Tag -->
+<div class="absolute bottom-0 left-0 bg-alabaster/95 text-graphite px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider flex items-center gap-2 border-t border-r border-hairline">
+<span class="w-1.5 h-1.5 bg-[#2E8530]"></span>
+<span class="">In Clinic Today • Beverly Hills</span>
+</div>
+</div>
+</div>
+<!-- Doctor Details Header -->
+<div class="space-y-4 text-left">
+<div class="flex items-start justify-between border-b border-hairline pb-4">
+<div>
+<h3 class="font-serif-luxury text-3xl font-bold text-graphite uppercase leading-tight">Dr. Hassan, DDS, FAGD</h3>
+<p class="text-[11px] uppercase tracking-[0.2em] text-terracotta font-bold mt-1">Lead Aesthetic Surgeon &amp; Founder</p>
+</div>
+<div class="text-right pl-3">
+<div class="text-xs font-bold text-graphite flex items-center justify-end gap-1">
+<span class="text-terracotta">★</span> 5.0 Rating
+              </div>
+<span class="text-[10px] text-graphite-muted font-bold tracking-wider uppercase">850+ Verified Reviews</span>
+</div>
+</div>
+<!-- Editorial Quote -->
+<blockquote class="relative border-l-2 border-terracotta pl-4 py-1">
+<p class="font-serif-luxury italic text-graphite text-lg sm:text-xl leading-snug">
+              "A tailored smile is the ultimate expression of confidence, proportion, and timeless natural beauty."
+            </p>
+</blockquote>
+<!-- Action Buttons -->
+<div class="pt-2 flex items-stretch gap-2">
+<a class="flex-1 bg-graphite hover:bg-terracotta text-alabaster py-3 px-4 text-xs font-bold tracking-widest uppercase text-center transition-colors flex items-center justify-center gap-2" href="#quick-schedule">
+<span class="">Quick Schedule</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+<button class="px-4 border border-graphite hover:bg-graphite hover:text-alabaster text-graphite transition-colors flex items-center justify-center" title="View Patient Case Studies">
+<span class="material-symbols-outlined text-base">photo_library</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Docked 3D Preview Bar (Brutalist Foundation Block) -->
+<div class="border-t border-hairline bg-alabaster p-4 sm:p-5 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-terracotta text-alabaster flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-xl">3d_rotation</span>
+</div>
+<div class="flex flex-col text-left">
+<span class="text-xs font-bold uppercase tracking-wider text-graphite">3D Smile Simulation Available</span>
+<span class="text-[11px] text-graphite-muted font-sans-body">Preview your natural smile architecture in Real-Time</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-base text-terracotta animate-bounce">pan_tool_alt</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Distinction Strip (Architectural Monolith Footer) -->
+<footer class="border-t border-hairline bg-alabaster-warm/60 py-4 px-4 sm:px-8">
+<div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-graphite-muted">
+<div class="flex items-center gap-4 flex-wrap">
+<span class="font-serif-luxury italic text-sm font-bold text-graphite">Featured In:</span>
+<span class="tracking-widest uppercase text-[10px] text-graphite font-bold">Architectural Digest</span>
+<span class="text-hairline font-bold">•</span>
+<span class="tracking-widest uppercase text-[10px] text-graphite font-bold">Vogue Living</span>
+<span class="text-hairline font-bold">•</span>
+<span class="tracking-widest uppercase text-[10px] text-graphite font-bold">Town &amp; Country</span>
+</div>
+<div class="flex items-center gap-5 text-[11px] font-medium">
+<span class="text-graphite font-semibold">9454 Wilshire Blvd, Beverly Hills, CA</span>
+<span class="text-hairline">•</span>
+<a class="hover:text-terracotta transition-colors uppercase tracking-wider text-[10px] font-bold text-graphite" href="#">Privacy &amp; Concierge Standards</a>
+</div>
+</div>
+</footer>
+
+
+</body></html>

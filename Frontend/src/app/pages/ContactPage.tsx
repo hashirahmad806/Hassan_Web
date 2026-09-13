@@ -19,7 +19,7 @@ import { formatPhoneLink, formatWhatsAppLink } from '@/utils';
 const trustItems = [
   { value: '24h', label: 'Response Time' },
   { value: '5★', label: 'Patient Rating' },
-  { value: '20+', label: 'Years Experience' },
+  { value: '3+', label: 'Years Experience' },
   { value: '10k+', label: 'Smiles Created' },
 ];
 

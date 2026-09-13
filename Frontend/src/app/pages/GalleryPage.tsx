@@ -1,17 +1,23 @@
 import { Header, Footer, MobileStickyActions, PageWrapper } from '@/components/layout';
 import { Skeleton } from 'boneyard-js/react';
-import { GalleryGrid } from '@/components/sections';
+import { GalleryGrid, GalleryHero } from '@/components/sections';
 
 /**
- * Gallery page for clinical case studies.
+ * Gallery page — cinematic hero header + clinical case studies grid.
  */
 export default function GalleryPage() {
   return (
     <Skeleton name="gallery" loading={false}>
       <PageWrapper>
         <Header />
-        <main className="pt-24">
-          <GalleryGrid />
+        <main>
+          {/* Cinematic gallery hero */}
+          <GalleryHero />
+
+          {/* Case studies grid — anchored for scroll cue */}
+          <div id="cases">
+            <GalleryGrid />
+          </div>
         </main>
         <Footer />
         <MobileStickyActions />
