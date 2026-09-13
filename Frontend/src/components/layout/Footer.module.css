@@ -1,0 +1,553 @@
+/* ==========================================================
+   Footer.module.css — Luxury Dark Architectural Footer
+   ========================================================== */
+
+.footer {
+  width: 100%;
+  background: #0d0b09;
+  border-top: 1px solid rgba(208, 184, 146, 0.18);
+  position: relative;
+  isolation: isolate;
+  color: #f0e8d8;
+}
+
+/* ── 1. Pre-Footer Strip ─────────────────────────────────── */
+.preFooter {
+  position: relative;
+  overflow: hidden;
+  background: #14110e;
+  border-bottom: 1px solid rgba(208, 184, 146, 0.15);
+  padding: 56px 24px;
+}
+
+.preFooterGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(208, 184, 146, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.preFooterGrid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 900px) {
+  .preFooterGrid {
+    flex-direction: row;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+.preFooterText {
+  max-width: 580px;
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .preFooterText {
+    text-align: left;
+  }
+}
+
+.preFooterTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #D0B892;
+  margin-bottom: 10px;
+}
+
+.preFooterTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3.2vw, 38px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #f0e8d8;
+  line-height: 1.15;
+  margin: 0 0 10px;
+}
+
+.preFooterDesc {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: rgba(240, 232, 216, 0.65);
+  margin: 0;
+}
+
+.preFooterCtas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 28px;
+  border-radius: 9999px;
+  background: #D0B892;
+  color: #0f0d0b;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(208, 184, 146, 0.22);
+  transition: all 0.22s ease;
+}
+
+.ctaPrimary:hover {
+  background: #e0caa4;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(208, 184, 146, 0.35);
+}
+
+.ctaWhatsApp {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  background: rgba(37, 211, 102, 0.05);
+  color: #e5fbee;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.22s ease;
+}
+
+.ctaWhatsApp:hover {
+  border-color: #25D366;
+  background: rgba(37, 211, 102, 0.12);
+  color: #25D366;
+  transform: translateY(-2px);
+}
+
+.waDotWrap {
+  position: relative;
+  display: flex;
+  width: 8px;
+  height: 8px;
+}
+
+.waDotPing {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #25D366;
+  opacity: 0.75;
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.waDot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #25D366;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* ── 2. Main Footer Columns ──────────────────────────────── */
+.mainContent {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 24px 64px;
+}
+
+@media (min-width: 1024px) {
+  .mainContent {
+    padding: 96px 48px 72px;
+  }
+}
+
+.columnsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+
+@media (min-width: 768px) {
+  .columnsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .columnsGrid {
+    grid-template-columns: 3.5fr 2.5fr 2.5fr 3.5fr;
+    gap: 48px;
+  }
+}
+
+/* Brand Column */
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.brandLink {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3px;
+  text-decoration: none;
+}
+
+.brandTitleRow {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.brandName {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #f0e8d8;
+}
+
+.brandDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #D0B892;
+  box-shadow: 0 0 8px rgba(208, 184, 146, 0.8);
+}
+
+.brandRole {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #D0B892;
+}
+
+.brandDesc {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: rgba(240, 232, 216, 0.6);
+  margin: 0;
+  max-width: 380px;
+}
+
+.trustChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.trustChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(208, 184, 146, 0.25);
+  background: rgba(208, 184, 146, 0.05);
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #D0B892;
+}
+
+.socialsRow {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.socialsLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(240, 232, 216, 0.45);
+}
+
+.socialsIcons {
+  display: flex;
+  gap: 10px;
+}
+
+.socialIconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(208, 184, 146, 0.25);
+  background: rgba(208, 184, 146, 0.06);
+  color: rgba(240, 232, 216, 0.75);
+  text-decoration: none;
+  transition: all 0.22s ease;
+}
+
+.socialIconBtn:hover {
+  border-color: #D0B892;
+  background: rgba(208, 184, 146, 0.18);
+  color: #D0B892;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(208, 184, 146, 0.25);
+}
+
+/* Nav Columns */
+.colHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.colHeaderDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #D0B892;
+}
+
+.colTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #f0e8d8;
+  margin: 0;
+}
+
+.linksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.linkItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: rgba(240, 232, 216, 0.65);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.linkDash {
+  width: 6px;
+  height: 1px;
+  background: rgba(208, 184, 146, 0.4);
+  transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+.linkItem:hover {
+  color: #D0B892;
+  transform: translateX(3px);
+}
+
+.linkItem:hover .linkDash {
+  width: 12px;
+  background: #D0B892;
+}
+
+/* Suite & Hours Column */
+.hoursBox {
+  border: 1px solid rgba(208, 184, 146, 0.2);
+  background: rgba(208, 184, 146, 0.04);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 18px;
+}
+
+.hoursHeader {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #D0B892;
+  margin-bottom: 10px;
+}
+
+.hoursList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+}
+
+.hoursRow {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(240, 232, 216, 0.6);
+}
+
+.hoursValue {
+  font-weight: 600;
+  color: #f0e8d8;
+}
+
+.hoursVip {
+  color: #D0B892;
+  font-weight: 600;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12.5px;
+}
+
+.contactLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(240, 232, 216, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contactLink:hover {
+  color: #D0B892;
+}
+
+.contactIconCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(208, 184, 146, 0.2);
+  background: rgba(208, 184, 146, 0.08);
+  color: #D0B892;
+  flex-shrink: 0;
+}
+
+/* ── 3. Bottom Legal & Back to Top ───────────────────────── */
+.bottomBar {
+  border-top: 1px solid rgba(208, 184, 146, 0.12);
+  background: rgba(10, 8, 7, 0.95);
+  padding: 24px 24px;
+}
+
+.bottomInner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .bottomInner {
+    flex-direction: row;
+    text-align: left;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+.bottomLegal {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.copyright {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(240, 232, 216, 0.65);
+  margin: 0;
+}
+
+.medicalNote {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: rgba(240, 232, 216, 0.4);
+  margin: 0;
+}
+
+.backToTopBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  border-radius: 9999px;
+  border: 1px solid rgba(208, 184, 146, 0.25);
+  background: rgba(208, 184, 146, 0.06);
+  color: rgba(240, 232, 216, 0.8);
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.backToTopBtn:hover {
+  border-color: #D0B892;
+  background: rgba(208, 184, 146, 0.16);
+  color: #D0B892;
+  transform: translateY(-2px);
+}
+
+.backToTopIcon {
+  color: #D0B892;
+  transition: transform 0.2s ease;
+}
+
+.backToTopBtn:hover .backToTopIcon {
+  transform: translateY(-2px);
+}

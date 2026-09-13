@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { siteConfig } from '@/content';
 import { formatWhatsAppLink } from '@/utils';
+import styles from './Footer.module.css';
 
 const socialLinks = [
   { href: siteConfig.socials.instagram, label: 'Instagram', Icon: Instagram },
@@ -21,10 +22,27 @@ const socialLinks = [
   { href: siteConfig.socials.linkedin, label: 'LinkedIn', Icon: Linkedin },
 ];
 
+const clinicalDisciplines = [
+  { label: 'Complete Smile Design', href: '/services#cosmetic' },
+  { label: 'Full Mouth Rehabilitation', href: '/services#restorative' },
+  { label: 'Porcelain Veneers & Crowns', href: '/services#cosmetic' },
+  { label: 'Dental Implants & All-on-X', href: '/services#implants' },
+  { label: 'Biomimetic Restorations', href: '/gallery' },
+  { label: 'Orthodontics & Clear Aligners', href: '/services#orthodontics' },
+  { label: 'Laser Teeth Whitening', href: '/services#cosmetic' },
+];
+
+const practiceLinks = [
+  { label: 'About Dr. Hassan', href: '/about' },
+  { label: 'Clinical Philosophy', href: '/about#philosophy' },
+  { label: 'Case Studies Gallery', href: '/gallery' },
+  { label: 'Consultation Guide', href: '/contact' },
+  { label: 'Patient Testimonials', href: '/gallery#contact' },
+  { label: 'Safety & Sterilization Standards', href: '/about' },
+];
+
 /**
- * Architectural luxury footer designed for Dr. Hassan's practice.
- * Features a pre-footer VIP consultation callout, detailed clinical disciplines,
- * operating suite hours, certification trust marks, and smooth navigation.
+ * Architectural luxury dark footer for Dr. Hassan's practice.
  */
 export function Footer() {
   const scrollToTop = () => {
@@ -32,93 +50,87 @@ export function Footer() {
   };
 
   return (
-    <footer className="w-full bg-surface-container-lowest border-t border-outline-variant/20">
-      {/* 1. Pre-Footer Luxury Consultation Bar */}
-      <div className="relative border-b border-gold-accent/25 bg-gradient-to-r from-surface via-surface-container-low to-surface py-12">
-        <div className="container-main flex flex-col items-center justify-between gap-6 md:flex-row">
-          <div className="max-w-xl text-center md:text-left">
-            <div className="mb-2 flex items-center justify-center md:justify-start gap-2 text-gold-accent">
-              <Sparkles size={14} />
-              <span className="font-label-caps text-[11px] uppercase tracking-[0.2em] font-semibold">
-                Exclusive Consultations
-              </span>
+    <footer className={styles.footer} role="contentinfo">
+      {/* ── 1. Pre-Footer Luxury Consultation Bar ──────────────── */}
+      <section className={styles.preFooter} aria-label="Consultation invitation">
+        <div className={styles.preFooterGlow} aria-hidden="true" />
+        <div className={styles.preFooterGrid}>
+          <div className={styles.preFooterText}>
+            <div className={styles.preFooterTag}>
+              <Sparkles size={12} aria-hidden="true" />
+              <span>Private Operatory Suite · Karachi, Pakistan</span>
             </div>
-            <h3 className="font-display-lg text-2xl md:text-3xl font-medium text-charcoal-text">
-              Ready for Your Signature Smile?
-            </h3>
-            <p className="mt-1 font-body-md text-sm text-on-surface-variant">
-              Reserve your dedicated clinical assessment with Dr. Hassan in our private operatory suite.
+            <h2 className={styles.preFooterTitle}>
+              Sculpting Confident, Bespoke Smiles
+            </h2>
+            <p className={styles.preFooterDesc}>
+              Reserve your dedicated clinical assessment with Dr. Hassan. Digital Smile Design™,
+              clinical photography, and meticulous personalized treatment planning.
             </p>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-primary bg-primary px-7 py-3 font-label-caps text-xs uppercase tracking-widest text-on-primary transition-all duration-300 hover:border-gold-accent hover:bg-gold-accent hover:shadow-[0_4px_20px_rgba(208,184,146,0.25)]"
-            >
-              <span>Book Consultation</span>
-              <ArrowRight size={14} />
+
+          <div className={styles.preFooterCtas}>
+            <Link to="/contact" className={styles.ctaPrimary}>
+              <span>Reserve Consultation</span>
+              <ArrowRight size={13} aria-hidden="true" />
             </Link>
+
             <a
               href={formatWhatsAppLink(siteConfig.whatsapp, siteConfig.whatsappMessage)}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2.5 rounded-full border border-[#25D366]/40 bg-surface-container-lowest px-6 py-3 font-label-caps text-xs uppercase tracking-widest text-charcoal-text transition-all duration-300 hover:border-[#25D366] hover:bg-[#25D366]/5"
+              className={styles.ctaWhatsApp}
             >
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#25D366] opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#25D366]" />
+              <span className={styles.waDotWrap} aria-hidden="true">
+                <span className={styles.waDotPing} />
+                <span className={styles.waDot} />
               </span>
-              <span className="text-[#128C7E] font-medium group-hover:text-[#075E54]">
-                WhatsApp Concierge
-              </span>
+              <span>WhatsApp Concierge</span>
             </a>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* 2. Main Architectural Footer */}
-      <div className="container-main py-16 lg:py-20">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-          {/* Brand Column (Col 1 to 4) */}
-          <div className="lg:col-span-4 space-y-6">
-            <div>
-              <Link
-                to="/"
-                className="inline-flex items-baseline gap-1.5 transition-opacity hover:opacity-90"
-              >
-                <span className="font-display-lg text-3xl font-semibold tracking-tight text-primary">
-                  {siteConfig.name}
-                </span>
-                <span className="h-1.5 w-1.5 rounded-full bg-gold-accent" />
-              </Link>
-              <p className="mt-1 font-label-caps text-[10px] uppercase tracking-[0.2em] text-gold-accent font-semibold">
+      {/* ── 2. Main Architectural Footer Columns ────────────────── */}
+      <div className={styles.mainContent}>
+        <div className={styles.columnsGrid}>
+          {/* Brand & Accreditations Column */}
+          <div className={styles.brandCol}>
+            <Link to="/" className={styles.brandLink} aria-label="Dr. Hassan Clinic Home">
+              <div className={styles.brandTitleRow}>
+                <span className={styles.brandName}>{siteConfig.name}</span>
+                <span className={styles.brandDot} aria-hidden="true" />
+              </div>
+              <span className={styles.brandRole}>
                 BDS • Aesthetic & Reconstructive Surgery
-              </p>
-            </div>
+              </span>
+            </Link>
 
-            <p className="font-body-md text-sm leading-relaxed text-on-surface-variant max-w-sm">
+            <p className={styles.brandDesc}>
               Pioneering minimally invasive biomimetic dentistry and bespoke smile architectures.
               Crafted with microscopic precision and refined aesthetic harmony.
             </p>
 
-            {/* Clinical Credential Pills */}
-            <div className="flex flex-wrap gap-2 pt-1">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-gold-accent/30 bg-gold-accent/5 px-3 py-1 font-label-caps text-[10px] uppercase tracking-wider text-primary">
-                <ShieldCheck size={12} className="text-gold-accent" />
+            {/* Credential Chips */}
+            <div className={styles.trustChips}>
+              <span className={styles.trustChip}>
+                <ShieldCheck size={11} aria-hidden="true" />
                 Digital Smile Design™
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-gold-accent/30 bg-gold-accent/5 px-3 py-1 font-label-caps text-[10px] uppercase tracking-wider text-primary">
-                <ShieldCheck size={12} className="text-gold-accent" />
+              <span className={styles.trustChip}>
+                <ShieldCheck size={11} aria-hidden="true" />
                 Biomimetic Protocols
+              </span>
+              <span className={styles.trustChip}>
+                <ShieldCheck size={11} aria-hidden="true" />
+                AACD Member
               </span>
             </div>
 
             {/* Social Links */}
-            <div className="pt-2">
-              <span className="block font-label-caps text-[10px] uppercase tracking-[0.18em] text-on-surface-variant/70 mb-3">
-                Follow Our Transformations
-              </span>
-              <div className="flex gap-3" aria-label="Social media channels">
+            <div className={styles.socialsRow}>
+              <span className={styles.socialsLabel}>Follow Transformations</span>
+              <div className={styles.socialsIcons} aria-label="Social media profiles">
                 {socialLinks.map(({ href, label, Icon }) => (
                   <a
                     key={label}
@@ -126,42 +138,26 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-outline-variant/50 bg-surface-container-low text-on-surface-variant transition-all duration-300 hover:-translate-y-0.5 hover:border-gold-accent hover:bg-gold-accent/15 hover:text-primary hover:shadow-sm"
+                    className={styles.socialIconBtn}
                   >
-                    <Icon size={16} />
+                    <Icon size={15} />
                   </a>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Clinical Disciplines (Col 5 to 7) */}
-          <div className="lg:col-span-3 space-y-5">
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-gold-accent/70" />
-              <h4 className="font-label-caps text-[11px] uppercase tracking-[0.18em] text-charcoal-text font-bold">
-                Clinical Disciplines
-              </h4>
+          {/* Clinical Disciplines Column */}
+          <div>
+            <div className={styles.colHeader}>
+              <span className={styles.colHeaderDot} aria-hidden="true" />
+              <h3 className={styles.colTitle}>Clinical Disciplines</h3>
             </div>
-            <ul className="space-y-3">
-              {[
-                { label: 'Complete Smile Design', href: '/services#cosmetic' },
-                { label: 'Full Mouth Rehabilitation', href: '/services#restorative' },
-                { label: 'Porcelain Veneers & Crowns', href: '/services#cosmetic' },
-                { label: 'Dental Implants & All-on-X', href: '/services#implants' },
-                { label: 'Biomimetic Restorations', href: '/gallery' },
-                { label: 'Orthodontics & Aligners', href: '/services#orthodontics' },
-                { label: 'Laser Teeth Whitening', href: '/services#cosmetic' },
-              ].map((item) => (
+            <ul className={styles.linksList}>
+              {clinicalDisciplines.map((item) => (
                 <li key={item.label}>
-                  <Link
-                    to={item.href}
-                    className="group inline-flex items-center gap-2 font-body-md text-sm text-on-surface-variant transition-colors duration-200 hover:text-primary"
-                  >
-                    <span
-                      className="h-px w-2 bg-gold-accent/0 transition-all duration-200 group-hover:w-3.5 group-hover:bg-gold-accent"
-                      aria-hidden="true"
-                    />
+                  <Link to={item.href} className={styles.linkItem}>
+                    <span className={styles.linkDash} aria-hidden="true" />
                     <span>{item.label}</span>
                   </Link>
                 </li>
@@ -169,32 +165,17 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Studio & Patients (Col 8 to 9) */}
-          <div className="lg:col-span-2 space-y-5">
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-gold-accent/70" />
-              <h4 className="font-label-caps text-[11px] uppercase tracking-[0.18em] text-charcoal-text font-bold">
-                The Practice
-              </h4>
+          {/* The Practice Column */}
+          <div>
+            <div className={styles.colHeader}>
+              <span className={styles.colHeaderDot} aria-hidden="true" />
+              <h3 className={styles.colTitle}>The Practice</h3>
             </div>
-            <ul className="space-y-3">
-              {[
-                { label: 'About Dr. Hassan', href: '/about' },
-                { label: 'Clinical Philosophy', href: '/about#philosophy' },
-                { label: 'Case Studies Gallery', href: '/gallery' },
-                { label: 'Consultation Guide', href: '/contact' },
-                { label: 'Patient Testimonials', href: '/gallery#contact' },
-                { label: 'Clinic Safety Standards', href: '/about' },
-              ].map((item) => (
+            <ul className={styles.linksList}>
+              {practiceLinks.map((item) => (
                 <li key={item.label}>
-                  <Link
-                    to={item.href}
-                    className="group inline-flex items-center gap-2 font-body-md text-sm text-on-surface-variant transition-colors duration-200 hover:text-primary"
-                  >
-                    <span
-                      className="h-px w-2 bg-gold-accent/0 transition-all duration-200 group-hover:w-3.5 group-hover:bg-gold-accent"
-                      aria-hidden="true"
-                    />
+                  <Link to={item.href} className={styles.linkItem}>
+                    <span className={styles.linkDash} aria-hidden="true" />
                     <span>{item.label}</span>
                   </Link>
                 </li>
@@ -202,78 +183,76 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Private Suite & Visiting Hours (Col 10 to 12) */}
-          <div className="lg:col-span-3 space-y-5">
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-gold-accent/70" />
-              <h4 className="font-label-caps text-[11px] uppercase tracking-[0.18em] text-charcoal-text font-bold">
-                Private Suite & Hours
-              </h4>
+          {/* Private Suite & Operating Hours Column */}
+          <div>
+            <div className={styles.colHeader}>
+              <span className={styles.colHeaderDot} aria-hidden="true" />
+              <h3 className={styles.colTitle}>Private Suite & Hours</h3>
             </div>
 
-            {/* Schedule Box */}
-            <div className="rounded-xl border border-outline-variant/30 bg-surface-container-low/60 p-4 space-y-2">
-              <div className="flex items-center gap-2 text-primary font-medium text-xs font-label-caps tracking-wider uppercase">
-                <Clock size={13} className="text-gold-accent" />
+            {/* Hours box */}
+            <div className={styles.hoursBox}>
+              <div className={styles.hoursHeader}>
+                <Clock size={12} aria-hidden="true" />
                 <span>Surgery Hours</span>
               </div>
-              <div className="space-y-1 text-xs text-on-surface-variant font-body-md pt-1">
-                <div className="flex justify-between">
+              <div className={styles.hoursList}>
+                <div className={styles.hoursRow}>
                   <span>Mon – Fri:</span>
-                  <span className="font-medium text-charcoal-text">09:00 AM – 07:00 PM</span>
+                  <span className={styles.hoursValue}>09:00 AM – 07:00 PM</span>
                 </div>
-                <div className="flex justify-between">
+                <div className={styles.hoursRow}>
                   <span>Saturday:</span>
-                  <span className="font-medium text-charcoal-text">10:00 AM – 06:00 PM</span>
+                  <span className={styles.hoursValue}>10:00 AM – 06:00 PM</span>
                 </div>
-                <div className="flex justify-between text-gold-accent">
+                <div className={styles.hoursRow}>
                   <span>Sunday:</span>
-                  <span className="font-medium">VIP By Appointment</span>
+                  <span className={styles.hoursVip}>VIP By Appointment</span>
                 </div>
               </div>
             </div>
 
-            {/* Direct Contact Details */}
-            <div className="space-y-2.5 pt-1 text-xs text-on-surface-variant">
+            {/* Direct contact list */}
+            <div className={styles.contactList}>
               <a
                 href={`tel:${siteConfig.phone}`}
-                className="flex items-center gap-2.5 transition-colors hover:text-primary"
+                className={styles.contactLink}
+                aria-label={`Call ${siteConfig.phone}`}
               >
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gold-accent/10 text-primary">
-                  <Phone size={13} />
+                <span className={styles.contactIconCircle} aria-hidden="true">
+                  <Phone size={12} />
                 </span>
-                <span className="font-medium">{siteConfig.phone}</span>
+                <span>{siteConfig.phone}</span>
               </a>
 
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="flex items-center gap-2.5 transition-colors hover:text-primary"
+                className={styles.contactLink}
+                aria-label={`Email ${siteConfig.email}`}
               >
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gold-accent/10 text-primary">
-                  <Mail size={13} />
+                <span className={styles.contactIconCircle} aria-hidden="true">
+                  <Mail size={12} />
                 </span>
                 <span>{siteConfig.email}</span>
               </a>
 
-              <div className="flex items-start gap-2.5">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold-accent/10 text-primary">
-                  <MapPin size={13} />
+              <div className={styles.contactLink}>
+                <span className={styles.contactIconCircle} aria-hidden="true">
+                  <MapPin size={12} />
                 </span>
-                <span className="leading-snug pt-0.5">{siteConfig.address}</span>
+                <span>{siteConfig.address}</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* 3. Bottom Bar with Medical Statement and Smooth Back-to-Top */}
-      <div className="border-t border-outline-variant/20 bg-surface-container-low/40">
-        <div className="container-main flex flex-col items-center justify-between gap-4 py-6 text-center md:flex-row md:text-left">
-          <div className="space-y-1">
-            <p className="font-body-md text-xs text-on-surface-variant">
-              {siteConfig.copyright}
-            </p>
-            <p className="font-body-md text-[11px] text-on-surface-variant/70">
+      {/* ── 3. Bottom Legal & Back to Top ─────────────────────────── */}
+      <div className={styles.bottomBar}>
+        <div className={styles.bottomInner}>
+          <div className={styles.bottomLegal}>
+            <p className={styles.copyright}>{siteConfig.copyright}</p>
+            <p className={styles.medicalNote}>
               All surgical and aesthetic dental procedures planned under strict international biomimetic protocols.
             </p>
           </div>
@@ -281,14 +260,11 @@ export function Footer() {
           <button
             type="button"
             onClick={scrollToTop}
-            aria-label="Back to top"
-            className="group inline-flex items-center gap-2 rounded-full border border-outline-variant/40 bg-surface-container-lowest px-4 py-2 font-label-caps text-[11px] uppercase tracking-widest text-on-surface-variant transition-all duration-300 hover:border-gold-accent hover:text-primary hover:shadow-sm"
+            aria-label="Scroll back to top of page"
+            className={styles.backToTopBtn}
           >
             <span>Back to Top</span>
-            <ArrowUp
-              size={13}
-              className="transition-transform duration-300 group-hover:-translate-y-0.5 text-gold-accent"
-            />
+            <ArrowUp size={12} className={styles.backToTopIcon} aria-hidden="true" />
           </button>
         </div>
       </div>

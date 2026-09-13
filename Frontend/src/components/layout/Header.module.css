@@ -1,3 +1,373 @@
+/* ==========================================================
+   Header.module.css — Luxury Obsidian Glass Header
+   ========================================================== */
+
 .header {
-  will-change: background-color, box-shadow;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  width: 100%;
+  transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease;
+  will-change: transform, background-color;
+}
+
+/* Default state: subtle dark glass */
+.headerDefault {
+  background: rgba(15, 13, 11, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(208, 184, 146, 0.12);
+}
+
+/* Scrolled state: rich obsidian glass with ambient shadow */
+.headerScrolled {
+  background: rgba(15, 13, 11, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(208, 184, 146, 0.24);
+  box-shadow: 0 12px 36px -8px rgba(0, 0, 0, 0.65), 0 2px 8px rgba(208, 184, 146, 0.06);
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: padding 0.3s ease;
+}
+
+.innerScrolled {
+  padding: 12px 24px;
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+  .innerScrolled {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+/* ── Brand ───────────────────────────────────────────────── */
+.brand {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.brand:hover {
+  opacity: 0.92;
+}
+
+.brandTop {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.brandTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #f0e8d8;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .brandTitle {
+    font-size: 25px;
+  }
+}
+
+.brandDot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #D0B892;
+  box-shadow: 0 0 6px rgba(208, 184, 146, 0.7);
+}
+
+.brandSubtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #D0B892;
+  line-height: 1;
+}
+
+/* ── Desktop Nav Links ───────────────────────────────────── */
+.nav {
+  display: none;
+  align-items: center;
+  gap: 28px;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    gap: 36px;
+  }
+}
+
+.navLink {
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240, 232, 216, 0.72);
+  text-decoration: none;
+  padding: 6px 0;
+  transition: color 0.22s ease;
+}
+
+.navLink:hover {
+  color: #D0B892;
+}
+
+.navLinkActive {
+  color: #f0e8d8;
+}
+
+.activeIndicator {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  border-radius: 9999px;
+  background: #D0B892;
+  box-shadow: 0 0 8px rgba(208, 184, 146, 0.6);
+}
+
+/* ── Right Actions ───────────────────────────────────────── */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.phoneLink {
+  display: none;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(240, 232, 216, 0.75);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+@media (min-width: 1120px) {
+  .phoneLink {
+    display: inline-flex;
+  }
+}
+
+.phoneLink:hover {
+  color: #D0B892;
+}
+
+.phoneIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(208, 184, 146, 0.12);
+  color: #D0B892;
+  border: 1px solid rgba(208, 184, 146, 0.25);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.phoneLink:hover .phoneIconWrap {
+  background: rgba(208, 184, 146, 0.22);
+  border-color: #D0B892;
+}
+
+.ctaBtn {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  border-radius: 9999px;
+  background: #D0B892;
+  color: #0f0d0b;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease;
+  box-shadow: 0 4px 16px rgba(208, 184, 146, 0.22);
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .ctaBtn {
+    display: inline-flex;
+  }
+}
+
+.ctaBtn:hover {
+  background: #e0caa4;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(208, 184, 146, 0.36);
+}
+
+.menuToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid rgba(208, 184, 146, 0.25);
+  background: rgba(208, 184, 146, 0.08);
+  color: #D0B892;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menuToggle {
+    display: none;
+  }
+}
+
+.menuToggle:hover {
+  background: rgba(208, 184, 146, 0.18);
+  border-color: #D0B892;
+}
+
+/* ── Mobile Drawer ───────────────────────────────────────── */
+.mobileDrawer {
+  display: block;
+  border-top: 1px solid rgba(208, 184, 146, 0.15);
+  background: rgba(15, 13, 11, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.65);
+}
+
+@media (min-width: 768px) {
+  .mobileDrawer {
+    display: none;
+  }
+}
+
+.mobileInner {
+  padding: 24px 20px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.mobileNavLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(208, 184, 146, 0.08);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240, 232, 216, 0.85);
+  text-decoration: none;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.mobileNavLink:hover,
+.mobileNavLinkActive {
+  color: #D0B892;
+  padding-left: 6px;
+}
+
+.mobileActiveDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #D0B892;
+  box-shadow: 0 0 6px rgba(208, 184, 146, 0.8);
+}
+
+.mobileContactRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding-top: 6px;
+}
+
+.mobileContactBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(208, 184, 146, 0.2);
+  background: rgba(208, 184, 146, 0.06);
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f0e8d8;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.mobileContactBtn:hover {
+  border-color: #D0B892;
+  background: rgba(208, 184, 146, 0.12);
+  color: #D0B892;
+}
+
+.mobileCtaBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 9999px;
+  background: #D0B892;
+  color: #0f0d0b;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(208, 184, 146, 0.25);
+  transition: all 0.2s ease;
+}
+
+.mobileCtaBtn:hover {
+  background: #e0caa4;
 }

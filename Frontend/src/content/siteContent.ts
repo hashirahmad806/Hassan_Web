@@ -15,8 +15,8 @@ export const siteConfig = {
   whatsappMessage:
     'Hello Dr. Hassan, I would like to inquire about booking a consultation at your clinic.',
   email: 'hassandent18@gmail.com',
-  address: '123 Medical Plaza, Suite 400, New York, NY 10001',
-  copyright: '© 2024 Dr. Hassan. Excellence in Aesthetic Care.',
+  address: 'Clifton, Karachi, Pakistan',
+  copyright: '© 2026 Dr. Hassan. Excellence in Aesthetic Care.',
   socials: {
     linkedin:
       'https://www.linkedin.com/in/muhammad-hassan-bds-13b85a1b7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
