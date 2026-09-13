@@ -4,11 +4,14 @@ node_modules/
 # Build
 dist/
 dist-ssr/
+*.tsbuildinfo
 
 # Environment
 .env
+.env.*
 .env.local
 .env.*.local
+!*.env.example
 
 # Editor
 .vscode/*
@@ -18,6 +21,7 @@ dist-ssr/
 # OS
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # Logs
 *.log
@@ -26,6 +30,7 @@ npm-debug.log*
 # Test
 coverage/
 
-# Temp
+# Temp & Caches
 *.local
 .tmp/
+.vite/
