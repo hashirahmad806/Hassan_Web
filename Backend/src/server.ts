@@ -110,7 +110,7 @@ if (!process.env['VERCEL']) {
     console.log(`   Server running on http://localhost:${env.PORT}`);
     console.log(`   Environment: ${env.NODE_ENV}`);
     console.log(`   CORS origins: ${allowedOrigins.join(', ')}`);
-    console.log(`   SMTP: ${env.SMTP_HOST ? env.SMTP_HOST : 'not configured (stub mode)'}\n`);
+    console.log(`   Resend: ${env.RESEND_API_KEY ? 'configured' : 'not configured (stub mode)'}\n`);
   });
 }
 

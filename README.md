@@ -93,13 +93,12 @@ SANITY_STUDIO_DATASET=production
 #### Backend (`Backend/.env`):
 ```env
 PORT=5000
-CLIENT_URL=http://localhost:5173
-SMTP_HOST=smtp.example.com
-SMTP_PORT=587
-SMTP_USER=your_email@example.com
-SMTP_PASS=your_email_password
-NOTIFICATION_EMAIL=clinic@drhassan.com
+CORS_ORIGIN=http://localhost:5173
+RESEND_API_KEY=re_your_resend_api_key
+CLINIC_EMAIL=hassandent18@gmail.com
+FROM_EMAIL=onboarding@resend.dev
 ```
+
 
 ---
 

@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 import { env } from './env.js';
 
 export interface EmailOptions {
@@ -9,20 +9,22 @@ export interface EmailOptions {
 }
 
 /**
- * Check if SMTP is properly configured (all three required values present).
+ * Check if Resend is properly configured.
  */
-function isSmtpConfigured(): boolean {
-  return !!(env.SMTP_HOST && env.SMTP_USER && env.SMTP_PASS);
+function isResendConfigured(): boolean {
+  return !!env.RESEND_API_KEY;
 }
 
+const resend = env.RESEND_API_KEY ? new Resend(env.RESEND_API_KEY) : null;
+
 /**
- * Send an email.
- * Falls back to a dev console stub when SMTP is not fully configured.
+ * Send an email using Resend.
+ * Falls back to a dev console stub when RESEND_API_KEY is not configured.
  */
 export async function sendEmail(options: EmailOptions): Promise<void> {
   // ── Dev stub mode ──────────────────────────────────────────────────────────
-  if (!isSmtpConfigured()) {
-    console.log('\n[mailer stub] 📧 Email would be sent:');
+  if (!isResendConfigured() || !resend) {
+    console.log('\n[mailer stub] 📧 Email would be sent (Resend Stub):');
     console.log(`  To:       ${options.to}`);
     if (options.replyTo) {
       console.log(`  Reply-To: ${options.replyTo}`);
@@ -32,23 +34,24 @@ export async function sendEmail(options: EmailOptions): Promise<void> {
     return;
   }
 
-  // ── Real SMTP mode ─────────────────────────────────────────────────────────
-  const transporter = nodemailer.createTransport({
-    host: env.SMTP_HOST,
-    port: env.SMTP_PORT,
-    secure: env.SMTP_PORT === 465,
-    auth: {
-      user: env.SMTP_USER,
-      pass: env.SMTP_PASS,
-    },
-  });
+  // ── Resend API delivery ────────────────────────────────────────────────────
+  const fromAddress = env.FROM_EMAIL.includes('<')
+    ? env.FROM_EMAIL
+    : `"Dr. Hassan Salman Clinic" <${env.FROM_EMAIL}>`;
 
-  await transporter.sendMail({
-    from: `"Dr. Hassan Salman Clinic" <${env.FROM_EMAIL}>`,
+  const { data, error } = await resend.emails.send({
+    from: fromAddress,
     to: options.to,
     replyTo: options.replyTo,
     subject: options.subject,
     html: options.html,
   });
+
+  if (error) {
+    console.error('[mailer] Resend error:', error);
+    throw new Error(`Resend email delivery failed: ${error.message}`);
+  }
+
+  console.log(`[mailer] ✉️  Email sent via Resend (id: ${data?.id ?? 'ok'}) to: ${options.to}`);
 }
 
