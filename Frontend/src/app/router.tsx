@@ -6,6 +6,7 @@ const AboutPage = lazy(() => import('@/app/pages/AboutPage'));
 const ServicesPage = lazy(() => import('@/app/pages/ServicesPage'));
 const GalleryPage = lazy(() => import('@/app/pages/GalleryPage'));
 const ContactPage = lazy(() => import('@/app/pages/ContactPage'));
+const NotFoundPage = lazy(() => import('@/app/pages/NotFoundPage'));
 
 /**
  * Application router with code-split routes.
@@ -32,6 +33,11 @@ export function AppRouter() {
       <Route path="/contact" element={
         <Suspense fallback={null}>
           <ContactPage />
+        </Suspense>
+      } />
+      <Route path="*" element={
+        <Suspense fallback={null}>
+          <NotFoundPage />
         </Suspense>
       } />
     </Routes>
