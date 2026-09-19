@@ -321,12 +321,30 @@ export const testimonials = [
       '"The attention to detail is unparalleled. Dr. Hassan didn\'t just fix my teeth; he designed a smile that looks entirely natural and suits my face perfectly. The process was thorough and deeply professional."',
     author: '— E.R. (Reference Case 042)',
     rating: 5,
+    initials: 'ER',
+    caseNumber: 'Case 042',
+    procedure: 'Porcelain Veneers & Smile Design',
+    outcome: '12-Month Review · Flawless Vitality',
   },
   {
     quote:
       '"Losing a front tooth was devastating, but the implant result is so flawless I forget it\'s not my original tooth. The clinic\'s aesthetic standards are truly exceptional."',
     author: '— M.T. (Reference Case 112)',
     rating: 5,
+    initials: 'MT',
+    caseNumber: 'Case 112',
+    procedure: 'Anterior Implant & Biomimetic Crown',
+    outcome: '24-Month Stability · Natural Integration',
+  },
+  {
+    quote:
+      '"From my initial consultation at ASH Aesthetics to the final ceramic bonding, Dr. Hassan\'s gentle approach and surgical mastery completely transformed my dental experience. Truly world-class standards in Peshawar."',
+    author: '— S.K. (Reference Case 089)',
+    rating: 5,
+    initials: 'SK',
+    caseNumber: 'Case 089',
+    procedure: 'Full Arch Restoration & Gum Health',
+    outcome: '18-Month Review · Lifelong Harmony',
   },
 ];
 

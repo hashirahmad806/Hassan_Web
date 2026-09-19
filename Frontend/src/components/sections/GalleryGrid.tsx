@@ -1,8 +1,17 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star, MessageCircle } from 'lucide-react';
+import {
+  ArrowRight,
+  Star,
+  MessageCircle,
+  Sparkles,
+  ShieldCheck,
+  CheckCircle2,
+  Phone,
+} from 'lucide-react';
 import { caseStudies, galleryCategories, testimonials } from '@/content';
 import { useGalleryStore } from '@/store';
 import { ClinicalExperiences } from './ClinicalExperiences';
+import styles from './GalleryGrid.module.css';
 
 import protoCase1 from '@/assets/images/real/proto_case1.jpg';
 import protoCase2 from '@/assets/images/real/proto_case2.jpg';
@@ -164,63 +173,146 @@ export function GalleryGrid() {
       <ClinicalExperiences />
 
       {/* Voices of Transformation Testimonials */}
-      <div className="border-t border-outline-variant/30 bg-surface-container-low py-16 md:py-24">
-        <div className="container-main mx-auto max-w-4xl text-center">
-          <h2 className="mb-12 font-headline-md text-charcoal-text">
-            Voices of Transformation
-          </h2>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {testimonials.map((t) => (
-              <div
-                key={t.author}
-                className="museum-frame border border-outline-variant bg-surface-container-lowest p-8 text-left shadow-sm"
-              >
-                <div className="mb-4 flex text-gold-accent">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} size={16} fill="currentColor" />
-                  ))}
+      <section className={styles.testimonialsSection} aria-labelledby="voices-of-transformation-heading">
+        <div className={styles.ambientGlow} aria-hidden="true" />
+
+        <div className={styles.container}>
+          <div className={styles.header}>
+            <div className={styles.labelTag}>
+              <Sparkles size={12} className={styles.labelIcon} aria-hidden="true" />
+              <span>Patient Perspectives · Verified Results</span>
+            </div>
+            <h2 id="voices-of-transformation-heading" className={styles.headline}>
+              Voices of Transformation &amp;{' '}
+              <span className={styles.headlineAccent}>Lasting Confidence</span>
+            </h2>
+            <p className={styles.subheading}>
+              Direct accounts of restorative precision, aesthetic smile makeovers, and life-changing patient care under the clinical stewardship of Dr. Hassan Salman.
+            </p>
+          </div>
+
+          <div className={styles.testimonialGrid}>
+            {testimonials.map((t, idx) => (
+              <article key={t.author || idx} className={styles.testimonialCard}>
+                <div className={`${styles.corner} ${styles.cornerTL}`} aria-hidden="true" />
+                <div className={`${styles.corner} ${styles.cornerBR}`} aria-hidden="true" />
+                <div className={styles.quoteWatermark} aria-hidden="true">“</div>
+
+                <div className={styles.ratingRow}>
+                  <div className={styles.stars} aria-label={`${t.rating} out of 5 stars`}>
+                    {Array.from({ length: t.rating }).map((_, i) => (
+                      <Star key={i} size={15} fill="currentColor" />
+                    ))}
+                  </div>
+                  <div className={styles.verifiedBadge}>
+                    <span className={styles.verifiedDot} aria-hidden="true" />
+                    <span>5.0 · Verified Case</span>
+                  </div>
                 </div>
-                <p className="mb-6 font-body-lg text-sm italic text-secondary">
-                  {t.quote}
-                </p>
-                <div className="font-label-caps text-xs uppercase tracking-widest text-charcoal-text">
-                  {t.author}
+
+                <p className={styles.quoteText}>{t.quote}</p>
+
+                <div className={styles.cardFooter}>
+                  <div className={styles.monogramAvatar} aria-hidden="true">
+                    {t.initials || t.author.replace(/[^A-Za-z]/g, '').slice(0, 2) || 'PT'}
+                  </div>
+                  <div className={styles.authorMeta}>
+                    <div className={styles.authorName}>{t.author}</div>
+                    {t.procedure && <div className={styles.procedureTag}>{t.procedure}</div>}
+                    {t.outcome && <div className={styles.outcomeLine}>{t.outcome}</div>}
+                  </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Consultation Anchor Section for #contact */}
-      <section id="contact" className="border-t border-outline-variant/30 bg-surface-container-lowest py-16 md:py-24">
-        <div className="container-main mx-auto max-w-3xl text-center">
-          <span className="mb-3 block font-label-caps text-[11px] uppercase tracking-[0.2em] text-gold-accent">
-            Tailored Consultation
-          </span>
-          <h2 className="mb-4 font-headline-lg text-headline-lg-mobile text-charcoal-text md:text-headline-md">
-            Begin Your Smile Journey
-          </h2>
-          <p className="mx-auto mb-8 max-w-xl font-body-lg text-secondary">
-            Inspired by our clinical case results? Schedule an appointment with Dr. Hassan to explore customized aesthetic and restorative treatment solutions tailored to your unique smile.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-primary bg-primary px-8 py-3.5 font-label-caps text-xs uppercase tracking-widest text-on-primary transition-all duration-300 hover:bg-gold-accent hover:border-gold-accent"
-            >
-              <span>Book Formal Consultation</span>
-              <ArrowRight size={15} />
-            </Link>
-            <a
-              href="https://wa.me/923349295638?text=Hello%20Dr.%20Hassan%2C%20I%20reviewed%20your%20clinical%20cases%20in%20the%20gallery%20and%20would%20like%20to%20schedule%20a%20consultation."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-outline-variant px-6 py-3.5 font-label-caps text-xs uppercase tracking-widest text-charcoal-text transition-all duration-300 hover:border-[#25D366] hover:text-[#128C7E]"
-            >
-              <MessageCircle size={15} />
-              <span>Direct WhatsApp Inquiry</span>
-            </a>
+      <section id="contact" className={styles.consultationSection} aria-labelledby="consultation-heading">
+        <div className={styles.consultationPavilion}>
+          <div className={styles.consultationGlow} aria-hidden="true" />
+          <div className={`${styles.corner} ${styles.cornerTL}`} aria-hidden="true" />
+          <div className={`${styles.corner} ${styles.cornerBR}`} aria-hidden="true" />
+
+          <div className={styles.consultationContent}>
+            <div className={styles.labelTag}>
+              <Sparkles size={12} className={styles.labelIcon} aria-hidden="true" />
+              <span>Tailored Consultation · GS Tower Peshawar</span>
+            </div>
+
+            <h2 id="consultation-heading" className={styles.headline}>
+              Begin Your Bespoke{' '}
+              <span className={styles.headlineAccent}>Smile Journey</span>
+            </h2>
+
+            <p className={styles.subheading} style={{ maxWidth: '680px' }}>
+              Inspired by our documented clinical cases? Schedule a private clinical evaluation with Dr. Hassan Salman at ASH Aesthetics, 2nd Floor, GS Tower, Peshawar to formulate your customized aesthetic blueprint.
+            </p>
+
+            {/* 3 Trust Pillars */}
+            <div className={styles.trustPillarsRow}>
+              <div className={styles.trustPillarCard}>
+                <div className={styles.pillarIconRow}>
+                  <ShieldCheck size={14} aria-hidden="true" />
+                  <span>Private Operatory Suite</span>
+                </div>
+                <p className={styles.pillarDesc}>
+                  Dedicated, unhurried one-on-one clinical time with Dr. Hassan in our modern GS Tower surgical operatory.
+                </p>
+              </div>
+
+              <div className={styles.trustPillarCard}>
+                <div className={styles.pillarIconRow}>
+                  <Sparkles size={14} aria-hidden="true" />
+                  <span>Digital Aesthetic Blueprint</span>
+                </div>
+                <p className={styles.pillarDesc}>
+                  Detailed 3D facial analysis and smile simulation so you visualize your outcome before treatment begins.
+                </p>
+              </div>
+
+              <div className={styles.trustPillarCard}>
+                <div className={styles.pillarIconRow}>
+                  <CheckCircle2 size={14} aria-hidden="true" />
+                  <span>Biomimetic Preservation</span>
+                </div>
+                <p className={styles.pillarDesc}>
+                  Ultra-conservative micro-dentistry designed to preserve your natural tooth structure with lifelong longevity.
+                </p>
+              </div>
+            </div>
+
+            {/* Action Row */}
+            <div className={styles.actionBtnRow}>
+              <Link
+                to="/contact?category=Consultation"
+                className={styles.primaryActionBtn}
+              >
+                <span>Book Formal Consultation</span>
+                <ArrowRight size={14} aria-hidden="true" />
+              </Link>
+
+              <a
+                href="https://wa.me/923349295638?text=Hello%20Dr.%20Hassan%2C%20I%20reviewed%20your%20clinical%20cases%20in%20the%20gallery%20and%20would%20like%20to%20schedule%20a%20consultation%20at%20ASH%20Aesthetics%20GS%20Tower."
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.whatsappActionBtn}
+                aria-label="Direct WhatsApp inquiry with Dr. Hassan"
+              >
+                <MessageCircle size={14} aria-hidden="true" />
+                <span>Direct WhatsApp Inquiry</span>
+              </a>
+
+              <a
+                href="tel:+923111556074"
+                className={styles.phoneActionBtn}
+                aria-label="Call clinic desk at +92 311 1556074"
+              >
+                <Phone size={13} aria-hidden="true" />
+                <span>Desk: +92 311 1556074</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
