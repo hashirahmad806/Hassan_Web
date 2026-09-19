@@ -7,5 +7,7 @@ export { CTA } from './CTA';
 export { ContactForm } from './ContactForm';
 export { GalleryGrid } from './GalleryGrid';
 export { GalleryHero } from './GalleryHero';
+export { ClinicalExperiences } from './ClinicalExperiences';
+
 
 

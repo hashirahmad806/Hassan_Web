@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Star, MessageCircle } from 'lucide-react';
 import { caseStudies, galleryCategories, testimonials } from '@/content';
 import { useGalleryStore } from '@/store';
+import { ClinicalExperiences } from './ClinicalExperiences';
 
 import protoCase1 from '@/assets/images/real/proto_case1.jpg';
 import protoCase2 from '@/assets/images/real/proto_case2.jpg';
@@ -158,6 +159,9 @@ export function GalleryGrid() {
           );
         })}
       </div>
+
+      {/* Clinical Experiences in Motion (ASH Aesthetics + Surgical Mastery) */}
+      <ClinicalExperiences />
 
       {/* Voices of Transformation Testimonials */}
       <div className="border-t border-outline-variant/30 bg-surface-container-low py-16 md:py-24">

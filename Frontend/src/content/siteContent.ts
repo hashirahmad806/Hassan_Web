@@ -566,3 +566,82 @@ export const aboutDetailed = {
   },
 };
 
+export interface ClinicalExperienceItem {
+  id: string;
+  caseNumber: string;
+  badge: string;
+  location: string;
+  title: string;
+  doctor: string;
+  subtitle: string;
+  description: string;
+  tags: string[];
+  type: 'video' | 'instagram';
+  instagramUrl?: string;
+  embedUrl?: string;
+  inquiryCaseName: string;
+  whatsappMessage: string;
+}
+
+export const clinicalExperiencesContent = {
+  label: 'Clinical Experience in Motion',
+  heading: 'Surgical Artistry & In-Practice Care',
+  subheading:
+    'Experience Dr. Hassan’s real-world practice, clinical artistry, and smile transformations documented live in ultra-high definition.',
+  items: [
+    {
+      id: 'ash-aesthetics-reel',
+      caseNumber: '01 · CLINICAL PRACTICE',
+      badge: 'ASH Aesthetics · In Practice',
+      location: 'ASH Aesthetics, 2nd Floor, GS Tower, Peshawar',
+      title: 'Smile Design & Restorative Care',
+      doctor: 'Dr. Hasan (BDS, RDS)',
+      subtitle: 'Comprehensive Dental Consultations & Makeovers',
+      description:
+        'Live clinical consultation and treatment execution with Dr. Hasan at ASH Aesthetics, demonstrating microscopic tooth preparation, aesthetic smile analysis, and restorative dentistry.',
+      tags: ['Smile Makeovers', 'Porcelain Veneers', 'Clinical Care', 'RCT'],
+      type: 'video' as const,
+      instagramUrl: 'https://www.instagram.com/p/Da3BOlMCvjh/?hl=en',
+      embedUrl: 'https://www.instagram.com/p/Da3BOlMCvjh/embed/',
+      inquiryCaseName: 'ASH Aesthetics Smile Makeover Consultation with Dr. Hasan',
+      whatsappMessage:
+        'Hello Dr. Hassan, I watched your smile design video at ASH Aesthetics on your gallery and would like to book a consultation for smile design and clinical treatments.',
+    },
+    {
+      id: 'ash-aesthetics-checkup',
+      caseNumber: '02 · PREVENTATIVE PROTOCOL',
+      badge: 'ASH Aesthetics · Dental Suite',
+      location: 'ASH Aesthetics, 2nd Floor, GS Tower, Peshawar',
+      title: 'Preventive Dental Care & Oral Hygiene',
+      doctor: 'Dr. Hasan (BDS, RDS)',
+      subtitle: 'Routine Clinical Checkups & Preservation',
+      description:
+        'Dr. Hasan explaining the clinical importance of regular dental checkups, cavity prevention, and gentle ultrasonic scaling to maintain oral vitality and radiant smiles for years to come.',
+      tags: ['Preventative Care', 'Dental Checkups', 'Teeth Cleaning', 'Gum Health'],
+      type: 'video' as const,
+      instagramUrl: 'https://www.instagram.com/p/DbdkKEIj3lK/?hl=en',
+      embedUrl: 'https://www.instagram.com/p/DbdkKEIj3lK/embed/',
+      inquiryCaseName: 'ASH Aesthetics Preventative Checkup & Oral Hygiene',
+      whatsappMessage:
+        'Hello Dr. Hassan, I watched your preventive care video from ASH Aesthetics on your gallery and would like to schedule a clinical checkup and consultation.',
+    },
+    {
+      id: 'microscopic-biomimetic',
+      caseNumber: '03 · MICROSCOPIC SURGERY',
+      badge: 'ASH Aesthetics · Surgical Suite',
+      location: 'ASH Aesthetics, 2nd Floor, GS Tower, Peshawar',
+      title: 'Microscopic Biomimetic Protocol',
+      doctor: 'Dr. Hasan (BDS, RDS)',
+      subtitle: 'Precision Restorative & Operatory Suite',
+      description:
+        'Ultra-high magnification surgical protocol showcasing conservative tooth preparation, sub-millimeter restorative bonding, and biomechanical smile harmony.',
+      tags: ['Biomimetic Protocol', 'Micro-Optics', 'Ceramic Veneers', 'Restorative Surgery'],
+      type: 'video' as const,
+      instagramUrl: 'https://www.instagram.com/ashaesthetics.pk/?hl=en',
+      inquiryCaseName: 'Microscopic Biomimetic Restoration Protocol',
+      whatsappMessage:
+        'Hello Dr. Hassan, I watched your microscopic surgical procedure video on your gallery and would like to inquire about biomimetic veneer treatment.',
+    },
+  ],
+};
+
