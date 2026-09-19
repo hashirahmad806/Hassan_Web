@@ -12,7 +12,7 @@ import {
   Microscope,
 } from 'lucide-react';
 import { Header, Footer, MobileStickyActions, PageWrapper } from '@/components/layout';
-import { Button } from '@/components/ui';
+import { ServicesHero } from '@/components/sections';
 import { servicesDetailedDirectory } from '@/content';
 
 const serviceIcons = {
@@ -29,58 +29,59 @@ const excellenceIcons = {
   biotech: Microscope,
 };
 
+const clinicalAssurances = [
+  {
+    number: '01',
+    title: 'Biomimetic Philosophy',
+    description:
+      'Conservative micro-dentistry preserving natural tooth vitality and structural integrity.',
+  },
+  {
+    number: '02',
+    title: 'Digital Smile Blueprint',
+    description:
+      'High-resolution 3D photogrammetry and facial simulation prior to any tooth preparation.',
+  },
+  {
+    number: '03',
+    title: 'Master Ceramist Artistry',
+    description:
+      'Custom hand-layered ceramic restorations matched to natural optical enamel translucency.',
+  },
+  {
+    number: '04',
+    title: 'Hospital-Grade Asepsis',
+    description:
+      'Strict Class-B vacuum autoclave protocols and sterile operatory environments.',
+  },
+];
+
 /**
- * Services directory page — complete portfolio matching design.
+ * Services directory page — complete portfolio matching luxury design.
  */
 export default function ServicesPage() {
-  const { hero, clinicalExcellence, metrics, categories } = servicesDetailedDirectory;
+  const { clinicalExcellence, categories } = servicesDetailedDirectory;
 
   return (
     <Skeleton name="services" loading={false}>
       <PageWrapper>
         <Header />
-        <main className="min-h-screen pt-24">
-          {/* Editorial Hero Header */}
-          <header className="container-main py-16 md:py-24">
-            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-              <div className="lg:col-span-7">
-                <span className="mb-6 inline-block border-b border-primary pb-1 font-label-caps text-xs uppercase tracking-widest text-primary">
-                  {hero.label}
-                </span>
-                <h1 className="mb-6 font-display-lg text-headline-lg-mobile text-primary md:text-display-lg">
-                  The Art &amp; Science <br />
-                  <span className="italic text-primary/80">of Dentistry</span>
-                </h1>
-                <p className="max-w-xl font-body-md text-body-lg text-on-surface-variant">
-                  {hero.description}
-                </p>
-              </div>
-              <div className="hidden h-[400px] w-full rounded-lg border border-outline-variant/30 bg-surface-container-low p-8 shadow-sm lg:col-span-5 lg:flex lg:flex-col lg:justify-between">
-                <div className="space-y-4">
-                  <span className="font-label-caps text-xs uppercase tracking-widest text-gold-accent">
-                    Luxury Standard
-                  </span>
-                  <h3 className="font-display-lg text-2xl text-primary">
-                    Precision, Innovation &amp; Aesthetic Perfection
-                  </h3>
-                  <p className="font-body-md text-sm text-on-surface-variant">
-                    Every treatment plan is bespoke, combining advanced digital smile design with biomimetic restorative techniques.
-                  </p>
-                </div>
-                <Link to="/contact">
-                  <Button variant="primary" size="md">
-                    Schedule Consultation
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </header>
+        <main className="min-h-screen">
+          {/* Cinematic Services Hero with Ambient Video */}
+          <ServicesHero />
 
           {/* Clinical Excellence Section */}
-          <section className="border-y border-outline-variant/30 bg-surface-container-low py-16 md:py-24">
+          <section
+            id="clinical-excellence"
+            className="border-y border-outline-variant/30 bg-surface-container-low py-16 md:py-24"
+          >
             <div className="container-main">
               <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-16">
                 <div className="lg:col-span-1">
+                  <span className="mb-3 inline-flex items-center gap-1.5 font-label-caps text-xs uppercase tracking-widest text-gold-accent font-semibold">
+                    <Sparkles size={12} />
+                    <span>Scientific Standards</span>
+                  </span>
                   <h2 className="mb-4 font-headline-lg text-headline-lg-mobile text-primary md:text-headline-lg">
                     {clinicalExcellence.title}
                   </h2>
@@ -93,14 +94,19 @@ export default function ServicesPage() {
                     const Icon =
                       excellenceIcons[item.icon as keyof typeof excellenceIcons] ?? Focus;
                     return (
-                      <div key={item.title} className="space-y-3">
+                      <div
+                        key={item.title}
+                        className="space-y-3 rounded-xl border border-outline-variant/20 bg-surface-container-lowest p-6 shadow-sm transition-all duration-300 hover:border-gold-accent/40"
+                      >
                         <div className="flex items-center gap-3 text-gold-accent">
-                          <Icon size={24} />
+                          <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-gold-accent/30 bg-gold-accent/10">
+                            <Icon size={20} />
+                          </div>
                           <h3 className="font-headline-md text-xl text-primary">
                             {item.title}
                           </h3>
                         </div>
-                        <p className="font-body-md text-sm text-on-surface-variant">
+                        <p className="font-body-md text-sm text-on-surface-variant leading-relaxed">
                           {item.description}
                         </p>
                       </div>
@@ -111,22 +117,43 @@ export default function ServicesPage() {
             </div>
           </section>
 
-          {/* Patient Success Metrics */}
-          <section className="bg-primary text-on-primary py-12">
-            <div className="container-main flex flex-col items-center justify-around gap-8 text-center md:flex-row md:divide-x md:divide-white/20">
-              {metrics.map((metric) => (
-                <div key={metric.label} className="w-full px-8 md:w-auto">
-                  <div className="font-display-lg text-4xl md:text-5xl">{metric.value}</div>
-                  <div className="mt-1 font-label-caps text-xs uppercase tracking-widest text-white/80">
-                    {metric.label}
-                  </div>
+          {/* Four Pillars of Clinical Precision (Replaces redundant metrics band) */}
+          <section className="border-b border-outline-variant/30 bg-[#161310] py-14 text-[#f0e8d8]">
+            <div className="container-main">
+              <div className="mb-10 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end border-b border-white/10 pb-6">
+                <div>
+                  <span className="font-label-caps text-xs uppercase tracking-widest text-gold-accent font-bold">
+                    Aesthetic Standard of Care
+                  </span>
+                  <h3 className="mt-1 font-display-lg text-2xl md:text-3xl text-[#f0e8d8]">
+                    Four Pillars of Clinical Precision
+                  </h3>
                 </div>
-              ))}
+                <p className="max-w-md font-body-md text-xs text-[#f0e8d8]/60 leading-relaxed">
+                  Every treatment at Dr. Hassan's clinic adheres to uncompromising biological, structural, and aesthetic benchmarks.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                {clinicalAssurances.map((item) => (
+                  <div
+                    key={item.number}
+                    className="relative space-y-2 border-l border-gold-accent/30 pl-5"
+                  >
+                    <span className="font-label-caps text-[11px] font-bold text-gold-accent tracking-widest">
+                      {item.number}
+                    </span>
+                    <h4 className="font-headline-md text-lg text-[#f0e8d8]">{item.title}</h4>
+                    <p className="font-body-md text-xs leading-relaxed text-[#f0e8d8]/60">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
 
           {/* Categories Directory */}
-          <div className="space-y-24 py-16 md:py-24">
+          <div id="treatment-directory" className="space-y-24 py-16 md:py-24">
             {categories.map((cat) => (
               <section
                 key={cat.id}
@@ -135,23 +162,29 @@ export default function ServicesPage() {
               >
                 <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
                   <div className="top-32 self-start lg:w-1/3 lg:sticky">
-                    <span className="mb-4 block font-label-caps text-xs uppercase tracking-widest text-primary/60">
-                      {cat.number}
+                    <span className="mb-4 block font-label-caps text-xs uppercase tracking-widest text-primary/60 font-semibold">
+                      {cat.number} · Specialized Discipline
                     </span>
                     <h2 className="mb-4 font-display-lg text-headline-lg text-primary">
                       {cat.title}
                     </h2>
-                    <p className="mb-6 font-body-md text-on-surface-variant">
+                    <p className="mb-6 font-body-md text-on-surface-variant leading-relaxed">
                       {cat.subtitle}
                     </p>
 
-                    <div className="border border-outline-variant/30 bg-surface-container-low p-6">
-                      <h4 className="mb-3 font-label-caps text-xs uppercase tracking-widest text-primary font-semibold">
-                        Indications
-                      </h4>
-                      <ul className="space-y-2 text-sm text-on-surface-variant list-disc list-inside">
+                    {/* Elevated Clinical Indications Card */}
+                    <div className="relative overflow-hidden rounded-xl border border-gold-accent/25 bg-surface-container-low p-6 shadow-sm">
+                      <div className="absolute top-0 right-0 h-8 w-8 border-t-2 border-r-2 border-gold-accent/30 pointer-events-none rounded-tr-xl" />
+                      <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-gold-accent/20 bg-gold-accent/10 px-3 py-1 font-label-caps text-[10px] font-bold uppercase tracking-wider text-primary">
+                        <Sparkles size={11} className="text-gold-accent" />
+                        <span>Clinical Indications</span>
+                      </div>
+                      <ul className="space-y-2.5 text-sm text-on-surface-variant">
                         {cat.indications.map((ind) => (
-                          <li key={ind}>{ind}</li>
+                          <li key={ind} className="flex items-start gap-2.5">
+                            <span className="mt-1 text-gold-accent font-bold text-xs select-none">✦</span>
+                            <span className="leading-snug">{ind}</span>
+                          </li>
                         ))}
                       </ul>
                     </div>
@@ -163,27 +196,38 @@ export default function ServicesPage() {
                       return (
                         <div
                           key={card.title}
-                          className="glass-panel flex flex-col justify-between rounded-xl border border-outline-variant/30 p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold-accent/50"
+                          className="glass-panel flex flex-col justify-between rounded-xl border border-outline-variant/30 p-8 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-gold-accent/60 hover:shadow-md"
                         >
                           <div>
-                            <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full border border-primary/10 bg-surface-container-low text-primary">
-                              <Icon size={24} />
+                            <div className="mb-6 flex items-center justify-between">
+                              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary/10 bg-surface-container-low text-primary shadow-xs">
+                                <Icon size={22} />
+                              </div>
+                              <span className="rounded-full border border-gold-accent/25 bg-gold-accent/5 px-2.5 py-0.5 font-label-caps text-[9px] uppercase tracking-wider text-primary font-bold">
+                                Bespoke Care
+                              </span>
                             </div>
                             <h3 className="mb-3 font-headline-md text-2xl text-primary">
                               {card.title}
                             </h3>
-                            <p className="mb-4 font-body-md text-sm text-on-surface-variant">
+                            <p className="mb-5 font-body-md text-sm text-on-surface-variant leading-relaxed">
                               {card.description}
                             </p>
-                            <p className="mb-6 font-body-md text-xs italic text-primary/80">
-                              Benefit: {card.benefit}
-                            </p>
+                            <div className="mb-6 rounded-lg border border-gold-accent/20 bg-gold-accent/5 p-3.5">
+                              <span className="font-label-caps text-[10px] font-bold uppercase tracking-wider text-primary block mb-0.5">
+                                Clinical Benefit:
+                              </span>
+                              <p className="font-body-md text-xs text-on-surface-variant leading-snug">
+                                {card.benefit}
+                              </p>
+                            </div>
                           </div>
                           <Link
                             to="/contact"
-                            className="inline-flex items-center gap-2 font-label-caps text-xs uppercase tracking-widest text-primary transition-colors hover:text-gold-accent"
+                            className="inline-flex items-center gap-2 font-label-caps text-xs uppercase tracking-widest text-primary font-bold transition-all duration-200 hover:text-gold-accent hover:gap-3"
                           >
-                            Book Treatment <ArrowRight size={14} />
+                            <span>Schedule Treatment</span>
+                            <ArrowRight size={14} />
                           </Link>
                         </div>
                       );

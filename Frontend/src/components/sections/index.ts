@@ -8,6 +8,4 @@ export { ContactForm } from './ContactForm';
 export { GalleryGrid } from './GalleryGrid';
 export { GalleryHero } from './GalleryHero';
 export { ClinicalExperiences } from './ClinicalExperiences';
-
-
-
+export { ServicesHero } from './ServicesHero';

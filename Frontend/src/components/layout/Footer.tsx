@@ -58,7 +58,7 @@ export function Footer() {
           <div className={styles.preFooterText}>
             <div className={styles.preFooterTag}>
               <Sparkles size={12} aria-hidden="true" />
-              <span>Private Operatory Suite · Karachi, Pakistan</span>
+              <span>Private Operatory Suite · ASH Aesthetics, Peshawar</span>
             </div>
             <h2 className={styles.preFooterTitle}>
               Sculpting Confident, Bespoke Smiles
