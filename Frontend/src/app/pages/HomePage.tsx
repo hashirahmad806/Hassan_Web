@@ -18,7 +18,7 @@ export default function HomePage() {
         <Journey />
         <CTA />
       </main>
-      <Footer />
+      <Footer hidePreFooter />
       <MobileStickyActions />
     </PageWrapper>
   );

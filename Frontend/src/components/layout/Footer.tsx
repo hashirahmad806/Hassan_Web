@@ -41,10 +41,14 @@ const practiceLinks = [
   { label: 'Safety & Sterilization Standards', href: '/about' },
 ];
 
+export interface FooterProps {
+  hidePreFooter?: boolean;
+}
+
 /**
  * Architectural luxury dark footer for Dr. Hassan's practice.
  */
-export function Footer() {
+export function Footer({ hidePreFooter = false }: FooterProps = {}) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -52,44 +56,46 @@ export function Footer() {
   return (
     <footer className={styles.footer} role="contentinfo">
       {/* ── 1. Pre-Footer Luxury Consultation Bar ──────────────── */}
-      <section className={styles.preFooter} aria-label="Consultation invitation">
-        <div className={styles.preFooterGlow} aria-hidden="true" />
-        <div className={styles.preFooterGrid}>
-          <div className={styles.preFooterText}>
-            <div className={styles.preFooterTag}>
-              <Sparkles size={12} aria-hidden="true" />
-              <span>Private Operatory Suite · ASH Aesthetics, Peshawar</span>
+      {!hidePreFooter && (
+        <section className={styles.preFooter} aria-label="Consultation invitation">
+          <div className={styles.preFooterGlow} aria-hidden="true" />
+          <div className={styles.preFooterGrid}>
+            <div className={styles.preFooterText}>
+              <div className={styles.preFooterTag}>
+                <Sparkles size={12} aria-hidden="true" />
+                <span>Private Operatory Suite · ASH Aesthetics, Peshawar</span>
+              </div>
+              <h2 className={styles.preFooterTitle}>
+                Sculpting Confident, Bespoke Smiles
+              </h2>
+              <p className={styles.preFooterDesc}>
+                Reserve your dedicated clinical assessment with Dr. Hassan. Digital Smile Design™,
+                clinical photography, and meticulous personalized treatment planning.
+              </p>
             </div>
-            <h2 className={styles.preFooterTitle}>
-              Sculpting Confident, Bespoke Smiles
-            </h2>
-            <p className={styles.preFooterDesc}>
-              Reserve your dedicated clinical assessment with Dr. Hassan. Digital Smile Design™,
-              clinical photography, and meticulous personalized treatment planning.
-            </p>
-          </div>
 
-          <div className={styles.preFooterCtas}>
-            <Link to="/contact" className={styles.ctaPrimary}>
-              <span>Reserve Consultation</span>
-              <ArrowRight size={13} aria-hidden="true" />
-            </Link>
+            <div className={styles.preFooterCtas}>
+              <Link to="/contact" className={styles.ctaPrimary}>
+                <span>Reserve Consultation</span>
+                <ArrowRight size={13} aria-hidden="true" />
+              </Link>
 
-            <a
-              href={formatWhatsAppLink(siteConfig.whatsapp, siteConfig.whatsappMessage)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.ctaWhatsApp}
-            >
-              <span className={styles.waDotWrap} aria-hidden="true">
-                <span className={styles.waDotPing} />
-                <span className={styles.waDot} />
-              </span>
-              <span>WhatsApp Concierge</span>
-            </a>
+              <a
+                href={formatWhatsAppLink(siteConfig.whatsapp, siteConfig.whatsappMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.ctaWhatsApp}
+              >
+                <span className={styles.waDotWrap} aria-hidden="true">
+                  <span className={styles.waDotPing} />
+                  <span className={styles.waDot} />
+                </span>
+                <span>WhatsApp Concierge</span>
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ── 2. Main Architectural Footer Columns ────────────────── */}
       <div className={styles.mainContent}>

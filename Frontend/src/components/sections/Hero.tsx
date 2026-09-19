@@ -130,7 +130,7 @@ export function Hero() {
                 aria-label="Available"
               />
               <span className={styles.availText}>Accepting New Patients</span>
-              <span className={styles.availCity}>· Karachi, Pakistan</span>
+              <span className={styles.availCity}>· ASH Aesthetics, Peshawar</span>
             </div>
           </FadeReveal>
 

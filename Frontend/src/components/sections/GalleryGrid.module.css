@@ -447,3 +447,173 @@
   color: #6e5c3c;
   background: #f5efe9;
 }
+
+/* ── Case Study Archive & Cards ─────────────────────────────────────────── */
+.approachBlock {
+  max-width: 900px;
+  margin: 0 auto 3.5rem auto;
+  background: #fbf7f4;
+  border: 1px solid rgba(208, 184, 146, 0.45);
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(110, 92, 60, 0.04);
+}
+
+.approachTitle {
+  font-family: var(--font-headline-md, 'Playfair Display', serif);
+  font-size: 1.4rem;
+  color: #1d1b18;
+  margin-bottom: 0.75rem;
+}
+
+.approachText {
+  font-family: var(--font-body-md, 'Inter', sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #5f5e5e;
+}
+
+.filterNav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 2.5rem 0 3.5rem 0;
+}
+
+.filterBtn {
+  font-family: var(--font-label-caps, 'Inter', sans-serif);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.65rem 1.4rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(207, 197, 184, 0.8);
+  background: #ffffff;
+  color: #5f5e5e;
+  cursor: pointer;
+}
+
+.filterBtn:hover {
+  border-color: #d0b892;
+  color: #1d1b18;
+  box-shadow: 0 2px 10px rgba(208, 184, 146, 0.15);
+}
+
+.filterBtnActive {
+  background: #6e5c3c;
+  color: #ffffff;
+  border-color: #6e5c3c;
+  box-shadow: 0 4px 14px rgba(110, 92, 60, 0.25);
+}
+
+/* Diagnostic 3-part card container */
+.diagnosticGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  margin: 1.5rem 0;
+}
+
+.diagnosticItem {
+  background: #fbf8f5;
+  border: 1px solid rgba(208, 184, 146, 0.3);
+  border-left: 3px solid #d0b892;
+  border-radius: 6px;
+  padding: 0.85rem 1.15rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.diagnosticItem:hover {
+  border-left-color: #6e5c3c;
+  background: #ffffff;
+}
+
+.diagnosticHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.diagnosticBadge {
+  font-family: var(--font-label-caps, 'Inter', sans-serif);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #6e5c3c;
+}
+
+.diagnosticBody {
+  font-family: var(--font-body-md, 'Inter', sans-serif);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: #5f5e5e;
+  margin: 0;
+}
+
+/* Case Study CTAs */
+.caseCtaGroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.casePrimaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #1d1b18;
+  color: #f9f5f0;
+  border: 1px solid rgba(208, 184, 146, 0.5);
+  padding: 0.65rem 1.35rem;
+  border-radius: 6px;
+  font-family: var(--font-label-caps, 'Inter', sans-serif);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.casePrimaryBtn:hover {
+  background: #6e5c3c;
+  color: #ffffff;
+  border-color: #d0b892;
+  box-shadow: 0 4px 16px rgba(110, 92, 60, 0.3);
+  transform: translateY(-1px);
+}
+
+.caseWaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(37, 211, 102, 0.08);
+  color: #128c7e;
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  padding: 0.65rem 1.15rem;
+  border-radius: 6px;
+  font-family: var(--font-label-caps, 'Inter', sans-serif);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.caseWaBtn:hover {
+  background: #25d366;
+  color: #ffffff;
+  border-color: #25d366;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+  transform: translateY(-1px);
+}

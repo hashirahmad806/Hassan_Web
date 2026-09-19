@@ -15,7 +15,7 @@ export const siteConfig = {
   whatsappMessage:
     'Hello Dr. Hassan, I would like to inquire about booking a consultation at your clinic.',
   email: 'hassandent18@gmail.com',
-  address: 'Clifton, Karachi, Pakistan',
+  address: 'ASH Aesthetics, 2nd Floor, GS Tower, Peshawar',
   copyright: '© 2026 Dr. Hassan. Excellence in Aesthetic Care.',
   socials: {
     linkedin:
@@ -124,11 +124,11 @@ export const treatments: Treatment[] = [
 ];
 
 export const aboutContent = {
-  label: 'Our Philosophy',
-  heading: 'The Aura Standard',
-  headingAccent: 'Where Artistry Meets Precision',
+  label: 'The Clinician · Founder',
+  heading: 'Dr. Hassan Salman',
+  headingAccent: 'BDS, RDS · Aesthetic & Reconstructive Surgeon',
   paragraph1:
-    'With dedicated clinical focus and precision craftsmanship, Dr. Hassan has redefined aesthetic dentistry. His approach blends meticulous surgical precision with an artist’s eye for proportion and balance.',
+    'With dedicated clinical focus and precision craftsmanship, Dr. Hassan Salman has redefined aesthetic dentistry at ASH Aesthetics, Peshawar. His approach blends meticulous surgical precision with an artist’s eye for proportion and balance.',
   paragraph2:
     'Our sanctuary-like clinic is designed to provide an atmosphere of complete tranquility while delivering world-class dental solutions.',
   ctaLabel: 'Discover His Journey',
@@ -138,7 +138,7 @@ export const aboutContent = {
     { value: '99%', label: 'Patient Satisfaction' },
   ],
   imageAlt:
-    'Photograph of Dr. Hassan in clinical attire in his modern operatory suite.',
+    'Photograph of Dr. Hassan Salman in clinical attire in his modern operatory suite.',
 } as const;
 
 export const journeyContent = {
@@ -613,15 +613,15 @@ export const clinicalExperiencesContent = {
       badge: 'ASH Aesthetics · In Practice',
       location: 'ASH Aesthetics, 2nd Floor, GS Tower, Peshawar',
       title: 'Smile Design & Restorative Care',
-      doctor: 'Dr. Hasan (BDS, RDS)',
+      doctor: 'Dr. Hassan (BDS, RDS)',
       subtitle: 'Comprehensive Dental Consultations & Makeovers',
       description:
-        'Live clinical consultation and treatment execution with Dr. Hasan at ASH Aesthetics, demonstrating microscopic tooth preparation, aesthetic smile analysis, and restorative dentistry.',
+        'Live clinical consultation and treatment execution with Dr. Hassan at ASH Aesthetics, demonstrating microscopic tooth preparation, aesthetic smile analysis, and restorative dentistry.',
       tags: ['Smile Makeovers', 'Porcelain Veneers', 'Clinical Care', 'RCT'],
       type: 'video' as const,
       instagramUrl: 'https://www.instagram.com/p/Da3BOlMCvjh/?hl=en',
       embedUrl: 'https://www.instagram.com/p/Da3BOlMCvjh/embed/',
-      inquiryCaseName: 'ASH Aesthetics Smile Makeover Consultation with Dr. Hasan',
+      inquiryCaseName: 'ASH Aesthetics Smile Makeover Consultation with Dr. Hassan',
       whatsappMessage:
         'Hello Dr. Hassan, I watched your smile design video at ASH Aesthetics on your gallery and would like to book a consultation for smile design and clinical treatments.',
     },
@@ -631,10 +631,10 @@ export const clinicalExperiencesContent = {
       badge: 'ASH Aesthetics · Dental Suite',
       location: 'ASH Aesthetics, 2nd Floor, GS Tower, Peshawar',
       title: 'Preventive Dental Care & Oral Hygiene',
-      doctor: 'Dr. Hasan (BDS, RDS)',
+      doctor: 'Dr. Hassan (BDS, RDS)',
       subtitle: 'Routine Clinical Checkups & Preservation',
       description:
-        'Dr. Hasan explaining the clinical importance of regular dental checkups, cavity prevention, and gentle ultrasonic scaling to maintain oral vitality and radiant smiles for years to come.',
+        'Dr. Hassan explaining the clinical importance of regular dental checkups, cavity prevention, and gentle ultrasonic scaling to maintain oral vitality and radiant smiles for years to come.',
       tags: ['Preventative Care', 'Dental Checkups', 'Teeth Cleaning', 'Gum Health'],
       type: 'video' as const,
       instagramUrl: 'https://www.instagram.com/p/DbdkKEIj3lK/?hl=en',
@@ -649,7 +649,7 @@ export const clinicalExperiencesContent = {
       badge: 'ASH Aesthetics · Surgical Suite',
       location: 'ASH Aesthetics, 2nd Floor, GS Tower, Peshawar',
       title: 'Microscopic Biomimetic Protocol',
-      doctor: 'Dr. Hasan (BDS, RDS)',
+      doctor: 'Dr. Hassan (BDS, RDS)',
       subtitle: 'Precision Restorative & Operatory Suite',
       description:
         'Ultra-high magnification surgical protocol showcasing conservative tooth preparation, sub-millimeter restorative bonding, and biomechanical smile harmony.',

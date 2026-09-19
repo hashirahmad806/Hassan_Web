@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'motion/react';
 import {
   ArrowRight,
   Star,
@@ -8,7 +9,7 @@ import {
   CheckCircle2,
   Phone,
 } from 'lucide-react';
-import { caseStudies, galleryCategories, testimonials } from '@/content';
+import { caseStudies, galleryCategories, testimonials, siteConfig } from '@/content';
 import { useGalleryStore } from '@/store';
 import { ClinicalExperiences } from './ClinicalExperiences';
 import styles from './GalleryGrid.module.css';
@@ -39,17 +40,29 @@ export function GalleryGrid() {
 
   return (
     <section className="bg-surface py-section-padding-mobile md:py-section-padding-desktop">
-      {/* Hero Intro Header */}
-      <div className="container-main mb-16 border-b border-outline-variant/30 pb-16 text-center">
-        <h1 className="mb-6 font-headline-lg text-headline-lg-mobile text-charcoal-text md:text-headline-lg">
+      {/* ── 1. Hero Intro Header & Clinical Approach ─────────────── */}
+      <div className="container-main mb-12 text-center">
+        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-gold-accent/40 bg-gold-accent/10 px-4 py-1.5 font-label-caps text-xs uppercase tracking-widest text-gold-accent">
+          <Sparkles size={12} aria-hidden="true" />
+          <span>Documented Clinical Archive</span>
+        </div>
+        <h2 className="mb-6 font-headline-lg text-headline-lg-mobile text-charcoal-text md:text-headline-lg">
           Clinical Case Studies
-        </h1>
+        </h2>
         <p className="mx-auto max-w-2xl font-body-lg text-secondary">
           An archive of clinical excellence. Explore detailed accounts of complex oral rehabilitations, where meticulous scientific planning meets refined aesthetic execution.
         </p>
 
-        {/* Filter Buttons */}
-        <div className="mt-12 flex flex-wrap justify-center gap-4" role="tablist" aria-label="Case study categories">
+        {/* The Clinical Approach Philosophy Card */}
+        <div className={styles.approachBlock}>
+          <h3 className={styles.approachTitle}>The Clinical Approach</h3>
+          <p className={styles.approachText}>
+            Every case presented here is a testament to our core philosophy: balancing form and function. By utilizing state-of-the-art diagnostic imaging and conservative, biomimetic principles, we achieve outcomes that are structurally sound and visually imperceptible from natural dentition.
+          </p>
+        </div>
+
+        {/* Filter Buttons Toolbar */}
+        <div className={styles.filterNav} role="tablist" aria-label="Case study categories">
           {galleryCategories.map((category) => (
             <button
               key={category}
@@ -58,11 +71,9 @@ export function GalleryGrid() {
               aria-selected={activeCategory === category}
               onClick={() => setActiveCategory(category)}
               className={[
-                'rounded-full border px-6 py-2 font-label-caps text-label-caps uppercase tracking-widest transition-colors duration-300',
-                activeCategory === category
-                  ? 'border-gold-accent bg-gold-accent text-on-primary'
-                  : 'border-outline text-secondary hover:border-gold-accent hover:text-primary',
-              ].join(' ')}
+                styles.filterBtn,
+                activeCategory === category ? styles.filterBtnActive : '',
+              ].filter(Boolean).join(' ')}
             >
               {category}
             </button>
@@ -70,103 +81,103 @@ export function GalleryGrid() {
         </div>
       </div>
 
-      {/* Clinical Approach Banner */}
-      <div className="border-b border-outline-variant/30 bg-surface-container-low py-16">
-        <div className="container-main mx-auto max-w-4xl text-center">
-          <h2 className="mb-6 font-headline-md text-charcoal-text">The Clinical Approach</h2>
-          <p className="font-body-lg text-secondary">
-            Every case presented here is a testament to our core philosophy: balancing form and function. By utilizing state-of-the-art diagnostic imaging and conservative, biomimetic principles, we achieve outcomes that are structurally sound and visually imperceptible from natural dentition.
-          </p>
-        </div>
-      </div>
+      {/* ── 2. Filtered Case Studies List with Smooth Transitions ──── */}
+      <div className="container-main space-y-24 py-8 md:py-16">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
+            className="space-y-24"
+          >
+            {filtered.map((item, index) => {
+              const isEven = index % 2 === 0;
+              const imgSrc = caseImageMap[item.id] || protoCase1;
+              const inquiryUrl = `/contact?case=${encodeURIComponent(item.caseNumber)}&title=${encodeURIComponent(item.title)}&category=${encodeURIComponent(item.category)}`;
+              const whatsappInquiryUrl = `https://wa.me/923349295638?text=${encodeURIComponent(`Hello Dr. Hassan, I am viewing ${item.caseNumber}: "${item.title}" (${item.category}) in your gallery and would like to inquire about a similar treatment consultation.`)}`;
 
-      {/* Case Studies List */}
-      <div className="container-main space-y-24 py-16 md:py-24">
-        {filtered.map((item, index) => {
-          const isEven = index % 2 === 0;
-          const imgSrc = caseImageMap[item.id] || protoCase1;
-          const inquiryUrl = `/contact?case=${encodeURIComponent(item.caseNumber)}&title=${encodeURIComponent(item.title)}&category=${encodeURIComponent(item.category)}`;
-          const whatsappInquiryUrl = `https://wa.me/923349295638?text=${encodeURIComponent(`Hello Dr. Hassan, I am viewing ${item.caseNumber}: "${item.title}" (${item.category}) in your gallery and would like to inquire about a similar treatment consultation.`)}`;
-
-          return (
-            <article
-              key={item.id}
-              className="group grid grid-cols-1 items-center gap-12 lg:grid-cols-12"
-            >
-              <div className={`lg:col-span-7 ${isEven ? '' : 'lg:order-2'}`}>
-                <div className="museum-frame relative overflow-hidden border border-outline-variant bg-white p-3 shadow-sm transition-transform duration-700 hover:scale-[1.01]">
-                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm bg-surface-container">
-                    <img
-                      src={imgSrc}
-                      alt={item.afterAlt}
-                      className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-                    />
-                    <div className="absolute bottom-3 right-3 rounded-full bg-charcoal-text/75 px-3 py-1 font-label-caps text-[10px] uppercase tracking-widest text-white backdrop-blur-sm">
-                      Case Preview
+              return (
+                <article
+                  key={item.id}
+                  className="group grid grid-cols-1 items-center gap-12 lg:grid-cols-12"
+                >
+                  <div className={`lg:col-span-7 ${isEven ? '' : 'lg:order-2'}`}>
+                    <div className="museum-frame relative overflow-hidden border border-outline-variant/60 bg-white p-3 shadow-sm transition-transform duration-700 hover:scale-[1.01]">
+                      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm bg-surface-container">
+                        <img
+                          src={imgSrc}
+                          alt={item.afterAlt}
+                          className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                        />
+                        <div className="absolute bottom-3 right-3 rounded-full bg-charcoal-text/80 px-3 py-1 font-label-caps text-[10px] uppercase tracking-widest text-white backdrop-blur-md border border-white/10">
+                          Verified Outcome
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
 
-              <div className={`space-y-6 lg:col-span-5 ${isEven ? '' : 'lg:order-1'}`}>
-                <div className="flex items-center gap-4">
-                  <span className="font-label-caps text-label-caps uppercase tracking-widest text-gold-accent">
-                    {item.caseNumber}
-                  </span>
-                  <span className="h-px w-12 bg-outline-variant" aria-hidden="true" />
-                  <span className="font-label-caps text-label-caps uppercase tracking-widest text-secondary">
-                    {item.category}
-                  </span>
-                </div>
+                  <div className={`space-y-6 lg:col-span-5 ${isEven ? '' : 'lg:order-1'}`}>
+                    <div className="flex items-center gap-4">
+                      <span className="font-label-caps text-label-caps uppercase tracking-widest text-gold-accent font-semibold">
+                        {item.caseNumber}
+                      </span>
+                      <span className="h-px w-12 bg-outline-variant" aria-hidden="true" />
+                      <span className="font-label-caps text-label-caps uppercase tracking-widest text-secondary">
+                        {item.category}
+                      </span>
+                    </div>
 
-                <h3 className="font-headline-lg text-2xl text-charcoal-text md:text-3xl">
-                  {item.title}
-                </h3>
+                    <h3 className="font-headline-lg text-2xl text-charcoal-text md:text-3xl leading-tight">
+                      {item.title}
+                    </h3>
 
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="mb-1 font-label-caps text-label-caps uppercase tracking-widest text-charcoal-text font-semibold">
-                      Challenge
-                    </h4>
-                    <p className="font-body-md text-sm text-secondary">{item.challenge}</p>
+                    {/* Structured 3-Part Diagnostic Panel */}
+                    <div className={styles.diagnosticGrid}>
+                      <div className={styles.diagnosticItem}>
+                        <div className={styles.diagnosticHeader}>
+                          <span className={styles.diagnosticBadge}>01 · Challenge</span>
+                        </div>
+                        <p className={styles.diagnosticBody}>{item.challenge}</p>
+                      </div>
+                      <div className={styles.diagnosticItem}>
+                        <div className={styles.diagnosticHeader}>
+                          <span className={styles.diagnosticBadge}>02 · Solution</span>
+                        </div>
+                        <p className={styles.diagnosticBody}>{item.solution}</p>
+                      </div>
+                      <div className={styles.diagnosticItem}>
+                        <div className={styles.diagnosticHeader}>
+                          <span className={styles.diagnosticBadge}>03 · Result</span>
+                        </div>
+                        <p className={styles.diagnosticBody}>{item.result}</p>
+                      </div>
+                    </div>
+
+                    {/* Architectural Luxury CTAs */}
+                    <div className={styles.caseCtaGroup}>
+                      <Link to={inquiryUrl} className={styles.casePrimaryBtn}>
+                        <span>Inquire About Similar Case</span>
+                        <ArrowRight size={14} aria-hidden="true" />
+                      </Link>
+                      <a
+                        href={whatsappInquiryUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Inquire about ${item.caseNumber} on WhatsApp`}
+                        className={styles.caseWaBtn}
+                      >
+                        <MessageCircle size={14} aria-hidden="true" />
+                        <span>WhatsApp Concierge</span>
+                      </a>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="mb-1 font-label-caps text-label-caps uppercase tracking-widest text-charcoal-text font-semibold">
-                      Solution
-                    </h4>
-                    <p className="font-body-md text-sm text-secondary">{item.solution}</p>
-                  </div>
-                  <div>
-                    <h4 className="mb-1 font-label-caps text-label-caps uppercase tracking-widest text-charcoal-text font-semibold">
-                      Result
-                    </h4>
-                    <p className="font-body-md text-sm text-secondary">{item.result}</p>
-                  </div>
-                </div>
-
-                <div className="pt-2 flex flex-wrap items-center gap-3">
-                  <Link
-                    to={inquiryUrl}
-                    className="inline-flex items-center gap-2 rounded-full border border-primary bg-primary px-5 py-2.5 font-label-caps text-xs uppercase tracking-widest text-on-primary transition-all duration-300 hover:bg-gold-accent hover:border-gold-accent hover:text-white"
-                  >
-                    <span>Inquire About Similar Case</span>
-                    <ArrowRight size={14} />
-                  </Link>
-                  <a
-                    href={whatsappInquiryUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Inquire about ${item.caseNumber} on WhatsApp`}
-                    className="inline-flex items-center gap-2 rounded-full border border-[#25D366]/40 bg-[#25D366]/10 px-4 py-2.5 font-label-caps text-xs uppercase tracking-widest text-[#128C7E] transition-all duration-300 hover:bg-[#25D366] hover:text-white"
-                  >
-                    <MessageCircle size={14} />
-                    <span>WhatsApp</span>
-                  </a>
-                </div>
-              </div>
-            </article>
-          );
-        })}
+                </article>
+              );
+            })}
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* Clinical Experiences in Motion (ASH Aesthetics + Surgical Mastery) */}
@@ -305,12 +316,12 @@ export function GalleryGrid() {
               </a>
 
               <a
-                href="tel:+923111556074"
+                href={`tel:${siteConfig.phone.replace(/[^0-9+]/g, '')}`}
                 className={styles.phoneActionBtn}
-                aria-label="Call clinic desk at +92 311 1556074"
+                aria-label={`Call clinic desk at ${siteConfig.phone}`}
               >
                 <Phone size={13} aria-hidden="true" />
-                <span>Desk: +92 311 1556074</span>
+                <span>Desk: {siteConfig.phone}</span>
               </a>
             </div>
           </div>

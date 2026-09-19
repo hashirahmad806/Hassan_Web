@@ -19,7 +19,7 @@ export default function GalleryPage() {
             <GalleryGrid />
           </div>
         </main>
-        <Footer />
+        <Footer hidePreFooter />
         <MobileStickyActions />
       </PageWrapper>
     </Skeleton>
