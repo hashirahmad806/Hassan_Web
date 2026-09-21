@@ -202,7 +202,7 @@ export const deskStructure: StructureResolver = (S) =>
 
       // ─── 5. Patient Education & Journal ───────────────────────────
       S.listItem()
-        .title('📚 Clinical Journal & Patient Education')
+        .title('📰 Clinical Journal & Patient Education')
         .child(
           S.list()
             .title('Patient Education & Articles')
@@ -223,13 +223,52 @@ export const deskStructure: StructureResolver = (S) =>
             ])
         ),
 
+      // ─── 6. Academic & Scholarly Works ────────────────────────────
+      S.listItem()
+        .title('🎓 Academic & Scholarly Works')
+        .child(
+          S.list()
+            .title('Academic Works & BDS Achievements')
+            .items([
+              S.listItem()
+                .title('📄 Peer-Reviewed Research Papers')
+                .child(
+                  S.documentTypeList('scholarlyWork')
+                    .title('All Research Papers')
+                    .defaultOrdering([{ field: 'year', direction: 'desc' }, { field: 'order', direction: 'asc' }])
+                ),
+              S.listItem()
+                .title('🌟 Spotlight / Featured Publications')
+                .child(
+                  S.documentList()
+                    .title('Featured Publications')
+                    .filter('_type == "scholarlyWork" && isFeatured == true')
+                ),
+              S.divider(),
+              S.listItem()
+                .title('🏅 BDS Academic Honors & Medals')
+                .child(
+                  S.documentTypeList('academicHonor')
+                    .title('Honors, Medals & Distinctions')
+                    .defaultOrdering([{ field: 'year', direction: 'desc' }, { field: 'order', direction: 'asc' }])
+                ),
+            ])
+        ),
+
       S.divider(),
 
       // ─── Filter Out Managed Types from Default List ───────────────
       ...S.documentTypeListItems().filter(
         (listItem) =>
-          !['siteSettings', 'service', 'galleryCase', 'testimonial', 'post', 'author'].includes(
-            listItem.getId() || ''
-          )
+          ![
+            'siteSettings',
+            'service',
+            'galleryCase',
+            'testimonial',
+            'post',
+            'author',
+            'scholarlyWork',
+            'academicHonor',
+          ].includes(listItem.getId() || '')
       ),
     ])

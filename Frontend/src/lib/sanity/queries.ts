@@ -272,3 +272,80 @@ export const recentPostsQuery = `
     }
   }
 `
+
+/**
+ * Fetch all peer-reviewed research papers and publications
+ */
+export const scholarlyWorksQuery = `
+  *[_type == "scholarlyWork"] | order(year desc, order asc, publicationDate desc) {
+    _id,
+    _type,
+    title,
+    slug,
+    journal,
+    publicationDate,
+    year,
+    category,
+    authors,
+    abstract,
+    doi,
+    pdfFile {
+      asset-> {
+        _id,
+        url,
+        originalFilename,
+        size
+      }
+    },
+    "pdfUrl": pdfFile.asset->url,
+    citations,
+    isFeatured,
+    order
+  }
+`
+
+/**
+ * Fetch featured spotlight publications
+ */
+export const featuredScholarlyWorksQuery = `
+  *[_type == "scholarlyWork" && isFeatured == true] | order(year desc, order asc)[0...4] {
+    _id,
+    _type,
+    title,
+    slug,
+    journal,
+    publicationDate,
+    year,
+    category,
+    authors,
+    abstract,
+    doi,
+    "pdfUrl": pdfFile.asset->url,
+    citations,
+    order
+  }
+`
+
+/**
+ * Fetch BDS academic honors, medals, and distinctions
+ */
+export const academicHonorsQuery = `
+  *[_type == "academicHonor"] | order(year desc, order asc) {
+    _id,
+    _type,
+    title,
+    awardType,
+    institution,
+    year,
+    citation,
+    credentialDoc {
+      asset->,
+      crop,
+      hotspot,
+      alt
+    },
+    "credentialDocUrl": credentialDoc.asset->url,
+    order
+  }
+`
+

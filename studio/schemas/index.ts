@@ -5,6 +5,8 @@ import { post } from './post'
 import { service } from './service'
 import { siteSettings } from './siteSettings'
 import { testimonial } from './testimonial'
+import { scholarlyWork } from './scholarlyWork'
+import { academicHonor } from './academicHonor'
 
 export const schemaTypes = [
   // Singleton settings
@@ -18,6 +20,10 @@ export const schemaTypes = [
   // Patient education
   post,
   author,
+  // Academic & Scholarly Works
+  scholarlyWork,
+  academicHonor,
   // Portable text blocks
   blockContent,
 ]
+

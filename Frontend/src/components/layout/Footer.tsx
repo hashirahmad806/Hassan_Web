@@ -34,6 +34,7 @@ const clinicalDisciplines = [
 
 const practiceLinks = [
   { label: 'About Dr. Hassan', href: '/about' },
+  { label: 'Research & Publications', href: '/research' },
   { label: 'Clinical Philosophy', href: '/about#philosophy' },
   { label: 'Case Studies Gallery', href: '/gallery' },
   { label: 'Consultation Guide', href: '/contact' },

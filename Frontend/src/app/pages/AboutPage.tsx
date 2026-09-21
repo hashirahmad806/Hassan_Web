@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Skeleton } from 'boneyard-js/react';
 import {
   Award,
@@ -7,7 +8,9 @@ import {
   Globe,
   GraduationCap,
   Zap,
+  ArrowRight,
 } from 'lucide-react';
+
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -264,7 +267,30 @@ export default function AboutPage() {
                 </ul>
               </div>
             </div>
+
+            {/* Academic & Research Spotlight Callout */}
+            <div className="mt-8 rounded-2xl border border-gold-accent/40 bg-gradient-to-r from-surface-container to-surface-container-highest p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+              <div className="space-y-1 text-center md:text-left">
+                <span className="inline-flex items-center gap-1.5 font-label-caps text-xs uppercase tracking-[0.15em] text-gold-accent">
+                  <Award size={14} /> BDS Academic Distinction &amp; Research
+                </span>
+                <h4 className="font-display-lg text-xl md:text-2xl text-primary">
+                  Peer-Reviewed Papers, Clinical Trials &amp; Honors
+                </h4>
+                <p className="font-body-md text-sm text-on-surface-variant max-w-xl">
+                  Explore Dr. Hassan&apos;s published dental surgery studies, operative longevity research, and academic medals conferred during his BDS tenure.
+                </p>
+              </div>
+              <Link
+                to="/research"
+                className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-primary px-6 py-3 font-button text-sm text-on-primary transition-all duration-300 hover:bg-gold-accent hover:text-on-surface"
+              >
+                <span>View Research &amp; Papers</span>
+                <ArrowRight size={16} />
+              </Link>
+            </div>
           </section>
+
 
           {/* Philosophy Section */}
           <section className="bg-inverse-surface py-16 text-inverse-on-surface md:py-24 animate-section">

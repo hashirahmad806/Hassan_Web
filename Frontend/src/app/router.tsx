@@ -5,6 +5,7 @@ import HomePage from '@/app/pages/HomePage';
 const AboutPage = lazy(() => import('@/app/pages/AboutPage'));
 const ServicesPage = lazy(() => import('@/app/pages/ServicesPage'));
 const GalleryPage = lazy(() => import('@/app/pages/GalleryPage'));
+const ResearchPage = lazy(() => import('@/app/pages/ResearchPage'));
 const ContactPage = lazy(() => import('@/app/pages/ContactPage'));
 const NotFoundPage = lazy(() => import('@/app/pages/NotFoundPage'));
 
@@ -28,6 +29,11 @@ export function AppRouter() {
       <Route path="/gallery" element={
         <Suspense fallback={null}>
           <GalleryPage />
+        </Suspense>
+      } />
+      <Route path="/research" element={
+        <Suspense fallback={null}>
+          <ResearchPage />
         </Suspense>
       } />
       <Route path="/contact" element={

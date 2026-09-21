@@ -130,3 +130,51 @@ export interface Post {
   excerpt: string
   body: any[]
 }
+
+export interface SanityFileAsset {
+  _type: 'file'
+  asset?: {
+    _id?: string
+    _ref?: string
+    url?: string
+    originalFilename?: string
+    size?: number
+  }
+}
+
+export interface SanityScholarlyWork {
+  _id: string
+  _type: 'scholarlyWork'
+  title: string
+  slug: { current: string }
+  journal: string
+  publicationDate: string
+  year: string
+  category: 'pediatric-preventive' | 'orthodontics' | 'behavioral-dentistry' | 'aesthetic' | 'biomimetic' | 'oral-surgery' | 'prosthodontics' | 'implantology' | 'clinical-case' | string
+  authors: string[]
+  abstract: string
+  doi?: string
+  pdfFile?: SanityFileAsset
+  pdfUrl?: string
+  citations?: {
+    apa?: string
+    bibtex?: string
+    harvard?: string
+  }
+  isFeatured?: boolean
+  order?: number
+}
+
+export interface SanityAcademicHonor {
+  _id: string
+  _type: 'academicHonor'
+  title: string
+  awardType: 'gold-medal' | 'degree' | 'clinical-distinction' | 'fellowship' | 'presentation-award' | string
+  institution: string
+  year: string
+  citation?: string
+  credentialDoc?: SanityImage
+  credentialDocUrl?: string
+  order?: number
+}
+

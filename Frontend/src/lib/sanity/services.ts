@@ -1,7 +1,23 @@
 import { sanityClient } from './client';
-import { servicesQuery, galleryCasesQuery, testimonialsQuery, siteSettingsQuery } from './queries';
+import {
+  servicesQuery,
+  galleryCasesQuery,
+  testimonialsQuery,
+  siteSettingsQuery,
+  scholarlyWorksQuery,
+  academicHonorsQuery,
+} from './queries';
 import { treatments, caseStudies, testimonials, siteConfig } from '@/content';
-import type { Service, GalleryCase, SanityTestimonial, SiteSettings } from './types';
+import { fallbackScholarlyWorks, fallbackAcademicHonors } from '@/content/scholarlyContent';
+import type {
+  Service,
+  GalleryCase,
+  SanityTestimonial,
+  SiteSettings,
+  SanityScholarlyWork,
+  SanityAcademicHonor,
+} from './types';
+
 
 export type SanityService = Service;
 export type SanityGalleryCase = GalleryCase;
@@ -128,4 +144,63 @@ export async function fetchSanitySiteSettings(
     };
   }
 }
+
+/**
+ * Fetches scholarly research papers from Sanity CMS with resilience fallback to static seed data.
+ */
+export async function fetchSanityScholarlyWorks(
+  client = sanityClient,
+): Promise<FetchResult<SanityScholarlyWork[] | typeof fallbackScholarlyWorks>> {
+  try {
+    const data = await client.fetch<SanityScholarlyWork[]>(scholarlyWorksQuery);
+    if (Array.isArray(data) && data.length > 0) {
+      return {
+        success: true,
+        data,
+        isFallback: false,
+      };
+    }
+    return {
+      success: true,
+      data: fallbackScholarlyWorks,
+      isFallback: true,
+    };
+  } catch {
+    return {
+      success: true,
+      data: fallbackScholarlyWorks,
+      isFallback: true,
+    };
+  }
+}
+
+/**
+ * Fetches BDS academic honors and distinctions from Sanity CMS with fallback to static seed data.
+ */
+export async function fetchSanityAcademicHonors(
+  client = sanityClient,
+): Promise<FetchResult<SanityAcademicHonor[] | typeof fallbackAcademicHonors>> {
+  try {
+    const data = await client.fetch<SanityAcademicHonor[]>(academicHonorsQuery);
+    if (Array.isArray(data) && data.length > 0) {
+      return {
+        success: true,
+        data,
+        isFallback: false,
+      };
+    }
+    return {
+      success: true,
+      data: fallbackAcademicHonors,
+      isFallback: true,
+    };
+  } catch {
+    return {
+      success: true,
+      data: fallbackAcademicHonors,
+      isFallback: true,
+    };
+  }
+}
+
 
