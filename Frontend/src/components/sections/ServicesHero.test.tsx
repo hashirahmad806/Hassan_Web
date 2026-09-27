@@ -44,9 +44,10 @@ describe('ServicesHero', () => {
 
   it('renders headline with accessible label', () => {
     renderServicesHero();
-    expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
-    expect(screen.getByText(/The/i)).toBeInTheDocument();
-    expect(screen.getByText(/Dentistry/i)).toBeInTheDocument();
+    const heading = screen.getByRole('heading', { level: 1 });
+    expect(heading).toBeInTheDocument();
+    expect(heading).toHaveTextContent(/Craft/i);
+    expect(heading).toHaveTextContent(/Dentistry/i);
   });
 
   it('renders dual CTAs for consultation and exploration', () => {
