@@ -84,9 +84,9 @@ const PREVIEW_SERVICES = [
 ];
 
 const CLINICAL_STATS = [
-  { value: '15+', label: 'Years Expertise' },
-  { value: '5k+', label: 'Successful Procedures' },
-  { value: '99%', label: 'Patient Satisfaction' },
+  { value: '3+', label: 'Years Expertise' },
+  { value: '500+', label: 'Successful Procedures' },
+
 ];
 
 /* ── ServicesHero Component ──────────────────────────────── */
@@ -125,10 +125,10 @@ export function ServicesHero() {
 
         {/* Cinematic Headline */}
         <h1 className={styles.headline}>
-          <MaskedWords text="The Art &" baseDelay={0.18} stagger={0.1} />
+          <MaskedWords text="The Craft " baseDelay={0.18} stagger={0.1} />
           <br aria-hidden="true" />
           <MaskedWords
-            text="Science of Dentistry"
+            text="  of Dentistry"
             baseDelay={0.34}
             stagger={0.08}
             className={styles.headlineAccent}

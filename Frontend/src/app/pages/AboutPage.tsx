@@ -15,6 +15,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Header, Footer, MobileStickyActions, PageWrapper } from '@/components/layout';
+import { LocationSection } from '@/components/sections';
 import { aboutDetailed } from '@/content';
 
 import drHassanFounderImg from '@/assets/images/real/dr_hassan_founder_real.jpg';
@@ -89,7 +90,7 @@ export default function AboutPage() {
         <Header />
         <main className="w-full pt-24" ref={containerRef}>
           {/* Hero Section */}
-          <section className="container-main py-16 md:py-24 animate-section">
+          <section id="meet-dr-hassan" className="container-main py-16 md:py-24 animate-section">
             <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-12">
               <div className="z-10 md:col-span-5">
                 <span className="mb-4 inline-block font-label-caps text-xs uppercase tracking-[0.2em] text-gold-accent">
@@ -221,7 +222,7 @@ export default function AboutPage() {
           </section>
 
           {/* Credentials Section */}
-          <section className="container-main py-16 md:py-24 animate-section">
+          <section id="credentials" className="container-main py-16 md:py-24 animate-section">
             <div className="grid grid-cols-1 gap-12 md:grid-cols-2 animate-stagger-container">
               <div className="animate-stagger-item rounded-2xl border border-outline-variant/30 bg-surface-container-highest p-8 md:p-12 transition-colors duration-500 hover:border-gold-accent/30">
                 <h3 className="mb-6 flex items-center gap-3 font-display-lg text-2xl text-primary">
@@ -322,6 +323,9 @@ export default function AboutPage() {
               </div>
             </div>
           </section>
+
+          {/* Clinic Sanctuary & Location Section */}
+          <LocationSection id="clinic" />
         </main>
         <Footer />
         <MobileStickyActions />

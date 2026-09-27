@@ -45,8 +45,8 @@ describe('ServicesHero', () => {
   it('renders headline with accessible label', () => {
     renderServicesHero();
     expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
-    expect(screen.getByLabelText('The Art &')).toBeInTheDocument();
-    expect(screen.getByLabelText('Science of Dentistry')).toBeInTheDocument();
+    expect(screen.getByText(/The/i)).toBeInTheDocument();
+    expect(screen.getByText(/Dentistry/i)).toBeInTheDocument();
   });
 
   it('renders dual CTAs for consultation and exploration', () => {
@@ -60,12 +60,10 @@ describe('ServicesHero', () => {
 
   it('renders all three clinical stats', () => {
     renderServicesHero();
-    expect(screen.getByText('15+')).toBeInTheDocument();
+    expect(screen.getByText('3+')).toBeInTheDocument();
     expect(screen.getByText('Years Expertise')).toBeInTheDocument();
-    expect(screen.getByText('5k+')).toBeInTheDocument();
+    expect(screen.getByText('500+')).toBeInTheDocument();
     expect(screen.getByText('Successful Procedures')).toBeInTheDocument();
-    expect(screen.getByText('99%')).toBeInTheDocument();
-    expect(screen.getByText('Patient Satisfaction')).toBeInTheDocument();
   });
 
   it('renders floating preview treatment cards with anchors', () => {

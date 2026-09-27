@@ -1,0 +1,235 @@
+/* ==========================================================
+   ContactForm.module.css — Ultra-Luxury Architectural Consultation Form
+   Theme: Dual-canvas warm porcelain + champagne gold + obsidian framing
+   ========================================================== */
+
+.formCard {
+  position: relative;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(208, 184, 146, 0.28);
+  background: #ffffff;
+  box-shadow: 0 16px 48px -12px rgba(26, 26, 26, 0.08), 0 4px 20px -4px rgba(208, 184, 146, 0.12);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Corner brackets */
+.cornerTL,
+.cornerTR,
+.cornerBL,
+.cornerBR {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: rgba(208, 184, 146, 0.6);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.cornerTL {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid rgba(208, 184, 146, 0.6);
+  border-left: 2px solid rgba(208, 184, 146, 0.6);
+}
+
+.cornerTR {
+  top: -1px;
+  right: -1px;
+  border-top: 2px solid rgba(208, 184, 146, 0.6);
+  border-right: 2px solid rgba(208, 184, 146, 0.6);
+}
+
+.cornerBL {
+  bottom: -1px;
+  left: -1px;
+  border-bottom: 2px solid rgba(208, 184, 146, 0.6);
+  border-left: 2px solid rgba(208, 184, 146, 0.6);
+}
+
+.cornerBR {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid rgba(208, 184, 146, 0.6);
+  border-right: 2px solid rgba(208, 184, 146, 0.6);
+}
+
+/* Header Banner */
+.cardHeader {
+  padding: 2.25rem 2rem 1.75rem;
+  background: linear-gradient(180deg, #f9f2ed 0%, #ffffff 100%);
+  border-bottom: 1px solid rgba(208, 184, 146, 0.18);
+}
+
+@media (min-width: 768px) {
+  .cardHeader {
+    padding: 2.5rem 2.75rem 2rem;
+  }
+}
+
+.formBody {
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .formBody {
+    padding: 2.5rem 2.75rem;
+  }
+}
+
+/* Procedure Chip */
+.procedureGrid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .procedureGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .procedureGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.procedureChip {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(207, 197, 184, 0.5);
+  background: #fbf8f5;
+  color: #1d1b18;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-align: left;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.procedureChip:hover {
+  border-color: rgba(208, 184, 146, 0.8);
+  background: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(208, 184, 146, 0.12);
+}
+
+.procedureChipActive {
+  border-color: #d0b892;
+  background: #f6efe6;
+  color: #554527;
+  font-weight: 600;
+  box-shadow: 0 0 0 1px #d0b892, 0 4px 14px rgba(208, 184, 146, 0.2);
+}
+
+.chipIcon {
+  color: #6e5c3c;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.procedureChipActive .chipIcon {
+  color: #554527;
+}
+
+/* Step marker */
+.stepBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  background: #6e5c3c;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+}
+
+/* Luxury Input Field styling */
+.inputField {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(207, 197, 184, 0.6);
+  background: #ffffff;
+  padding: 0.85rem 1.15rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: #1d1b18;
+  transition: all 0.2s ease;
+}
+
+.inputField:focus {
+  outline: none;
+  border-color: #d0b892;
+  box-shadow: 0 0 0 3px rgba(208, 184, 146, 0.25);
+  background: #ffffff;
+}
+
+/* Submit button with high-energy gold sheen */
+.submitBtn {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-radius: 9999px;
+  padding: 1.05rem 2rem;
+  background: linear-gradient(135deg, #d0b892 0%, #b89d70 100%);
+  color: #0f0d0b;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 20px rgba(208, 184, 146, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #dfc8a5 0%, #c4aa7d 100%);
+  box-shadow: 0 6px 30px rgba(208, 184, 146, 0.5);
+  transform: translateY(-2px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Success Card */
+.successCard {
+  display: flex;
+  min-height: 520px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(208, 184, 146, 0.4);
+  background: linear-gradient(180deg, #ffffff 0%, #fbf8f5 100%);
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 16px 48px rgba(208, 184, 146, 0.15);
+}
+
+.successMedal {
+  margin-bottom: 1.5rem;
+  display: flex;
+  height: 5rem;
+  width: 5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 2px solid rgba(208, 184, 146, 0.5);
+  background: rgba(208, 184, 146, 0.12);
+  color: #6e5c3c;
+  box-shadow: 0 0 30px rgba(208, 184, 146, 0.3);
+}

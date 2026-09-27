@@ -1,30 +1,48 @@
+import { Skeleton } from 'boneyard-js/react';
 import {
-  MapPin,
-  Clock,
   Phone,
   Mail,
   Star,
-  ArrowRight,
   MessageCircle,
-  Linkedin,
-  Facebook,
-  Instagram,
+  Award,
+  Sparkles,
+  CheckCircle2,
+  ArrowRight,
 } from 'lucide-react';
-import { Skeleton } from 'boneyard-js/react';
 import { Header, Footer, MobileStickyActions, PageWrapper } from '@/components/layout';
-import { ContactForm } from '@/components/sections';
-import { contactContent, siteConfig } from '@/content';
+import { ContactHero, ContactForm, LocationSection } from '@/components/sections';
+import { siteConfig, doctorProfile } from '@/content';
 import { formatPhoneLink, formatWhatsAppLink } from '@/utils';
+import drHassanFounderImg from '@/assets/images/real/dr_hassan_founder_real.jpg';
 
-const trustItems = [
-  { value: '24h', label: 'Response Time' },
-  { value: '5★', label: 'Patient Rating' },
-  { value: '3+', label: 'Years Experience' },
-  { value: '10k+', label: 'Smiles Created' },
+const CONSULTATION_STEPS = [
+  {
+    step: '01',
+    title: 'Facial & Smile Digital Mapping',
+    desc: 'Ultra-high-definition photographic protocol & facial symmetry scan to analyze your unique anatomical proportions.',
+  },
+  {
+    step: '02',
+    title: '3D Biomimetic Smile Simulation',
+    desc: 'Preview and fine-tune your potential veneer or restorative smile design before any clinical procedure commences.',
+  },
+  {
+    step: '03',
+    title: 'Bespoke Surgical Blueprint',
+    desc: 'Comprehensive treatment plan, transparent investment breakdown, and unhurried consultation directly with Dr. Hassan.',
+  },
+];
+
+const CLINICAL_ASSURANCES = [
+  'Discreet VIP Admissions',
+  'Class-100 Sterile Surgical Suite',
+  'Swiss Leica Micro-Optics',
+  'Dedicated Valet & Private Lift',
 ];
 
 /**
- * Premium contact and appointment booking page.
+ * Ultra-Luxury Contact & Private Consultation Page
+ * Harmonized with the Aura Medical Aesthetic design system (cinematic obsidian, champagne gold, warm ivory).
  */
 export default function ContactPage() {
   return (
@@ -33,255 +51,226 @@ export default function ContactPage() {
         <Header />
 
         <main>
-          {/* ── Hero Header ────────────────────────────────────────────── */}
-          <div className="relative overflow-hidden bg-inverse-surface pt-32 pb-20 text-center text-inverse-on-surface">
-            {/* Decorative orbs */}
+          {/* ── 1. CINEMATIC HERO VIEWPORT ───────────────────────────── */}
+          <ContactHero />
+
+          {/* ── 2. MAIN CONSULTATION SUITE & CONCIERGE DOCK ─────────── */}
+          <section id="booking-suite" className="relative overflow-hidden bg-surface py-16 md:py-24">
+            {/* Ambient Background Glows */}
             <div
-              className="pointer-events-none absolute -left-20 top-0 h-72 w-72 rounded-full blur-3xl"
-              style={{ background: 'rgba(208,184,146,0.08)' }}
-              aria-hidden="true"
-            />
-            <div
-              className="pointer-events-none absolute -right-10 bottom-0 h-64 w-64 rounded-full blur-3xl"
+              className="pointer-events-none absolute -left-24 top-1/4 h-96 w-96 rounded-full blur-3xl"
               style={{ background: 'rgba(208,184,146,0.06)' }}
               aria-hidden="true"
             />
-            {/* Gold top line */}
             <div
-              className="absolute inset-x-0 top-0 h-px"
-              style={{ background: 'linear-gradient(90deg, transparent, rgba(208,184,146,0.5), transparent)' }}
+              className="pointer-events-none absolute -right-24 bottom-1/4 h-96 w-96 rounded-full blur-3xl"
+              style={{ background: 'rgba(110,92,60,0.05)' }}
               aria-hidden="true"
             />
 
             <div className="container-main relative z-10">
-              <span className="mb-4 inline-block rounded-full border border-gold-accent/30 bg-gold-accent/10 px-4 py-1.5 font-label-caps text-[11px] uppercase tracking-[0.2em] text-gold-accent">
-                Book a Consultation
-              </span>
-              <h1 className="mb-4 font-display-lg text-headline-lg-mobile text-inverse-on-surface md:text-headline-lg">
-                Let&apos;s Create Your{' '}
-                <span className="italic text-gold-accent">Perfect Smile</span>
-              </h1>
-              <p className="mx-auto max-w-xl font-body-lg text-body-lg text-inverse-on-surface/70 text-balance">
-                {contactContent.description}
-              </p>
+              <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 items-start">
+                {/* Left Column: Intake Booking Form (7 Cols) */}
+                <div className="lg:col-span-7">
+                  <ContactForm />
+                </div>
+
+                {/* Right Column: VIP Concierge & Clinical Distinction Dock (5 Cols) */}
+                <aside className="space-y-6 lg:col-span-5">
+                  {/* Card 1: Direct VIP Concierge & Priority Channels */}
+                  <div className="rounded-2xl border border-gold-accent/25 bg-surface-container-lowest p-6 shadow-sm">
+                    <div className="mb-4 flex items-center justify-between border-b border-outline-variant/20 pb-4">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-accent/10 text-primary">
+                          <MessageCircle size={20} />
+                        </div>
+                        <div>
+                          <h3 className="font-headline-md text-base text-charcoal-text font-semibold">
+                            Direct VIP Concierge
+                          </h3>
+                          <p className="font-body-sm text-xs text-on-surface-variant">
+                            Immediate coordination for private appointments
+                          </p>
+                        </div>
+                      </div>
+                      <span className="flex items-center gap-1.5 rounded-full bg-emerald-100/80 px-2.5 py-0.5 font-label-caps text-[9px] font-bold uppercase tracking-wider text-emerald-800">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        Live
+                      </span>
+                    </div>
+
+                    <div className="space-y-2.5">
+                      <a
+                        href={formatWhatsAppLink(siteConfig.whatsapp, siteConfig.whatsappMessage)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center justify-between rounded-xl border border-emerald-200/90 bg-emerald-50/70 p-3.5 transition-all duration-200 hover:border-emerald-300 hover:bg-emerald-50"
+                      >
+                        <div className="flex items-center gap-3">
+                          <MessageCircle size={18} className="text-emerald-600" aria-hidden="true" />
+                          <div>
+                            <span className="block font-body-md text-sm font-semibold text-emerald-950">
+                              WhatsApp Concierge
+                            </span>
+                            <span className="block font-body-sm text-xs text-emerald-700/90">
+                              {siteConfig.whatsapp}
+                            </span>
+                          </div>
+                        </div>
+                        <ArrowRight size={14} className="text-emerald-700 transition-transform duration-200 group-hover:translate-x-1" />
+                      </a>
+
+                      <a
+                        href={formatPhoneLink(siteConfig.phone)}
+                        className="group flex items-center justify-between rounded-xl border border-outline-variant/30 bg-surface-container-low/40 p-3.5 transition-all duration-200 hover:border-gold-accent/50 hover:bg-gold-accent/5"
+                      >
+                        <div className="flex items-center gap-3">
+                          <Phone size={17} className="text-primary" aria-hidden="true" />
+                          <div>
+                            <span className="block font-body-md text-sm font-medium text-charcoal-text">
+                              Surgery Reception Call
+                            </span>
+                            <span className="block font-body-sm text-xs text-on-surface-variant">
+                              {siteConfig.phone}
+                            </span>
+                          </div>
+                        </div>
+                        <ArrowRight size={14} className="text-on-surface-variant transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary" />
+                      </a>
+
+                      <a
+                        href={`mailto:${siteConfig.email}`}
+                        className="group flex items-center justify-between rounded-xl border border-outline-variant/30 bg-surface-container-low/40 p-3.5 transition-all duration-200 hover:border-gold-accent/50 hover:bg-gold-accent/5"
+                      >
+                        <div className="flex items-center gap-3">
+                          <Mail size={17} className="text-primary" aria-hidden="true" />
+                          <div>
+                            <span className="block font-body-md text-sm font-medium text-charcoal-text">
+                              Official Correspondence
+                            </span>
+                            <span className="block font-body-sm text-xs text-on-surface-variant">
+                              {siteConfig.email}
+                            </span>
+                          </div>
+                        </div>
+                        <ArrowRight size={14} className="text-on-surface-variant transition-transform duration-200 group-hover:translate-x-1 group-hover:text-primary" />
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Card 2: What to Expect at Your Consultation */}
+                  <div className="rounded-2xl border border-outline-variant/30 bg-surface-container-lowest p-6 shadow-sm">
+                    <div className="mb-5 flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-accent/10 text-primary">
+                        <Sparkles size={18} />
+                      </div>
+                      <div>
+                        <span className="font-label-caps text-[10px] uppercase tracking-widest text-gold-accent">
+                          CLINICAL PROCESS
+                        </span>
+                        <h3 className="font-headline-md text-base text-charcoal-text font-semibold">
+                          What to Expect at Your Visit
+                        </h3>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      {CONSULTATION_STEPS.map((s) => (
+                        <div key={s.step} className="flex items-start gap-3.5">
+                          <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-gold-accent/40 bg-gold-accent/10 font-mono text-[11px] font-semibold text-primary">
+                            {s.step}
+                          </span>
+                          <div>
+                            <h4 className="font-headline-md text-sm font-semibold text-charcoal-text">
+                              {s.title}
+                            </h4>
+                            <p className="mt-1 font-body-sm text-xs leading-relaxed text-on-surface-variant">
+                              {s.desc}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Card 3: Surgeon Distinction & Credibility Card */}
+                  <div className="relative overflow-hidden rounded-2xl border border-gold-accent/30 bg-surface-container-lowest p-6 shadow-sm">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="relative h-16 w-16 overflow-hidden rounded-xl border border-gold-accent/40">
+                        <img
+                          src={drHassanFounderImg}
+                          alt={doctorProfile.name}
+                          className="h-full w-full object-cover object-top"
+                        />
+                      </div>
+                      <div>
+                        <h4 className="font-display-lg text-lg text-charcoal-text font-semibold">
+                          {doctorProfile.name}
+                        </h4>
+                        <p className="font-body-sm text-xs text-primary font-medium">
+                          {doctorProfile.title}
+                        </p>
+                        <div className="mt-1 flex items-center gap-1.5 font-label-caps text-[10px] uppercase tracking-wider text-muted-silver">
+                          <Award size={12} className="text-gold-accent" />
+                          <span>AACD Accredited Protocols</span>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="border-t border-outline-variant/20 pt-3.5 font-body-md text-xs italic leading-relaxed text-on-surface-variant">
+                      {doctorProfile.quote}
+                    </p>
+                  </div>
+
+                  {/* Card 4: Verified Patient Review */}
+                  <div
+                    className="relative overflow-hidden rounded-2xl p-6"
+                    style={{ background: 'linear-gradient(135deg, #1d1b18 0%, #33302d 100%)' }}
+                  >
+                    <div
+                      className="absolute -right-6 -top-6 h-24 w-24 rounded-full blur-2xl"
+                      style={{ background: 'rgba(208,184,146,0.12)' }}
+                      aria-hidden="true"
+                    />
+                    <div className="relative z-10">
+                      <div className="mb-3 flex text-gold-accent" aria-label="5 star rating">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} size={14} fill="currentColor" />
+                        ))}
+                      </div>
+                      <p className="mb-3 font-body-md text-sm italic leading-relaxed text-inverse-on-surface/85">
+                        &ldquo;The consultation was unhurried, meticulous, and Dr. Hassan&apos;s attention to proportion is unmatched. My smile transformation exceeded every expectation.&rdquo;
+                      </p>
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="font-label-caps text-[10px] uppercase tracking-widest text-gold-accent">
+                          — Verified Patient Review
+                        </span>
+                        <span className="font-mono text-[11px] text-inverse-on-surface/50">
+                          Peshawar Clinic
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </aside>
+              </div>
             </div>
+          </section>
 
-            {/* Gold bottom line */}
-            <div
-              className="absolute inset-x-0 bottom-0 h-px"
-              style={{ background: 'linear-gradient(90deg, transparent, rgba(208,184,146,0.3), transparent)' }}
-              aria-hidden="true"
-            />
-          </div>
+          {/* ── 3. CLINIC SANCTUARY & LOCATION INTERACTIVE SHOWCASE ──── */}
+          <LocationSection id="location" />
 
-          {/* ── Trust strip ────────────────────────────────────────────── */}
-          <div className="border-b border-outline-variant/20 bg-surface-container-lowest py-4">
-            <div className="container-main flex flex-wrap items-center justify-center gap-8 md:justify-between">
-              {trustItems.map((item) => (
-                <div key={item.label} className="flex items-center gap-3">
-                  <span className="font-display-lg text-xl font-semibold text-primary" style={{ letterSpacing: '-0.02em' }}>
-                    {item.value}
-                  </span>
-                  <span className="font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant">
-                    {item.label}
+          {/* ── 4. CLINICAL ASSURANCE STRIP ─────────────────────────── */}
+          <section className="border-t border-gold-accent/20 bg-[#120f0d] py-6 text-surface-bright">
+            <div className="container-main flex flex-wrap items-center justify-around gap-6 text-center">
+              {CLINICAL_ASSURANCES.map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <CheckCircle2 size={15} className="text-gold-accent" />
+                  <span className="font-label-caps text-[11px] uppercase tracking-wider text-surface-bright/80">
+                    {item}
                   </span>
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* ── Main Content ───────────────────────────────────────────── */}
-          <div className="section-padding bg-surface">
-            <div className="container-main grid grid-cols-1 gap-12 lg:grid-cols-5">
-
-              {/* Form — takes 3/5 width */}
-              <div className="lg:col-span-3">
-                <ContactForm />
-              </div>
-
-              {/* Sidebar — takes 2/5 width */}
-              <aside className="space-y-5 lg:col-span-2">
-
-                {/* Visit card */}
-                <div className="rounded-2xl border border-outline-variant/30 bg-surface-container-lowest p-6 shadow-sm">
-                  <div className="mb-4 flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-accent/10">
-                      <MapPin className="text-primary" size={20} aria-hidden="true" />
-                    </div>
-                    <h3 className="font-headline-md text-lg text-charcoal-text">Visit Our Clinic</h3>
-                  </div>
-                  <p className="font-body-md text-sm leading-relaxed text-on-surface-variant">
-                    {siteConfig.address}
-                  </p>
-                  <a
-                    href={`https://maps.google.com/?q=${encodeURIComponent(siteConfig.address)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group mt-4 inline-flex items-center gap-1.5 font-label-caps text-[11px] uppercase tracking-widest text-primary transition-gap duration-200 hover:gap-2"
-                  >
-                    Get Directions
-                    <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-1" />
-                  </a>
-                </div>
-
-                {/* Hours card */}
-                <div className="rounded-2xl border border-outline-variant/30 bg-surface-container-lowest p-6 shadow-sm">
-                  <div className="mb-4 flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-accent/10">
-                      <Clock className="text-primary" size={20} aria-hidden="true" />
-                    </div>
-                    <h3 className="font-headline-md text-lg text-charcoal-text">Office Hours</h3>
-                  </div>
-                  <ul className="space-y-3">
-                    {contactContent.hours.map((slot) => (
-                      <li key={slot.day} className="flex items-center justify-between border-b border-outline-variant/20 pb-2 last:border-0 last:pb-0">
-                        <span className="font-label-caps text-[11px] uppercase tracking-widest text-on-surface-variant">
-                          {slot.day}
-                        </span>
-                        <span className={`font-body-md text-sm font-medium ${slot.time === 'Closed' ? 'text-error/70' : 'text-primary'}`}>
-                          {slot.time}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Contact card */}
-                <div className="rounded-2xl border border-outline-variant/30 bg-surface-container-lowest p-6 shadow-sm">
-                  <div className="mb-4 flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-accent/10">
-                      <Phone className="text-primary" size={20} aria-hidden="true" />
-                    </div>
-                    <h3 className="font-headline-md text-lg text-charcoal-text">Reach Us</h3>
-                  </div>
-                  <div className="space-y-3">
-                    <a
-                      href={formatWhatsAppLink(siteConfig.whatsapp, siteConfig.whatsappMessage)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-center justify-between rounded-xl border border-emerald-200/80 bg-emerald-50/60 px-4 py-3 transition-all duration-200 hover:border-emerald-300 hover:bg-emerald-50"
-                    >
-                      <div className="flex items-center gap-3">
-                        <MessageCircle size={18} className="text-emerald-600" aria-hidden="true" />
-                        <div>
-                          <span className="block font-body-md text-sm font-semibold text-emerald-950">
-                            WhatsApp Consultation
-                          </span>
-                          <span className="block font-body-md text-xs text-emerald-700/80">
-                            Direct message & quick appointment
-                          </span>
-                        </div>
-                      </div>
-                      <span className="rounded-full bg-emerald-100 px-2 py-0.5 font-label-caps text-[9px] font-bold uppercase tracking-wider text-emerald-800">
-                        Online
-                      </span>
-                    </a>
-
-                    <a
-                      href={formatPhoneLink(siteConfig.phone)}
-                      className="group flex items-center gap-3 rounded-xl border border-outline-variant/30 px-4 py-3 transition-all duration-200 hover:border-gold-accent/40 hover:bg-gold-accent/5"
-                    >
-                      <Phone size={16} className="text-primary" aria-hidden="true" />
-                      <span className="font-body-md text-sm text-on-surface-variant group-hover:text-primary">
-                        {siteConfig.phone}
-                      </span>
-                    </a>
-                    <a
-                      href={`mailto:${siteConfig.email}`}
-                      className="group flex items-center gap-3 rounded-xl border border-outline-variant/30 px-4 py-3 transition-all duration-200 hover:border-gold-accent/40 hover:bg-gold-accent/5"
-                    >
-                      <Mail size={16} className="text-primary" aria-hidden="true" />
-                      <span className="font-body-md text-sm text-on-surface-variant group-hover:text-primary">
-                        {siteConfig.email}
-                      </span>
-                    </a>
-                  </div>
-                </div>
-
-                {/* Social Profiles Card */}
-                <div className="rounded-2xl border border-outline-variant/30 bg-surface-container-lowest p-6 shadow-sm">
-                  <div className="mb-4">
-                    <h3 className="font-headline-md text-lg text-charcoal-text">Follow & Connect</h3>
-                    <p className="mt-1 font-body-md text-xs text-on-surface-variant">
-                      Connect with Dr. Hassan across official clinical channels:
-                    </p>
-                  </div>
-                  <div className="space-y-2.5">
-                    <a
-                      href={siteConfig.socials.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-center justify-between rounded-xl border border-outline-variant/30 px-4 py-2.5 transition-all duration-200 hover:border-pink-300 hover:bg-pink-50/40"
-                    >
-                      <div className="flex items-center gap-3">
-                        <Instagram size={17} className="text-pink-600 transition-transform duration-200 group-hover:scale-110" />
-                        <span className="font-body-md text-sm text-on-surface group-hover:text-pink-900 font-medium">
-                          Instagram
-                        </span>
-                      </div>
-                      <span className="font-label-caps text-[11px] text-on-surface-variant/70">
-                        @im.hassanbds
-                      </span>
-                    </a>
-
-                    <a
-                      href={siteConfig.socials.facebook}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-center justify-between rounded-xl border border-outline-variant/30 px-4 py-2.5 transition-all duration-200 hover:border-blue-300 hover:bg-blue-50/40"
-                    >
-                      <div className="flex items-center gap-3">
-                        <Facebook size={17} className="text-blue-600 transition-transform duration-200 group-hover:scale-110" />
-                        <span className="font-body-md text-sm text-on-surface group-hover:text-blue-900 font-medium">
-                          Facebook
-                        </span>
-                      </div>
-                      <span className="font-label-caps text-[11px] text-on-surface-variant/70">
-                        Dr. Hassan
-                      </span>
-                    </a>
-
-                    <a
-                      href={siteConfig.socials.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-center justify-between rounded-xl border border-outline-variant/30 px-4 py-2.5 transition-all duration-200 hover:border-sky-300 hover:bg-sky-50/40"
-                    >
-                      <div className="flex items-center gap-3">
-                        <Linkedin size={17} className="text-sky-700 transition-transform duration-200 group-hover:scale-110" />
-                        <span className="font-body-md text-sm text-on-surface group-hover:text-sky-900 font-medium">
-                          LinkedIn
-                        </span>
-                      </div>
-                      <span className="font-label-caps text-[11px] text-on-surface-variant/70">
-                        Muhammad Hassan BDS
-                      </span>
-                    </a>
-                  </div>
-                </div>
-
-                {/* Testimonial mini-card */}
-                <div
-                  className="relative overflow-hidden rounded-2xl p-6"
-                  style={{ background: 'linear-gradient(135deg, #1d1b18 0%, #33302d 100%)' }}
-                >
-                  <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full blur-2xl" style={{ background: 'rgba(208,184,146,0.12)' }} aria-hidden="true" />
-                  <div className="relative z-10">
-                    <div className="mb-3 flex text-gold-accent" aria-label="5 star rating">
-                      {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="currentColor" />)}
-                    </div>
-                    <p className="mb-3 font-body-md text-sm italic leading-relaxed text-inverse-on-surface/80">
-                      &ldquo;The consultation was thorough and Dr. Hassan's attention to detail is unparalleled. I felt completely at ease throughout.&rdquo;
-                    </p>
-                    <span className="font-label-caps text-[10px] uppercase tracking-widest text-gold-accent">
-                      — Verified Patient
-                    </span>
-                  </div>
-                </div>
-
-              </aside>
-            </div>
-          </div>
+          </section>
         </main>
 
         <Footer />
@@ -290,4 +279,3 @@ export default function ContactPage() {
     </Skeleton>
   );
 }
-

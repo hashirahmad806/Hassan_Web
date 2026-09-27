@@ -13,3 +13,17 @@ Object.defineProperty(window, 'matchMedia', {
     dispatchEvent: () => false,
   }),
 });
+
+global.IntersectionObserver = class IntersectionObserver {
+  observe = () => {};
+  unobserve = () => {};
+  disconnect = () => {};
+  constructor() {}
+} as any;
+
+global.ResizeObserver = class ResizeObserver {
+  observe = () => {};
+  unobserve = () => {};
+  disconnect = () => {};
+  constructor() {}
+} as any;

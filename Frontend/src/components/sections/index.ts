@@ -9,3 +9,5 @@ export { GalleryGrid } from './GalleryGrid';
 export { GalleryHero } from './GalleryHero';
 export { ClinicalExperiences } from './ClinicalExperiences';
 export { ServicesHero } from './ServicesHero';
+export { LocationSection } from './LocationSection';
+export { ContactHero } from './ContactHero';

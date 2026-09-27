@@ -1,5 +1,6 @@
 /* ==========================================================
-   Header.module.css — Luxury Obsidian Glass Header
+   Header.module.css — Luxury Obsidian Glass Header & Mega-Menu
+   Theme: Deep charcoal (#0f0d0b) + Warm champagne gold (#D0B892)
    ========================================================== */
 
 .header {
@@ -15,7 +16,7 @@
 
 /* Default state: subtle dark glass */
 .headerDefault {
-  background: rgba(15, 13, 11, 0.78);
+  background: rgba(15, 13, 11, 0.82);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(208, 184, 146, 0.12);
@@ -23,11 +24,11 @@
 
 /* Scrolled state: rich obsidian glass with ambient shadow */
 .headerScrolled {
-  background: rgba(15, 13, 11, 0.94);
+  background: rgba(15, 13, 11, 0.96);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid rgba(208, 184, 146, 0.24);
-  box-shadow: 0 12px 36px -8px rgba(0, 0, 0, 0.65), 0 2px 8px rgba(208, 184, 146, 0.06);
+  box-shadow: 0 12px 36px -8px rgba(0, 0, 0, 0.75), 0 2px 8px rgba(208, 184, 146, 0.06);
 }
 
 .inner {
@@ -46,22 +47,23 @@
 
 @media (min-width: 1024px) {
   .inner {
-    padding-left: 48px;
-    padding-right: 48px;
+    padding-left: 36px;
+    padding-right: 36px;
   }
   .innerScrolled {
-    padding-left: 48px;
-    padding-right: 48px;
+    padding-left: 36px;
+    padding-right: 36px;
   }
 }
 
-/* ── Brand ───────────────────────────────────────────────── */
+/* ── Brand Hallmark ──────────────────────────────────────── */
 .brand {
   display: inline-flex;
   flex-direction: column;
   gap: 2px;
   text-decoration: none;
   transition: opacity 0.2s ease;
+  flex-shrink: 0;
 }
 
 .brand:hover {
@@ -85,7 +87,7 @@
 
 @media (min-width: 768px) {
   .brandTitle {
-    font-size: 25px;
+    font-size: 24px;
   }
 }
 
@@ -108,36 +110,50 @@
   line-height: 1;
 }
 
-/* ── Desktop Nav Links ───────────────────────────────────── */
+/* ── Desktop Navigation Bar ──────────────────────────────── */
 .nav {
   display: none;
   align-items: center;
-  gap: 28px;
+  gap: 22px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .nav {
     display: flex;
+    gap: 24px;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1140px) {
   .nav {
-    gap: 36px;
+    gap: 32px;
   }
+}
+
+.navItem {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .navLink {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(240, 232, 216, 0.72);
+  color: rgba(240, 232, 216, 0.75);
   text-decoration: none;
-  padding: 6px 0;
+  padding: 10px 0;
   transition: color 0.22s ease;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .navLink:hover {
@@ -148,22 +164,362 @@
   color: #f0e8d8;
 }
 
+.navChevron {
+  color: rgba(208, 184, 146, 0.6);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+}
+
+.navLink:hover .navChevron {
+  color: #D0B892;
+}
+
+.navChevronOpen {
+  transform: rotate(180deg);
+  color: #D0B892;
+}
+
+/* Gold active/hover underline indicator */
 .activeIndicator {
   position: absolute;
-  bottom: -2px;
+  bottom: 0px;
   left: 0;
   right: 0;
   height: 1.5px;
   border-radius: 9999px;
   background: #D0B892;
   box-shadow: 0 0 8px rgba(208, 184, 146, 0.6);
+  pointer-events: none;
 }
 
-/* ── Right Actions ───────────────────────────────────────── */
+/* ── Simple Dropdown (About, Research, Journal) ──────────── */
+/* Outer positioning container: handles CSS positioning without transform conflict */
+.dropdownContainer {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 6px;
+  z-index: 60;
+  pointer-events: none;
+}
+
+/* Right-align for Journal to prevent right-edge clipping */
+.dropdownContainerRight {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+
+/* Inner motion card: animated with Framer Motion safely */
+.dropdownPanel {
+  pointer-events: auto;
+  width: 290px;
+  background: rgba(15, 13, 11, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(208, 184, 146, 0.20);
+  border-radius: 14px;
+  box-shadow: 0 20px 48px -8px rgba(0, 0, 0, 0.8), 0 2px 10px rgba(208, 184, 146, 0.08);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dropdownPanel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(208, 184, 146, 0.5), transparent);
+}
+
+.dropdownItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.18s ease;
+  position: relative;
+}
+
+.dropdownItem:hover {
+  background: rgba(208, 184, 146, 0.08);
+  transform: translateX(2px);
+}
+
+.dropdownItemHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdownItemTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #f0e8d8;
+  transition: color 0.2s ease;
+}
+
+.dropdownItem:hover .dropdownItemTitle {
+  color: #D0B892;
+}
+
+.dropdownItemArrow {
+  opacity: 0;
+  transform: translateX(-4px);
+  color: #D0B892;
+  transition: all 0.2s ease;
+}
+
+.dropdownItem:hover .dropdownItemArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.dropdownItemDesc {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  line-height: 1.45;
+  color: rgba(240, 232, 216, 0.52);
+}
+
+/* ── Services Mega-Menu (Centered Full Width) ─────────────── */
+/* Anchored directly below the fixed header, spanning the viewport width gracefully */
+.megaMenuContainer {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  padding: 6px 24px 24px;
+  pointer-events: none;
+  z-index: 60;
+}
+
+.megaMenuPanel {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 1100px;
+  background: rgba(15, 13, 11, 0.98);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(208, 184, 146, 0.22);
+  border-radius: 18px;
+  box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.88), 0 4px 20px rgba(208, 184, 146, 0.1);
+  padding: 26px 30px;
+  position: relative;
+}
+
+.megaMenuPanel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 48px;
+  right: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(208, 184, 146, 0.6), transparent);
+}
+
+.megaGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) 240px;
+  gap: 24px;
+  align-items: stretch;
+}
+
+@media (max-width: 1120px) {
+  .megaGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .megaGalleryPanel {
+    display: none;
+  }
+}
+
+/* Category Column */
+.megaCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.megaColHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(208, 184, 146, 0.18);
+  text-decoration: none;
+}
+
+.megaCategory {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #D0B892;
+}
+
+.megaList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.megaLink {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.18s ease;
+}
+
+.megaLink:hover {
+  background: rgba(208, 184, 146, 0.08);
+  transform: translateX(3px);
+}
+
+.megaLinkTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #f0e8d8;
+  transition: color 0.2s ease;
+}
+
+.megaLink:hover .megaLinkTitle {
+  color: #D0B892;
+}
+
+.megaLinkDesc {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  line-height: 1.4;
+  color: rgba(240, 232, 216, 0.5);
+}
+
+/* ── Featured Gallery Panel (Right Side of Mega-Menu) ─────── */
+.megaGalleryPanel {
+  border-left: 1px solid rgba(208, 184, 146, 0.15);
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.galleryCard {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid rgba(208, 184, 146, 0.25);
+  aspect-ratio: 16 / 11;
+  text-decoration: none;
+  background: #1a1410;
+}
+
+.galleryImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+  filter: brightness(0.9) contrast(1.05);
+}
+
+.galleryCard:hover .galleryImg {
+  transform: scale(1.06);
+  filter: brightness(1);
+}
+
+.galleryOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 13, 11, 0.85) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 12px;
+}
+
+.galleryTag {
+  align-self: flex-start;
+  margin-bottom: 4px;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  background: rgba(15, 13, 11, 0.85);
+  border: 1px solid rgba(208, 184, 146, 0.3);
+  font-family: 'Inter', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #D0B892;
+  backdrop-filter: blur(8px);
+}
+
+.galleryTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #f0e8d8;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.galleryBottomRow {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gallerySubtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  color: rgba(240, 232, 216, 0.6);
+  margin: 0;
+}
+
+.galleryCtaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #D0B892;
+  text-decoration: none;
+  transition: gap 0.2s ease;
+}
+
+.galleryCard:hover .galleryCtaLink,
+.galleryCtaLink:hover {
+  gap: 7px;
+  color: #e0caa4;
+}
+
+/* ── Top-Right Actions ───────────────────────────────────── */
 .actions {
   display: flex;
   align-items: center;
   gap: 16px;
+  flex-shrink: 0;
 }
 
 .phoneLink {
@@ -179,7 +535,7 @@
   transition: color 0.2s ease;
 }
 
-@media (min-width: 1120px) {
+@media (min-width: 1200px) {
   .phoneLink {
     display: inline-flex;
   }
@@ -252,7 +608,7 @@
   cursor: pointer;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .menuToggle {
     display: none;
   }
@@ -263,7 +619,7 @@
   border-color: #D0B892;
 }
 
-/* ── Mobile Drawer ───────────────────────────────────────── */
+/* ── Mobile Navigation Drawer ────────────────────────────── */
 .mobileDrawer {
   display: block;
   border-top: 1px solid rgba(208, 184, 146, 0.15);
@@ -271,26 +627,119 @@
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.65);
+  max-height: calc(100svh - 70px);
+  overflow-y: auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .mobileDrawer {
     display: none;
   }
 }
 
 .mobileInner {
-  padding: 24px 20px 32px;
+  padding: 20px 20px 32px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 12px;
 }
 
+/* Mobile Accordion Block */
+.mobileAccordionGroup {
+  border-bottom: 1px solid rgba(208, 184, 146, 0.08);
+}
+
+.mobileAccordionTrigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  background: transparent;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240, 232, 216, 0.85);
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.mobileAccordionTrigger:hover,
+.mobileAccordionTriggerActive {
+  color: #D0B892;
+}
+
+.mobileAccordionChevron {
+  color: #D0B892;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobileAccordionChevronExpanded {
+  transform: rotate(180deg);
+}
+
+.mobileAccordionContent {
+  padding: 4px 0 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobileOverviewLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #D0B892;
+  text-decoration: none;
+  padding: 4px 0 8px;
+  border-bottom: 1px dashed rgba(208, 184, 146, 0.25);
+  margin-bottom: 4px;
+}
+
+.mobileSubCategoryTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(208, 184, 146, 0.65);
+  margin-top: 6px;
+  margin-bottom: 2px;
+}
+
+.mobileSubLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(240, 232, 216, 0.7);
+  text-decoration: none;
+  padding: 4px 0;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.mobileSubLink:hover {
+  color: #D0B892;
+  padding-left: 4px;
+}
+
+/* Simple mobile direct link (Home, Contact) */
 .mobileNavLink {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0;
+  padding: 12px 0;
   border-bottom: 1px solid rgba(208, 184, 146, 0.08);
   font-family: 'Inter', sans-serif;
   font-size: 13px;
@@ -320,7 +769,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  padding-top: 6px;
+  padding-top: 10px;
 }
 
 .mobileContactBtn {
@@ -366,6 +815,7 @@
   text-decoration: none;
   box-shadow: 0 4px 16px rgba(208, 184, 146, 0.25);
   transition: all 0.2s ease;
+  margin-top: 4px;
 }
 
 .mobileCtaBtn:hover {

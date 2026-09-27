@@ -3,6 +3,38 @@ export interface NavLink {
   href: string;
 }
 
+export interface SubMenuItem {
+  label: string;
+  href: string;
+  description?: string;
+  tag?: string;
+}
+
+export interface MegaMenuColumn {
+  category: string;
+  categoryHref?: string;
+  items: SubMenuItem[];
+}
+
+export interface MegaFeaturedPanel {
+  title: string;
+  subtitle: string;
+  tag: string;
+  image: string;
+  href: string;
+  ctaLabel: string;
+}
+
+export interface NavigationItem {
+  id: string;
+  label: string;
+  href: string;
+  type: 'link' | 'dropdown' | 'mega';
+  dropdownItems?: SubMenuItem[];
+  megaColumns?: MegaMenuColumn[];
+  featuredPanel?: MegaFeaturedPanel;
+}
+
 export interface Treatment {
   id: string;
   title: string;
@@ -68,4 +100,69 @@ export interface ServiceItem {
   duration: string;
   priceFrom: string;
   icon: string;
+}
+
+export interface LocationSpecItem {
+  icon: 'apartment' | 'elevator' | 'parking' | string;
+  label: string;
+}
+
+export interface LocationAmenityItem {
+  id: string;
+  title: string;
+  description: string;
+  icon: 'car' | 'coffee' | 'shield' | string;
+}
+
+export interface LocationHoursItem {
+  day: string;
+  time: string;
+  note?: string;
+}
+
+export interface LocationTransitItem {
+  id: string;
+  icon: 'plane' | 'navigation' | 'building' | string;
+  title: string;
+  duration: string;
+  description: string;
+}
+
+export interface LocationSectionData {
+  eyebrow: string;
+  heading: string;
+  subheading: string;
+  residence: {
+    badge: string;
+    wing: string;
+    name: string;
+    address: string;
+    coordinates: string;
+    specs: LocationSpecItem[];
+  };
+  amenitiesHeading: string;
+  amenities: LocationAmenityItem[];
+  hoursTitle: string;
+  hoursBadge: string;
+  hours: LocationHoursItem[];
+  actions: {
+    googleMapsUrl: string;
+    googleMapsLabel: string;
+    whatsappLabel: string;
+    phoneLabel: string;
+    phone: string;
+  };
+  operatoryShowcase: {
+    badge: string;
+    vista: string;
+    caption: string;
+  };
+  map: {
+    region: string;
+    coordinates: string;
+    markerTitle: string;
+    landmarks: Array<{ name: string; note: string }>;
+  };
+  transitsHeading: string;
+  transits: LocationTransitItem[];
 }

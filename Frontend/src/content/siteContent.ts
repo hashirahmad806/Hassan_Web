@@ -2,6 +2,8 @@ import type {
   DoctorProfile,
   FooterLinkGroup,
   JourneyStep,
+  LocationSectionData,
+  NavigationItem,
   NavLink,
   Treatment,
   TrustBadge,
@@ -29,24 +31,198 @@ export const navLinks: NavLink[] = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
-  { label: 'Gallery', href: '/gallery' },
   { label: 'Research', href: '/research' },
+  { label: 'Journal', href: '/journal' },
   { label: 'Contact', href: '/contact' },
+];
+
+export const mainNavItems: NavigationItem[] = [
+  {
+    id: 'home',
+    label: 'Home',
+    href: '/',
+    type: 'link',
+  },
+  {
+    id: 'about',
+    label: 'About',
+    href: '/about',
+    type: 'dropdown',
+    dropdownItems: [
+      {
+        label: 'Meet Dr. Hassan',
+        href: '/about#meet-dr-hassan',
+        description: 'Lead Aesthetic Dental Surgeon & Founder',
+      },
+      {
+        label: 'Credentials & Training',
+        href: '/about#credentials',
+        description: 'AACD Accreditation, BDS & Surgical Masteries',
+      },
+      {
+        label: 'Ash Aesthetics — The Clinic',
+        href: '/about#clinic',
+        description: 'State-of-the-art clinical sanctuary in Peshawar',
+      },
+      {
+        label: 'Patient Reviews',
+        href: '/about#reviews',
+        description: '5.0 patient distinction rating & experiences',
+      },
+    ],
+  },
+  {
+    id: 'services',
+    label: 'Services',
+    href: '/services',
+    type: 'mega',
+    megaColumns: [
+      {
+        category: 'Aesthetic',
+        categoryHref: '/services#aesthetic',
+        items: [
+          {
+            label: 'Smile Design',
+            href: '/services#aesthetic-smile-design',
+            description: 'Digital smile sculpting & facial harmony',
+          },
+          {
+            label: 'Veneers',
+            href: '/services#aesthetic-veneers',
+            description: 'Ultra-thin handcrafted porcelain veneers',
+          },
+          {
+            label: 'Teeth Whitening',
+            href: '/services#aesthetic-whitening',
+            description: 'Advanced laser enamel brightening',
+          },
+        ],
+      },
+      {
+        category: 'Restorative',
+        categoryHref: '/services#restorative',
+        items: [
+          {
+            label: 'Implants',
+            href: '/services#restorative-implants',
+            description: 'Biocompatible titanium & ceramic root implants',
+          },
+          {
+            label: 'Crowns & Bridges',
+            href: '/services#restorative-crowns-bridges',
+            description: 'Monolithic ceramic structural restorations',
+          },
+          {
+            label: 'Root Canal',
+            href: '/services#restorative-root-canal',
+            description: 'Micro-endodontic tooth preservation',
+          },
+        ],
+      },
+      {
+        category: 'Orthodontic',
+        categoryHref: '/services#orthodontic',
+        items: [
+          {
+            label: 'Invisalign / Clear Aligners',
+            href: '/services#orthodontics-invisalign',
+            description: 'Invisible precision orthodontic alignment',
+          },
+        ],
+      },
+      {
+        category: 'Surgical',
+        categoryHref: '/services#surgical',
+        items: [
+          {
+            label: 'Extractions',
+            href: '/services#surgical-extractions',
+            description: 'Atraumatic surgical tooth removal',
+          },
+          {
+            label: 'Oral Surgery',
+            href: '/services#surgical-oral-surgery',
+            description: 'Complex tissue management & reconstruction',
+          },
+        ],
+      },
+    ],
+    featuredPanel: {
+      title: 'Clinical Transformations',
+      subtitle: 'Explore 100+ Bespoke Cases',
+      tag: 'Before & After Archive',
+      image: '',
+      href: '/gallery',
+      ctaLabel: 'View Gallery',
+    },
+  },
+  {
+    id: 'research',
+    label: 'Research',
+    href: '/research',
+    type: 'dropdown',
+    dropdownItems: [
+      {
+        label: 'Published Articles',
+        href: '/research#articles',
+        description: 'Peer-reviewed clinical dentistry publications',
+      },
+      {
+        label: 'Scholarly Work & Presentations',
+        href: '/research#presentations',
+        description: 'Academic lectures, keynotes & case presentations',
+      },
+      {
+        label: 'Clinical Case Documentation',
+        href: '/research#cases',
+        description: 'High-resolution photographic surgical logs',
+      },
+    ],
+  },
+  {
+    id: 'journal',
+    label: 'Journal',
+    href: '/journal',
+    type: 'dropdown',
+    dropdownItems: [
+      {
+        label: 'Blog',
+        href: '/journal#blog',
+        description: 'Insights on aesthetic surgery & oral wellness',
+      },
+      {
+        label: 'Weekly Newsletter',
+        href: '/journal#newsletter',
+        description: 'Curated clinical advice & patient guidance',
+      },
+      {
+        label: 'Patient Perspectives',
+        href: '/journal#patient-perspectives',
+        description: 'Authentic patient transformation narratives',
+      },
+    ],
+  },
+  {
+    id: 'contact',
+    label: 'Contact',
+    href: '/contact',
+    type: 'link',
+  },
 ];
 
 export const heroContent = {
   label: '3 Years of Excellence in Smile Design',
-  heading: '3 Years of Surgical',
-  headingAccent: 'Smile Artistry',
+  heading: '3 Years of Precision,',
+  headingAccent: 'Artistry & Transformation',
   description:
-    'Where surgical precision converges with artistic mastery. Each smile is meticulously sculpted — bespoke to your anatomy, your character, your confidence.',
+    'Every smile is crafted with precision and purpose, thoughtfully shaped around your anatomy, character, and natural expression, creating a result that feels uniquely and unmistakably yours.',
   primaryCta: 'Book Consultation',
   secondaryCta: 'Call Now',
 } as const;
 
 export const doctorProfile: DoctorProfile = {
   name: 'Dr. Hassan',
-  title: 'Lead Aesthetic Dental Surgeon',
+  title: 'Dentist',
   rating: 5,
   ratingLabel: '5.0 PATIENT RATING',
   experienceLabel: '3+ YEARS EXPERIENCE',
@@ -478,6 +654,121 @@ export const contactContent = {
     { day: 'Sunday', time: 'Closed' },
   ],
 } as const;
+
+/**
+ * Location Section Demo Content — Fully editable for Dr. Hassan's clinic sanctuary.
+ * Update addresses, specifications, amenities, hours, transit times, or links below.
+ */
+export const locationSectionContent: LocationSectionData = {
+  eyebrow: 'EXCLUSIVE CLINICAL SANCTUARY • PESHAWAR',
+  heading: 'The Architectural Sanctuary Where Precision Meets Discretion',
+  subheading:
+    'Situated in the premier medical quarter of Peshawar, our surgical suite offers discerning patients complete privacy, bespoke Swiss-level restorative craftsmanship, and VIP concierge hospitality.',
+  residence: {
+    badge: 'SURGICAL RESIDENCE',
+    wing: 'Floor 02 / Wing A',
+    name: 'ASH Aesthetics, 2nd Floor, GS Tower',
+    address: 'University Road / Premier Medical District, Peshawar, KPK, Pakistan',
+    coordinates: '34.0084° N, 71.5368° E',
+    specs: [
+      { icon: 'apartment', label: '2nd Floor Surgical Wing' },
+      { icon: 'elevator', label: 'Direct Executive Lift' },
+      { icon: 'parking', label: 'VIP Subterranean Bay' },
+    ],
+  },
+  amenitiesHeading: 'EXCLUSIVE SANCTUARY AMENITIES',
+  amenities: [
+    {
+      id: 'valet',
+      title: 'Private Valet & Discreet Entry',
+      description:
+        'Dedicated underground bay with direct private executive lift ensuring complete patient anonymity.',
+      icon: 'car',
+    },
+    {
+      id: 'sanctuary',
+      title: 'Private VIP Waiting Sanctuary',
+      description:
+        'Curated espresso bar, tailored acoustic soundscapes, and strictly scheduled zero-crossover waiting protocols.',
+      icon: 'coffee',
+    },
+    {
+      id: 'suite',
+      title: 'Class-100 Sterile Surgical Suite',
+      description:
+        'Equipped with Swiss Leica surgical optics, laminar airflow sterilization, and ultra-low dose CBCT tomography.',
+      icon: 'shield',
+    },
+  ],
+  hoursTitle: 'Clinical Consultation Ledger',
+  hoursBadge: 'DISCRETE ADMISSION',
+  hours: [
+    {
+      day: 'Monday – Friday',
+      time: '10:00 AM – 07:00 PM',
+      note: 'By Appointment Only',
+    },
+    {
+      day: 'Saturday',
+      time: '11:00 AM – 05:00 PM',
+      note: 'Exclusive Transformations',
+    },
+    {
+      day: 'Sunday',
+      time: 'Closed for Regular Surgery',
+      note: 'International Concierge via Direct Arrangement',
+    },
+  ],
+  actions: {
+    googleMapsUrl: 'https://maps.google.com/?q=ASH+Aesthetics+GS+Tower+Peshawar',
+    googleMapsLabel: 'Open in Google Maps',
+    whatsappLabel: 'WhatsApp Concierge',
+    phoneLabel: 'Call Reception',
+    phone: '+92 334 9295638',
+  },
+  operatoryShowcase: {
+    badge: 'SUITE 201 • EXECUTIVE OPERATORY',
+    vista: 'Khyber Range Vista • 4K CBCT Rig',
+    caption: 'Dr. Hassan Aesthetic Dental Luxury Surgical Operatory in GS Tower Peshawar',
+  },
+  map: {
+    region: 'GEOGRAPHIC LOCATION • KHYBER CORRIDOR',
+    coordinates: '34.0084° N, 71.5368° E',
+    markerTitle: 'GS TOWER • FLOOR 2',
+    landmarks: [
+      { name: 'University of Peshawar', note: 'Academia Zone' },
+      { name: 'Hayatabad Medical Hub', note: '7 mins West' },
+      { name: 'Grand Trunk Expressway', note: 'Direct Arterial Access' },
+    ],
+  },
+  transitsHeading: 'DISCREET ARRIVAL & TRANSIT GUIDANCE',
+  transits: [
+    {
+      id: 'airport',
+      icon: 'plane',
+      title: "Bacha Khan Int'l Airport (PEW)",
+      duration: '18 Mins',
+      description:
+        'Direct express route via Grand Trunk / University Rd corridor. Bespoke Mercedes-Benz chauffeur transfer arranged upon VIP clinical booking.',
+    },
+    {
+      id: 'motorway',
+      icon: 'navigation',
+      title: 'Islamabad & Rawalpindi Corridor',
+      duration: '1h 45m (M-1)',
+      description:
+        'Direct transit via M-1 Motorway directly terminating at the Peshawar Interchange, leading immediately to University Road.',
+    },
+    {
+      id: 'portico',
+      icon: 'building',
+      title: 'Chauffeur & Executive Portico',
+      duration: 'Immediate',
+      description:
+        'Dedicated GS Tower drop-off bay shielded from pedestrian view. Seamless elevator transit directly up into the private clinical foyer.',
+    },
+  ],
+};
 
 export const serviceOptions = [
   'General Consultation',
